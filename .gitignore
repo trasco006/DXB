@@ -1,3 +1,19 @@
+# Mac OS X
+.DS_Store
+._.*
+._*
 
-.cache
+# Ignore local editor
+.project
+.settings
 .idea
+*.swp
+tags
+nbproject/*
+
+# Windows
+Thumbs.db
+
+npm-debug.log
+
+node_modules/
