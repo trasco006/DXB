@@ -1,0 +1,25 @@
+@import url('./__list/nav-menu__list.css');
+@import url('./__item/nav-menu__item.css');
+@import url('./__link/nav-menu__link.css');
+
+.nav-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: left .2s ease-in;
+  box-sizing: border-box;
+}
+
+@media (max-width: 580px) {
+  .nav-menu {
+    height: 300px;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    align-items: flex-start;
+  }
+}
+
+.nav-menu_active {
+  left: 0;
+}
