@@ -1,0 +1,21 @@
+.nav-menu__list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 580px) {
+  .nav-menu__list {
+    height: 100%;
+    flex-direction: column;
+    padding: 20% 0 0 10%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: #fff;
+    z-index: 9;
+  }
+}
