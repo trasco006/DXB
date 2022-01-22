@@ -1,11 +1,14 @@
 .cost {
   margin-top: 132px;
   width: 100%;
+
   @media(max-width: 980px) {
+    margin-top: 57px;
     padding: 0 21px;
   }
 
   @media(max-width: 480px) {
+    margin-top: 22px;
     padding: 0 24px;
   }
 
