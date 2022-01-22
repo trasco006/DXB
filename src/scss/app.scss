@@ -15,9 +15,14 @@
 @import "blocks/subtitle";
 @import "blocks/cost";
 @import "blocks/registration";
+@import "blocks/popup";
 
-.gradient-text{
+.gradient-text {
   background: $main-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.o-hidden {
+  overflow: hidden;
 }

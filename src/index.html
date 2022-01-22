@@ -142,22 +142,53 @@
     <form action="" class="registration__form">
       <span class="registration__error">email уже используется</span>
       <div class="registration__textfield">
-        <input type="text" name="name" min="2" class="registration__input" title="Your name" required>
-        <label class="registration__label">Ваше имя</label>
+        <input type="text" id="name-1" name="name" min="2" class="registration__input" title="Your name" required>
+        <label for="name-1" class="registration__label">Ваше имя</label>
       </div>
       <div class="registration__textfield">
-        <input type="email" name="email" class="registration__input" title="Email address" required>
-        <label class="registration__label">E-mail</label>
+        <input type="email" id="email-1" name="email" class="registration__input" title="Email address" required>
+        <label for="email-1" class="registration__label">E-mail</label>
       </div>
       <div class="registration__textfield">
-        <input type="text" name="instagram" class="registration__input" title="Instagram login" pattern="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"
+        <input type="text" id="instagram-1" name="instagram-account" class="registration__input" title="Instagram login"
+               pattern="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"
                required>
-        <label class="registration__label">Instagram</label>
+        <label for="instagram-1" class="registration__label">Instagram</label>
       </div>
       <button type="submit" class="registration__submit">
         Регистрация
       </button>
     </form>
+  </section>
+
+  <section class="registration-popup popup">
+    <div class="popup__overlay"></div>
+    <div class="registration popup__window">
+      <p class="registration__description">
+        <span class="gradient-text">1 шаг до новых охватов</span>
+      </p>
+      <form action="" class="registration__form">
+        <span class="registration__error">email уже используется</span>
+        <div class="registration__textfield">
+          <input type="text" id="name-2" name="name" min="2" class="registration__input" title="Your name" required>
+          <label for="name-2" class="registration__label">Ваше имя</label>
+        </div>
+        <div class="registration__textfield">
+          <input type="email" id="email-2" name="email" class="registration__input" title="Email address" required>
+          <label for="email-2" class="registration__label">E-mail</label>
+        </div>
+        <div class="registration__textfield">
+          <input type="text" id="instagram-2" name="instagram-account" class="registration__input"
+                 title="Instagram login"
+                 pattern="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"
+                 required>
+          <label for="instagram-2" class="registration__label">Instagram</label>
+        </div>
+        <button type="submit" class="registration__submit">
+          Регистрация
+        </button>
+      </form>
+    </div>
   </section>
 </div>
 </body>
