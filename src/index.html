@@ -134,6 +134,31 @@
       </div>
     </div>
   </section>
+
+  <section class="registration">
+    <p class="registration__description">
+      <span class="gradient-text">1 шаг до новых охватов</span>
+    </p>
+    <form action="" class="registration__form">
+      <span class="registration__error">email уже используется</span>
+      <div class="registration__textfield">
+        <input type="text" name="name" min="2" class="registration__input" title="Your name" required>
+        <label class="registration__label">Ваше имя</label>
+      </div>
+      <div class="registration__textfield">
+        <input type="email" name="email" class="registration__input" title="Email address" required>
+        <label class="registration__label">E-mail</label>
+      </div>
+      <div class="registration__textfield">
+        <input type="text" name="instagram" class="registration__input" title="Instagram login" pattern="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"
+               required>
+        <label class="registration__label">Instagram</label>
+      </div>
+      <button type="submit" class="registration__submit">
+        Регистрация
+      </button>
+    </form>
+  </section>
 </div>
 </body>
 </html>
