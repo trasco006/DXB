@@ -453,8 +453,8 @@
 
       .range::-moz-range-thumb {
         border-radius: 50%;
-        height: 12px;
-        width: 12px;
+        height: 18px;
+        width: 18px;
         border: none;
         background: $main-gradient;
         box-shadow: 0 10.1347px 10.1347px rgba(0, 0, 0, 0.25);
@@ -473,9 +473,9 @@
         border-radius: 100%;
         background: $main-gradient;
         box-shadow: 0 10.1347px 10.1347px rgba(0, 0, 0, 0.25);
-        height: 12px;
-        width: 12px;
-        margin-top: -6px;
+        height: 18px;
+        width: 18px;
+        margin-top: -9px;
         cursor: pointer;
         transition: .2s ease-in;
 
@@ -497,8 +497,8 @@
         border-radius: 100%;
         background-color: $main-gradient;
         box-shadow: 0 10.1347px 10.1347px rgba(0, 0, 0, 0.25);
-        height: 12px;
-        width: 12px;
+        height: 18px;
+        width: 18px;
         border: none;
       }
 
