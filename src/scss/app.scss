@@ -1,6 +1,7 @@
 @import 'base/vars';
 @import 'base/reset';
 @import 'base/fonts';
+@import 'base/swiper';
 @import "blocks/btn";
 @import "blocks/container";
 @import "blocks/header";
@@ -9,7 +10,11 @@
 @import "blocks/main";
 @import "blocks/menu-btn";
 @import "blocks/nav-menu";
+@import "blocks/how-works";
+@import "blocks/clue";
 
-body{
-  background: red;
+.gradient-text{
+  background: $main-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

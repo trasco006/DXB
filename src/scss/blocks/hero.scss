@@ -201,9 +201,6 @@
   &__link {
     margin-left: 32px;
     font-weight: bold;
-    background: $main-gradient;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 
     @media (max-width: 1280px) {
       margin-left: 24px;
