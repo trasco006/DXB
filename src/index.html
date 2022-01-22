@@ -105,6 +105,35 @@
       </p>
     </div>
   </section>
+
+  <section class="cost container">
+    <h3 class="subtitle">СТОИМОСТЬ</h3>
+    <div class="cost__card">
+      <div class="cost__currency">
+        <button class="cost__currency-value" id="byn">BYN</button>
+        <button class="cost__currency-value" id="dollar">$</button>
+        <button class="cost__currency-value" id="rub">RUB</button>
+      </div>
+      <div class="cost__counters">
+        <div class="cost__counter">
+          <div class="input__wrapper">
+            <input type="text" id="cost__subscribers" disabled
+                   class="cost__counter-input cost__subscribers gradient-text">
+          </div>
+          <label for="cost__subscribers" class="cost__counter-label">ПОДПИСЧИКИ</label>
+        </div>
+        <div class="cost__counter">
+          <div class="input__wrapper">
+            <input type="text" id="cost__sum" disabled class="cost__counter-input cost__sum gradient-text">
+          </div>
+          <label for="cost__sum" class="cost__counter-label">ЦЕНА В МЕСЯЦ</label>
+        </div>
+      </div>
+      <div class="cost__range">
+        <input class="range" type="range" min="0" max="1000000" step="5000" value="5000">
+      </div>
+    </div>
+  </section>
 </div>
 </body>
 </html>
