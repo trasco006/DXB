@@ -1,0 +1,129 @@
+.about {
+  width: 100%;
+  margin-top: 64px;
+  margin-bottom: 100px;
+
+  &__title {
+    margin-bottom: 17px;
+    display: none;
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 23px;
+    text-align: center;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    display: flex;
+    margin-right: 112px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    :hover {
+      opacity: .9;
+    }
+  }
+
+  .icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  &__container {
+    max-width: 1232px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__wrapper {
+    width: 100%;
+    margin: 0 auto 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    width: 45%;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 140.9%;
+    text-align: center;
+    color: #18232F;
+  }
+
+  &__description {
+    width: 45%;
+    text-align: center;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #86888A;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 32px;
+    &__link {
+      margin-right: 64px;
+    }
+    &__container {
+      margin-top: 35px;
+    }
+    &__subtitle {
+      font-size: 16px;
+      line-height: 140%;
+    }
+    &__description {
+      font-size: 11px;
+      line-height: 13px;
+    }
+    .icon {
+      width: 39px;
+      height: 39px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 38px;
+    &__title {
+      display: block;
+    }
+    &__link {
+      margin-right: 38px;
+    }
+    &__container {
+      margin-top: 18px;
+    }
+    &__wrapper {
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+    &__subtitle {
+      width: 100%;
+      font-size: 12px;
+      line-height: 17px;
+    }
+    &__description {
+      width: 100%;
+      font-size: 9px;
+      line-height: 11px;
+    }
+    .icon {
+      width: 33px;
+      height: 33px;
+    }
+  }
+}

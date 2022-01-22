@@ -16,6 +16,7 @@
 @import "blocks/cost";
 @import "blocks/registration";
 @import "blocks/popup";
+@import "blocks/about";
 
 .gradient-text {
   background: $main-gradient;
@@ -25,4 +26,22 @@
 
 .o-hidden {
   overflow: hidden;
+}
+
+.icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.support-icon {
+  background-image: url("../images/icons/support.svg");
+}
+
+.instagram-icon {
+  background-image: url("../images/icons/insta.svg");
+}
+
+.telegram-icon {
+  background-image: url("../images/icons/telegram.svg");
 }
