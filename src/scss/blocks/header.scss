@@ -5,7 +5,11 @@
   align-items: center;
   box-sizing: border-box;
   position: relative;
+  z-index: 100;
 
+  .btn {
+    line-height: 36px;
+  }
 
   @media (max-width: 1440px) {
     padding-top: 35px;
@@ -13,7 +17,6 @@
 
   @media (max-width: 580px) {
     padding-top: 14px;
-
     & .logo {
       margin-left: 5px;
     }

@@ -1,7 +1,13 @@
 .container {
   max-width: 1920px;
   width: 100%;
+  margin: 0 auto;
   padding: 0 12%;
+  box-sizing: border-box;
+
+  @media (min-width: 1920px) {
+    padding: 0 223px;
+  }
 
   @media (max-width: 1440px) {
     padding: 0 7%;

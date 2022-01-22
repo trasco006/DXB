@@ -1,4 +1,5 @@
 .btn {
+  font-family: 'Montserrat Alternates', 'Arial', sans-serif;
   padding: 17px 47px;
   background: #1c2226;
   color: #FFF;
@@ -18,6 +19,10 @@
   &:active {
     transition: opacity 0s;
     opacity: .8;
+  }
+
+  &_primary {
+    background: $main-gradient;
   }
 
   @media (max-width: 1740px) {
@@ -41,3 +46,4 @@
     line-height: 14px;
   }
 }
+

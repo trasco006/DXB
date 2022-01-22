@@ -12,7 +12,7 @@
   font-size: 0;
   text-transform: none;
   cursor: pointer;
-  z-index: 10;
+  z-index: 300;
 
   .menu-btn__inner {
     transition-duration: 0.075s;
@@ -25,6 +25,10 @@
     &::after {
       transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
+  }
+
+  &.is-active {
+    position: fixed;
   }
 
   &.is-active .menu-btn__inner {
