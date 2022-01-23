@@ -18,6 +18,7 @@
 @import "blocks/popup";
 @import "blocks/about";
 @import "blocks/safety";
+@import "blocks/benefits";
 
 .gradient-text {
   background: $main-gradient;
@@ -45,4 +46,8 @@
 
 .telegram-icon {
   background-image: url("../images/icons/telegram.svg");
+}
+
+html {
+  scroll-behavior: smooth;
 }

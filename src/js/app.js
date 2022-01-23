@@ -5,3 +5,4 @@ import './simple-slider.js';
 import './cost.js'
 import './registration.js'
 import './popup.js'
+import './benefits.js'

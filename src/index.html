@@ -11,7 +11,6 @@
 
 <body>
 <div class="main">
-
   <header class="header container">
     <button class="menu-btn" type="button" aria-label="Menu" aria-controls="navigation">
       <span class="menu-btn__block">
@@ -26,7 +25,7 @@
       <nav class="nav-menu">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <a href="" class="nav-menu__link">Принцип работы</a>
+            <a href="#how-works" class="nav-menu__link">Принцип работы</a>
           </li>
           <li class="nav-menu__item">
             <a href="" class="nav-menu__link">Функции</a>
@@ -35,7 +34,7 @@
             <a href="" class="nav-menu__link">Репутация</a>
           </li>
           <li class="nav-menu__item">
-            <a href="" class="nav-menu__link">Стоимость</a>
+            <a href="#cost" class="nav-menu__link">Стоимость</a>
           </li>
         </ul>
       </nav>
@@ -61,6 +60,7 @@
   </section>
 
   <section class="how-works">
+    <a name="how-works"></a>
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide card">
@@ -106,7 +106,45 @@
     </div>
   </section>
 
+  <section class="benefits container" name="benefits">
+    <h3 class="subtitle">ВЫГОДЫ</h3>
+    <div class="benefits__container">
+      <button type="button" class="btn benefits__button" data-tab="1">Блогеров</button>
+      <button type="button" class="btn benefits__button" data-tab="2">Подписчиков</button>
+    </div>
+    <div class="benefits__columns">
+      <ul class="benefits__column">
+        <li class="benefits__item">Десятки вариантов новых конкурсов и активностей</li>
+        <li class="benefits__item">Посты начнут попадать в ТОП по хэштэгам и ГЕО</li>
+        <li class="benefits__item">Баллы можно использовать, как валюту аккаунта</li>
+        <li class="benefits__item">Розыгрыш баллов в Stories = Рост просмотров</li>
+        <li class="benefits__item">Повышение лояльности к блогеру/бренду</li>
+        <li class="benefits__item">Увеличение спроса на продукты/услуги</li>
+        <li class="benefits__item">Рост вовлеченности и охватов</li>
+      </ul>
+      <ul class="benefits__column">
+        <li class="benefits__item">Десятки вариантов новых конкурсов и активностей</li>
+        <li class="benefits__item">Посты начнут попадать в ТОП по хэштэгам и ГЕО</li>
+        <li class="benefits__item">Баллы можно использовать, как валюту аккаунта</li>
+        <li class="benefits__item">Розыгрыш баллов в Stories = Рост просмотров</li>
+        <li class="benefits__item">Повышение лояльности к блогеру/бренду</li>
+        <li class="benefits__item">Увеличение спроса на продукты/услуги</li>
+        <li class="benefits__item">Рост вовлеченности и охватов</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="safety container" name="safety">
+    <h3 class="subtitle">БЕЗОПАСНОСТЬ</h3>
+    <div class="safety__wrapper">
+      <img src="images/content/bussines_partner.png" alt="facebook-business-partner" class="safety__img">
+      <p class="safety__text">Igame является официальным партнёром Facebook.<br/> И любые баны за использование сервиса
+        исключены!</p>
+    </div>
+  </section>
+
   <section class="cost container">
+    <a name="cost"></a>
     <h3 class="subtitle">СТОИМОСТЬ</h3>
     <div class="cost__card">
       <div class="cost__currency">
@@ -135,7 +173,7 @@
     </div>
   </section>
 
-  <section class="registration">
+  <section class="registration" name="registration">
     <p class="registration__description">
       <span class="gradient-text">1 шаг до новых охватов</span>
     </p>
@@ -161,15 +199,7 @@
     </form>
   </section>
 
-  <section class="safety container">
-    <h3 class="subtitle">БЕЗОПАСНОСТЬ</h3>
-    <div class="safety__wrapper">
-      <img src="images/content/bussines_partner.png" alt="facebook-business-partner" class="safety__img">
-      <p class="safety__text">Igame является официальным партнёром Facebook.<br/> И любые баны за использование сервиса
-        исключены!</p>
-    </div>
-  </section>
-  <section class="about container">
+  <section class="about container" name="about">
     <h4 class="about__title gradient-text">ОСТАЛИСЬ ВОПРОСЫ?</h4>
     <ul class="about__links">
       <li class="about__link">
