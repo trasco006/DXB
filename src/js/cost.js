@@ -83,7 +83,7 @@ const costLogic = () => {
       });
     };
 
-    const handleChangeCurrency = ({ target }) => {
+    const handleChangeCurrency = ({target}) => {
       selectedCurrency = target.id;
       rangeHandler();
       changeCurrencyBtnStyle();
@@ -93,14 +93,21 @@ const costLogic = () => {
       btn.addEventListener('click', handleChangeCurrency);
     });
 
-    const rangeHandler = function() {
+    const rangeHandler = function () {
       const newValue = range.value;
       subscribersInput.value = divideNumberByPieces(newValue);
       sumInput.value = `${calculation(newValue, subscriberCost[selectedCurrency])} ${currencySymbol[selectedCurrency]}`;
     };
 
+    const changeSubscribers = function () {
+      const newValue = this.value.replace('.', '');
+      range.value = newValue || 0
+      subscribersInput.value = divideNumberByPieces(newValue);
+      sumInput.value = `${calculation(newValue, subscriberCost[selectedCurrency])} ${currencySymbol[selectedCurrency]}`;
+    }
     changeCurrencyBtnStyle();
     rangeHandler();
+    subscribersInput.addEventListener('input', changeSubscribers)
     range.addEventListener('input', rangeHandler);
   });
 
