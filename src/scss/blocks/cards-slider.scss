@@ -189,6 +189,9 @@
 
   @media (max-width: 1400px) {
     max-width: 760px;
+    & &__cards-column {
+      margin-top: 50px;
+    }
     &__card {
       width: 60px;
       height: 490px;
@@ -209,7 +212,11 @@
 
   @media (max-width: 720px) {
     max-width: 90%;
+    & &__cards-column {
+      margin-top: 0;
+    }
     &__cards-list {
+      margin-top: 20px;
       justify-content: space-between;
     }
     &__card {

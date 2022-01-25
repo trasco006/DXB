@@ -1,0 +1,48 @@
+.reputation {
+  margin-top: 120px;
+
+  &__description {
+    font-weight: 600;
+    font-size: 45.1971px;
+    line-height: 55px;
+    text-align: center;
+    color: #86888A;
+  }
+
+  .cards-slider__pagination-btn {
+
+    &:hover {
+      background-color: rgba(35, 205, 16, 0.05);
+    }
+
+    &_active {
+      color: #A2EF3F;
+
+      background-color: rgba(209, 230, 188, 0.35) !important;
+
+      &:hover {
+        background-color: #E7DFFF;
+      }
+    }
+  }
+
+  .slide-thumb > span.active::after {
+    background: $additional-gradient
+  }
+
+  @media (max-width: 1440px) {
+    margin-top: 70px;
+    &__description {
+      font-weight: 600;
+      font-size: 38px;
+    }
+  }
+  @media (max-width: 768px) {
+    margin-top: 35px;
+    &__description {
+      font-weight: 600;
+      font-size: 24.7172px;
+      line-height: 30px;
+    }
+  }
+}

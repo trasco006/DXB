@@ -21,9 +21,16 @@
 @import "blocks/benefits";
 @import "blocks/functiuonality";
 @import "blocks/cards-slider";
+@import "blocks/reputation";
 
 .gradient-text {
   background: $main-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-second {
+  background: $additional-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
