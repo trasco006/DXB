@@ -12,7 +12,7 @@ class SlideStories {
 
 
     this.touchTimer = null;
-    this.touchduration = 500;
+    this.touchduration = 100;
   }
 
   Timer(callback, delay) {
@@ -55,12 +55,14 @@ class SlideStories {
 
   pause() {
     this.timer.pause()
-    this.thumbItems[this.active].style.animationPlayState = 'paused'
+    console.log('pause')
+    this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'paused'
   }
 
   resume() {
     this.timer.resume()
-    this.thumbItems[this.active].style.animationPlayState = 'running'
+    console.log('resume')
+    this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'running'
   }
 
   activeSlide(index, play) {
@@ -113,13 +115,13 @@ class SlideStories {
     const prevBtn = this.slide.querySelector('.slide-prev');
 
     nextBtn.addEventListener('click', this.next);
-    pauseBtn.addEventListener('touchstart', this.touchstart);
-    pauseBtn.addEventListener('touchend', this.touchend);
+    this.slide.addEventListener('touchstart', this.touchstart);
+    this.slide.addEventListener('touchend', this.touchend);
     prevBtn.addEventListener('click', this.prev);
   }
 
   addThumbItems() {
-    this.items.forEach(() => (this.thumb.innerHTML += `<span></span>`));
+    this.items.forEach(() => (this.thumb.innerHTML += `<div><span></span></div>`));
     this.thumbItems = Array.from(this.thumb.children);
   }
 
