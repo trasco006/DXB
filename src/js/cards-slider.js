@@ -89,6 +89,10 @@ class SlideStories {
     }
   }
 
+  select(id) {
+    this.activeSlide(id, true);
+  }
+
   touchstart() {
     this.touchTimer = setTimeout(this.pause, this.touchduration);
   }
@@ -158,7 +162,6 @@ const
           cards[closeCardIndex].className = cardClass
           paginationButtons[closeCardIndex].className = btnClass
         }
-
         const prevCategory = () => {
           const prevIndex = index === 0 ? paginationButtons.length - 1 : index - 1
           closeCard(index)
@@ -171,8 +174,61 @@ const
           activeSlide = nextIndex
           openCard(nextIndex)
         }
-
         cards[index].story = new SlideStories(cards[index], prevCategory, nextCategory)
+
+        // slides in category
+        const slidesArr = cards[index].querySelectorAll('.cards-slider__card-image')
+        //
+        // let timer = 0
+        // const handleCardDown = function (target, slideIndex) {
+        //   timer = setTimeout(() => {
+        //     cards[index].story.pause()
+        //     console.log('pause')
+        //     clearTimeout(timer);
+        //     timer = null
+        //   }, 500);
+        // }
+        //
+        // const handleCardUp = function (target, slideIndex) {
+        //   if (timer) {
+        //     cards[index].story.resume()
+        //     console.log('resume')
+        //     cards[index].story.select(slideIndex)
+        //     clearTimeout(timer);
+        //   }
+        // }
+
+
+        slidesArr.forEach((slide, slideIndex) => {
+          let pause = false
+
+          const simpleClick = function () {
+            if (window.outerWidth > 768) {
+              if (this.classList.contains('cards-slider__card-image_active')) {
+                if (pause) {
+                  cards[index].story.resume()
+                  pause = false
+                  console.log('resume')
+                } else {
+                  cards[index].story.pause()
+                  pause = true
+                  console.log('pause')
+                }
+              } else {
+                console.log('select new slide');
+                cards[index].story.select(slideIndex)
+              }
+            }
+          }
+
+          slide.addEventListener('click', simpleClick)
+          // slide.addEventListener('mousedown', function ({target}) {
+          //   handleCardDown(target, slideIndex)
+          // })
+          // slide.addEventListener('mouseup', function ({target}) {
+          //   handleCardUp(target, slideIndex)
+          // })
+        })
 
         const btnHandler = function () {
           paginationButtons[activeSlide].className = btnClass
@@ -184,6 +240,7 @@ const
           cards[index].className = activeCardClass
           activeSlide = index
         }
+
 
         btn.addEventListener('click', btnHandler)
       })
