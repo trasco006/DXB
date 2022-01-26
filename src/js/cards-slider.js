@@ -203,7 +203,7 @@ const
           let pause = false
 
           const simpleClick = function () {
-            if (window.outerWidth > 768) {
+            if (window.outerWidth > 720) {
               if (this.classList.contains('cards-slider__card-image_active')) {
                 if (pause) {
                   cards[index].story.resume()
