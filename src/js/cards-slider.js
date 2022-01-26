@@ -55,10 +55,12 @@ class SlideStories {
 
   pause() {
     this.timer.pause()
+    this.thumbItems[this.active].style.animationPlayState = 'paused'
   }
 
   resume() {
     this.timer.resume()
+    this.thumbItems[this.active].style.animationPlayState = 'running'
   }
 
   activeSlide(index, play) {
