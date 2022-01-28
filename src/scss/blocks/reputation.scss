@@ -26,7 +26,7 @@
     }
   }
 
-  .slide-thumb > span.active::after {
+  .slide-thumb > div.active > span  {
     background: $additional-gradient
   }
 

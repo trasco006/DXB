@@ -71,9 +71,13 @@
     display: none;
     transition: width .2s ease-in;
 
+    .slide-items__container {
+      margin-right: 47px;
+    }
+
     &-image {
       position: relative;
-      margin-right: 47px;
+
       width: 90px;
       height: 771px;
       object-fit: cover;
@@ -82,6 +86,7 @@
       //filter: grayscale(80%);
       border-radius: 32px;
       transition: width .3s ease-in, opacity .2s ease-in;
+      cursor: pointer;
 
       &_active {
         width: 388px;
@@ -121,7 +126,7 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    grid-template-columns: 1fr 1fr  1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     opacity: 0;
   }
 
@@ -143,18 +148,64 @@
     border-radius: 15px;
   }
 
+  .slide-items__container {
+    position: relative;
+    min-width: max-content;
+  }
+
+  .image-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 20px 0px;
+    padding: 0 12px;
+    height: 10px;
+    border-radius: 15px;
+    opacity: 0;
+    box-sizing: border-box;
+  }
+
+  .image-thumb.active {
+    opacity: 1;
+  }
+
   .slide-thumb > div {
     flex: 1;
     display: block;
     height: 4px;
     background: rgba(255, 255, 255, 0.7);
-    margin: 5px;
+    margin: 0 3px;
     border-radius: 15px;
     overflow: hidden;
   }
 
+
+  .image-thumb > div {
+    flex: 1;
+    display: block;
+    height: 10px;
+    background: rgba(150, 150, 150, 0.7);
+    margin: 0 3px;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+
+    @media (max-width: 740px) {
+      display: none;
+    }
+  }
+
+  .image-thumb.active > div > span {
+    display: block;
+    height: inherit;
+    background: #A48BF2;
+    border-radius: 39px;
+    transform: translateX(-100%);
+    animation: thumb 5s forwards linear;
+  }
+
   .slide-thumb > div.active > span {
-    content: '';
     display: block;
     height: inherit;
     background: #A48BF2;
@@ -178,11 +229,14 @@
       margin-top: 50px;
     }
     & &__card {
+      .slide-items__container {
+        margin-right: 20px;
+      }
+
       &-image {
         width: 60px;
         height: 490px;
         border-radius: 20px;
-        margin-right: 20px;
 
         &_active {
           border-radius: 15px;
@@ -208,11 +262,14 @@
     & &__card {
       position: relative;
 
+      .slide-items__container {
+        margin-right: 20px;
+      }
+
       &-image {
         width: 40px;
         height: 490px;
         border-radius: 20px;
-        margin-right: 20px;
 
         &_active {
           border-radius: 15px;
@@ -239,6 +296,10 @@
       & .slide-items {
         position: relative;
         width: 100%;
+
+        .slide-items__container {
+          position: static;
+        }
 
         .cards-slider__card-image {
           position: absolute;

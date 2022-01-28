@@ -6,6 +6,7 @@ class SlideStories {
     this.active = 0;
     this.items = slide.querySelectorAll('.cards-slider__card-image');
     this.thumb = this.slide.querySelector('.slide-thumb');
+    this.longThumbArr = this.slide.querySelectorAll('.image-thumb');
     this.addThumbItems()
     this.init()
     this.addNavigation();
@@ -57,12 +58,14 @@ class SlideStories {
     this.timer.pause()
     console.log('pause')
     this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'paused'
+    this.longThumbItems[this.active].querySelector('span').style.animationPlayState = 'paused'
   }
 
   resume() {
     this.timer.resume()
     console.log('resume')
     this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'running'
+    this.longThumbItems[this.active].querySelector('span').style.animationPlayState = 'running'
   }
 
   activeSlide(index, play) {
@@ -72,7 +75,9 @@ class SlideStories {
     this.items.forEach((item) => item.classList.remove('cards-slider__card-image_active'));
     this.items[index].classList.add('cards-slider__card-image_active');
     this.thumbItems.forEach((item) => item.classList.remove('active'));
+    this.longThumbItems.forEach((item) => item.classList.remove('active'));
     this.thumbItems[index].classList.add('active'); //вместо этого вручную будем менять заполненеие
+    this.longThumbItems[index].classList.add('active'); //вместо этого вручную будем менять заполненеие
   }
 
   prev() {
@@ -122,7 +127,11 @@ class SlideStories {
 
   addThumbItems() {
     this.items.forEach(() => (this.thumb.innerHTML += `<div><span></span></div>`));
+    this.longThumbArr.forEach((item) => {
+      return item.innerHTML += `<div><span></span></div>`
+    })
     this.thumbItems = Array.from(this.thumb.children);
+    this.longThumbItems = Array.from(this.longThumbArr);
   }
 
   init(param) {
