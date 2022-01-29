@@ -1,0 +1,179 @@
+.game {
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  &__btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 28.8275px;
+    line-height: 119.9%;
+    text-align: center;
+    color: #18232F;
+  }
+
+  &__decor {
+    max-width: 580px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before, &::after {
+      content: '';
+      width: 95px;
+      height: 130px;
+      top: 50%;
+      position: absolute;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url("../images/icons/gameConnector.svg");
+      filter: drop-shadow(0px 8px 5px rgba(0, 0, 0, 0.4));
+    }
+
+    &::before {
+      left: 0;
+      transform: scale(-1, 1);
+    }
+
+    &:after {
+      right: 0;
+    }
+  }
+
+  &__icon {
+    height: 95px;
+    width: 95px;
+    background-image: url("../images/icons/play.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: unset;
+  }
+
+  &__item {
+    margin-top: 102px;
+    width: 50%;
+    height: auto;
+    max-width: 650px;
+    box-shadow: 0px 0px 30px 6px rgba(0, 0, 0, 0.04);
+    border-radius: 5px;
+  }
+
+  @media(max-width: 1440px) {
+    font-size: 20px;
+
+    &__item {
+      margin-top: 50px;
+    }
+
+    @media (max-width: 980px) {
+      &__icon {
+        width: 50px;
+        height: 50px;
+      }
+      &__decor {
+        max-width: 400px;
+        width: 100%;
+
+        &::before, &::after {
+          width: 59px;
+          height: 81px;
+          filter: drop-shadow(0px 8px 5px rgba(0, 0, 0, 0.4));
+        }
+
+        &::before {
+          left: 0;
+          transform: scale(-1, 1);
+        }
+
+        &:after {
+          right: 0;
+        }
+      }
+    }
+    @media (max-width: 740px) {
+      flex-direction: column;
+      align-items: center;
+
+      &__decor {
+        max-width: 300px;
+
+        &::before {
+          left: 0;
+          transform: scale(-1, -1) translateY(100%);
+        }
+      }
+
+      &__btn {
+        order: 2;
+        margin: 70px 0 50px;
+
+        font-size: 18.1208px;
+        line-height: 119.9%;
+        text-align: center;
+      }
+
+      &__item {
+        margin: 0;
+        width: 100%;
+        max-width: 75vw;
+        order: 1;
+
+        &:last-of-type {
+          order: 3;
+        }
+      }
+    }
+
+
+    @media (max-width: 480px) {
+      &__decor {
+        max-width: 190px;
+
+        &::before, &::after {
+          width: 37px;
+          height: 43px;
+        }
+
+        &::before {
+          left: 0;
+          transform: scale(-1, -1) translateY(100%);
+        }
+      }
+      &__icon {
+        width: 33px;
+        height: 33px;
+      }
+      &__btn {
+        order: 2;
+        margin: 28px 0 19px;
+        font-size: 10px;
+        line-height: 119.9%;
+        text-align: center;
+      }
+
+      &__item {
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        order: 1;
+
+        &:last-of-type {
+          order: 3;
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 const environment = require('./configuration/environment');
 
@@ -28,7 +28,12 @@ module.exports = {
     path: environment.paths.output,
   },
   module: {
+
     rules: [
+      {
+        test: /\.(webm|mp4)$/,
+        loader: 'file'
+      },
       {
         test: /\.((c|sa|sc)ss)$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
@@ -74,9 +79,9 @@ module.exports = {
         // Lossless optimization with custom option
         // Feel free to experiment with options for better result for you
         plugins: [
-          ['gifsicle', { interlaced: true }],
-          ['jpegtran', { progressive: true }],
-          ['optipng', { optimizationLevel: 5 }],
+          ['gifsicle', {interlaced: true}],
+          ['jpegtran', {progressive: true}],
+          ['optipng', {optimizationLevel: 5}],
           [
             'svgo',
             {
