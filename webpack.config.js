@@ -32,7 +32,7 @@ module.exports = {
     rules: [
       {
         test: /\.(webm|mp4)$/,
-        loader: 'file'
+        loader: 'file-loader'
       },
       {
         test: /\.((c|sa|sc)ss)$/i,
