@@ -441,217 +441,64 @@
     </div>
   </section>
 
-  <section class="reputation">
+  <section class="reputation container">
     <h2 class="subtitle">Репутация</h2>
     <h3 class="reputation__description">Igame - сервис от создателей <span class="gradient-text-second">SUB.BY</span>
     </h3>
-    <div class="cards-slider">
-      <div class="cards-slider__pagination-column">
-        <ul class="cards-slider__pagination">
-          <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn cards-slider__pagination-btn_active" data-card="1">1. Instagram
+    <div class="reputation__slider">
+      <div class="reputation__pagination-column">
+        <ul class="reputation__pagination">
+          <li class="reputation__pagination-item">
+            <button class="reputation__pagination-btn reputation__pagination-btn_active" data-card="1">1. Instagram
             </button>
           </li>
-          <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn" data-card="2">2. Dnative.ru</button>
+          <li class="reputation__pagination-item">
+            <button class="reputation__pagination-btn" data-card="2">2. Dnative.ru</button>
           </li>
-          <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn" data-card="3">3. Starpack.ru</button>
+          <li class="reputation__pagination-item">
+            <button class="reputation__pagination-btn" data-card="3">3. Starpack.ru</button>
           </li>
-          <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn" data-card="4">4. Yandex.ru</button>
+          <li class="reputation__pagination-item">
+            <button class="reputation__pagination-btn" data-card="4">4. Yandex.ru</button>
           </li>
         </ul>
       </div>
-      <div class="cards-slider__cards-column">
-        <ul class="cards-slider__cards-list">
-          <li class="cards-slider__card cards-slider__card_active" data-card="1">
-            <div class="slide-items">
-              <div class="slide-items__container">
-                <img src="images/content/3-min.jpg" alt="Stories"
-                     class="cards-slider__card-image cards-slider__card-image_active"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/3-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/3-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/3-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/3-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/3-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/3-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
+
+
+      <div class="reputation__cards-column">
+        <ul class="reputation__cards-list">
+
+          <li class="reputation__card reputation__card_active" id="reputation__comment-insta" data-comment="1">
+            <picture>
+              <source media="(max-width:740px)" srcset="images/content/inst-580w.jpg">
+              <img src="images/content/insta_base.webp" alt="insta-base" class="reputation__insta-base">
+            </picture>
+            <div class="reputation__wrapper">
+              <img src="images/content/insta_xl.jpg" alt="insta feedback" class="reputation__comment"/>
             </div>
-            <div class="slide-thumb"></div>
-            <nav class="slide-nav">
-              <button class="slide-prev">Anterior</button>
-              <span class="slide-pause"></span>
-              <button class="slide-next">Próximo</button>
-            </nav>
           </li>
-          <li class="cards-slider__card slide" data-card="2">
-            <div class="slide-items">
-              <div class="slide-items__container">
-                <img src="images/content/4-min.jpg" alt="Stories"
-                     class="cards-slider__card-image cards-slider__card-image_active"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/4-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/4-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/4-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/4-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/4-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/4-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
 
-            </div>
-
-            <div class="slide-thumb"></div>
-            <nav class="slide-nav">
-              <button class="slide-prev">Anterior</button>
-              <span class="slide-pause"></span>
-              <button class="slide-next">Próximo</button>
-            </nav>
+          <li class="reputation__card" data-comment="2">
+            <picture>
+              <source media="(max-width:740px)" srcset="images/content/dnative-580w.jpg">
+              <img src="images/content/dnative-pc.jpg" alt="insta-base">
+            </picture>
           </li>
-          <li class="cards-slider__card slide" data-card="3">
-            <div class="slide-items">
-              <div class="slide-items__container">
-                <img src="images/content/5-min.jpg" alt="Stories"
-                     class="cards-slider__card-image cards-slider__card-image_active"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/5-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/5-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/5-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/5-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/5-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/5-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
 
-            </div>
-
-
-            <div class="slide-thumb"></div>
-            <nav class="slide-nav">
-              <button class="slide-prev">Anterior</button>
-              <span class="slide-pause"></span>
-              <button class="slide-next">Próximo</button>
-            </nav>
+          <li class="reputation__card" data-comment="3">
+            <picture>
+              <source media="(max-width:740px)" srcset="images/content/startpack-580w.jpg">
+              <img src="images/content/startpack-pc.jpg" alt="insta-base">
+            </picture>
           </li>
-          <li class="cards-slider__card slide" data-card="4">
-            <div class="slide-items">
-              <div class="slide-items__container">
-                <img src="images/content/6-min.jpg" alt="Stories"
-                     class="cards-slider__card-image cards-slider__card-image_active"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/6-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/6-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/6-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/6-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/6-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
-              <div class="slide-items__container">
-                <img src="images/content/6-min.jpg" alt="Stories"
-                     class="cards-slider__card-image"/>
-                <div class="image-thumb"></div>
-              </div>
 
-            </div>
-
-            <div class="slide-thumb"></div>
-            <nav class="slide-nav">
-              <button class="slide-prev">Anterior</button>
-              <span class="slide-pause"></span>
-              <button class="slide-next">Próximo</button>
-            </nav>
+          <li class="reputation__card" data-comment="4">
+            <picture>
+              <source media="(max-width:740px)" srcset="images/content/yandex-580w.jpg">
+              <img src="images/content/yandex-pc.jpg" alt="insta-base">
+            </picture>
           </li>
+
         </ul>
       </div>
     </div>
@@ -783,6 +630,36 @@
       </form>
     </div>
   </section>
+
+
+  <section class="comment-popup popup" data-comment="1">
+    <div class="popup__overlay"></div>
+    <div class="comment-popup__body popup__window">
+      <img class="comment-image" src="images/content/inst-mob.jpg"/>
+    </div>
+  </section>
+
+  <section class="comment-popup popup" data-comment="2">
+    <div class="popup__overlay"></div>
+    <div class="comment-popup__body popup__window">
+      <img class="comment-image" src="images/content/dnative-mob.jpg"/>
+    </div>
+  </section>
+
+  <section class="comment-popup popup" data-comment="3">
+    <div class="popup__overlay"></div>
+    <div class="comment-popup__body popup__window">
+      <img class="comment-image" src="images/content/starpack-mob.jpg"/>
+    </div>
+  </section>
+
+  <section class="comment-popup popup" data-comment="4">
+    <div class="popup__overlay"></div>
+    <div class="comment-popup__body popup__window">
+      <img class="comment-image" src="images/content/yandex-mob.jpg"/>
+    </div>
+  </section>
+
 </div>
 </body>
 </html>
