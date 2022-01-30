@@ -704,16 +704,19 @@
     <form action="" class="registration__form">
       <span class="registration__error">email уже используется</span>
       <div class="registration__textfield">
-        <input type="text" id="name-1" name="name" min="2" class="registration__input" title="Your name" required>
+        <input type="text" id="name-1" name="name" maxLength="255" class="registration__input" title="Your name"
+               required>
         <label for="name-1" class="registration__label">Ваше имя</label>
       </div>
       <div class="registration__textfield">
-        <input type="email" id="email-1" name="email" class="registration__input" title="Email address" required>
+        <input type="email" id="email-1" name="email" maxLength="255" class="registration__input" title="Email address"
+               required>
         <label for="email-1" class="registration__label">E-mail</label>
       </div>
       <div class="registration__textfield">
-        <input type="text" id="instagram-1" name="instagram-account" class="registration__input" title="Instagram login"
-               pattern="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"
+        <input type="text" maxLength="31" id="instagram-1" name="instagram-account" class="registration__input"
+               title="Instagram login"
+               pattern="/[^a-z\d_.@]/i"
                required>
         <label for="instagram-1" class="registration__label">Instagram</label>
       </div>

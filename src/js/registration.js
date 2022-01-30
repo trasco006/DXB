@@ -1,21 +1,37 @@
 const errors = {
-  401: "Email уже используется",
-  402: "аккаунт Instagram уже используется",
-  106: "аккаунт Instagram должен быть введён корректно",
-  500: "неизвестная ошибка",
+  102: "Name validation error",
+  103: "Email validation error",
+  104: "Instagram validation error",
+  105: "Email already used",
+  106: "Instagram validation error",
 }
 
-const errorHandler = (code, form) => {
+const errorHandler = (message, form) => {
   const errorMessage = form.querySelector('.registration__error');
-  errorMessage.innerHTML = errors[code] || errors[500];
+  errorMessage.innerHTML = message
   errorMessage.className = "registration__error registration__error_active"
 }
 
-const registrationService = (data) => {
-  return fetch('https://sub.by/api/users/quick', {
+const registrationService = (data, form) => {
+  return fetch('https://igame.by/api/users/quick', {
     method: 'POST',
     body: data,
-  });
+    credentials: 'include',
+    redirect: 'follow'
+  }).then((res) => res.text())
+    .then(body => JSON.parse(body))
+    .then(data => {
+      if (errors[data.result]) {
+        errorHandler(data.message, form);
+      } else {
+        document.cookie = `token=[${data.token}]`
+        document.cookie = `account=[${JSON.stringify(data.account)}]`
+        window.location.href = 'https://igame.by/panel/'
+      }
+    })
+    .catch(err => {
+      errorHandler("Что-то пошло не так", form);
+    })
 }
 
 const registrationModulesList = document.querySelectorAll('.registration')
@@ -28,18 +44,14 @@ const registration = () => {
       event.preventDefault();
       const data = new FormData(form)
 
-      registrationService(data)
-        .then(res => {
-          if (res.status >= 200 && res.status < 300) {
-            window.location.href = 'https://vk.com'
-            return;
-          }
-          errorHandler(res.status, form);
-        })
+      try {
+        registrationService(data, form)
+      } catch (err) {
+        console.log(err)
+      }
     }
 
     form.addEventListener('submit', handleSubmit)
   })
 }
-
 registration()
