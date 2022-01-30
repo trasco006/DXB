@@ -100,6 +100,7 @@
       flex-direction: column;
       margin-right: 27px;
       padding-left: 27px;
+      transition: opacity .2s ease-in;
     }
 
     &__item {
@@ -184,6 +185,10 @@
         left: -100%;
 
         .benefits__column {
+          &:first-of-type {
+            opacity: 0;
+          }
+
           &:last-of-type {
             padding-left: 0;
           }
