@@ -6,7 +6,8 @@
   .swiper {
     width: 100%;
     padding-bottom: 150px;
-    overflow: visible;
+    overflow-x: scroll;
+    overflow-y: visible;
   }
 
   .card {
