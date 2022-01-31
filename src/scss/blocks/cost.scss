@@ -122,7 +122,9 @@
       margin-bottom: 12px;
 
       &-value {
-        width: 51px;
+        min-width: 51px;
+        width: max-content;
+        box-sizing: border-box;
         height: 39px;
         margin-right: 10px;
         border-radius: 11px;
