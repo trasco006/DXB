@@ -14,6 +14,13 @@
     color: #86888A;
   }
 
+  &__cta {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+
 
   @media(max-width: 980px) {
     &__description {
@@ -39,6 +46,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    position: relative;
   }
 
   &__pagination-item {
@@ -175,6 +183,13 @@
 
   @media (max-width: 740px) {
     margin-top: 35px;
+
+
+    &__cta {
+      width: 13.7vw;
+      height: 12.5vw;
+    }
+
     #reputation__comment-insta {
       width: max-content;
     }

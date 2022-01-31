@@ -11,12 +11,20 @@
     height: 100%;
   }
 
+  &__cta {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+
   &__pagination {
     height: 100%;
-    margin-bottom: 127px;
+    margin-bottom: 80px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    position: relative;
   }
 
   &__pagination-item {
@@ -225,6 +233,11 @@
 
   @media (max-width: 1440px) {
     max-width: 980px;
+
+    &__cta {
+      width: 80px;
+      height: 60px;
+    }
     & &__cards-column {
       margin-top: 50px;
     }
@@ -286,6 +299,11 @@
   }
 
   @media (max-width: 740px) {
+    &__cta {
+      width: 13.7vw;
+      height: 12.5vw;
+    }
+
     & &__card {
       width: 54vw;
       height: 106vw;
