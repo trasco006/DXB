@@ -584,21 +584,21 @@
     <form action="" class="registration__form">
       <span class="registration__error">email уже используется</span>
       <div class="registration__textfield">
-        <input type="text" id="name-1" name="name" maxLength="255" class="registration__input" title="Your name"
+        <input type="text" id="name-1" name="name" placeholder="Ваше имя" maxLength="255" class="registration__input"
+               title="Your name"
                required>
-        <label for="name-1" class="registration__label">Ваше имя</label>
       </div>
       <div class="registration__textfield">
-        <input type="email" id="email-1" name="email" maxLength="255" class="registration__input" title="Email address"
+        <input type="email" id="email-1" name="email" placeholder="E-mail" maxLength="255" class="registration__input"
+               title="Email address"
                required>
-        <label for="email-1" class="registration__label">E-mail</label>
       </div>
       <div class="registration__textfield">
-        <input type="text" maxLength="31" id="instagram-1" name="instagram-account" class="registration__input"
+        <input type="text" maxLength="31" id="instagram-1" placeholder="Instagram" name="instagram-account"
+               class="registration__input"
                title="Instagram login"
                pattern="/[^a-z\d_.@]/i"
                required>
-        <label for="instagram-1" class="registration__label">Instagram</label>
       </div>
       <button type="submit" class="registration__submit">
         Регистрация
@@ -610,13 +610,13 @@
     <h4 class="about__title gradient-text">ОСТАЛИСЬ ВОПРОСЫ?</h4>
     <ul class="about__links">
       <li class="about__link">
-        <a href="https://instagram.com" class="instagram-icon icon"></a>
+        <a href="#" class="instagram-icon icon"></a>
       </li>
       <li class="about__link">
-        <a href="https://telegram.com" class="telegram-icon icon"></a>
+        <a href="#" class="telegram-icon icon"></a>
       </li>
       <li class="about__link">
-        <a href="https://instagram.com" class="support-icon icon"></a>
+        <a href="#" class="support-icon icon"></a>
       </li>
     </ul>
     <div class="about__container">
@@ -643,19 +643,19 @@
       <form action="" class="registration__form">
         <span class="registration__error">email уже используется</span>
         <div class="registration__textfield">
-          <input type="text" id="name-2" name="name" min="2" class="registration__input" title="Your name" required>
-          <label for="name-2" class="registration__label">Ваше имя</label>
+          <input type="text" id="name-2" name="name" min="2" placeholder="Ваше имя" class="registration__input"
+                 title="Your name" required>
         </div>
         <div class="registration__textfield">
-          <input type="email" id="email-2" name="email" class="registration__input" title="Email address" required>
-          <label for="email-2" class="registration__label">E-mail</label>
+          <input type="email" id="email-2" name="email" placeholder="E-mail" class="registration__input"
+                 title="Email address" required>
         </div>
         <div class="registration__textfield">
-          <input type="text" id="instagram-2" name="instagram-account" class="registration__input"
+          <input type="text" id="instagram-2" name="instagram-account" placeholder="Instagram"
+                 class="registration__input"
                  title="Instagram login"
                  pattern="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"
                  required>
-          <label for="instagram-2" class="registration__label">Instagram</label>
         </div>
         <button type="submit" class="registration__submit">
           Регистрация

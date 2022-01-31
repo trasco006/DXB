@@ -60,16 +60,15 @@
     line-height: 41px;
     color: #18232F;
     border-radius: 0;
-  }
 
-  &__label {
-    user-select: none;
-    margin-top: 4px;
-    font-weight: 500;
-    font-size: 33.2418px;
-    line-height: 41px;
-    text-align: center;
-    color: #86888A;
+    &::placeholder {
+      user-select: none;
+      margin-top: 4px;
+      font-weight: 500;
+      font-size: 33.2418px;
+      line-height: 41px;
+      color: #86888A;
+    }
   }
 
   &__submit {
@@ -120,13 +119,12 @@
       border-bottom: 1px solid #86888A;
       font-size: 18px;
       line-height: 22px;
-    }
 
-    &__label {
-      margin-top: 2px;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 22px;
+      &::placeholder {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+      }
     }
 
     &__submit {
@@ -165,11 +163,11 @@
     &__input {
       font-size: 15px;
       line-height: 18px;
-    }
 
-    &__label {
-      font-size: 15px;
-      line-height: 18px;
+      &::placeholder {
+        font-size: 15px;
+        line-height: 18px;
+      }
     }
 
     &__submit {
