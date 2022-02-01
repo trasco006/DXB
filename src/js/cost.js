@@ -3,7 +3,7 @@ const costModules = document.querySelectorAll('.cost');
 const subscriberCost = {
   dollar: 0.016,
   byn: 0.032,
-  rub: 0.1,
+  rub: 1,
 };
 
 const currencySymbol = {

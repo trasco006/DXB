@@ -20,12 +20,12 @@
   }
 
   @media(max-width: 480px) {
-    margin-top: 22px;
-    padding: 0 24px;
+    margin-top: 6.87vw;
+    padding: 0 7.5vw;
 
     &__description {
-      font-size: 10.6122px;
-      line-height: 13px;
+      font-size: 3.31vw;
+      line-height: 4vw;
     }
   }
 
@@ -55,9 +55,9 @@
     }
 
     @media(max-width: 480px) {
-      margin-top: 27px;
-      padding: 28px 17px;
-      border-radius: 28px;
+      margin-top: 8.4vw;
+      padding: 8.4vw 2.81vw;
+      border-radius: 8.75vw;
     }
   }
 
@@ -119,17 +119,17 @@
     }
 
     @media(max-width: 480px) {
-      margin-bottom: 12px;
+      margin-bottom: 3.75vw;
 
       &-value {
-        min-width: 51px;
+        min-width: 16vw;
         width: max-content;
         box-sizing: border-box;
-        height: 39px;
-        margin-right: 10px;
-        border-radius: 11px;
-        font-size: 18px;
-        line-height: 22px;
+        height: 12.18vw;
+        margin-right: 0.3125vw;
+        border-radius: 3.43vw;
+        font-size: 5.63vw;
+        line-height: 6.87vw;
       }
     }
   }
@@ -165,7 +165,7 @@
     }
 
     @media(max-width: 480px) {
-      border-radius: 12px;
+      border-radius: 3.75vw
     }
   }
 
@@ -185,6 +185,16 @@
     color: #A48BF2;
     background: none;
 
+    &:disabled {
+      border: none;
+      outline: none;
+      border-radius: 16px;
+      position: relative;
+      color: #A48BF2;
+      background: none;
+
+    }
+
     @media(max-width: 980px) {
       width: 175px;
       height: 58px;
@@ -193,10 +203,10 @@
     }
 
     @media(max-width: 480px) {
-      width: 118px;
-      height: 39px;
-      font-size: 17px;
-      line-height: 22px;
+      width: 36.87vw;
+      height: 12.18vw;
+      font-size: 5.31vw;
+      line-height: 6.87vw;
     }
   }
 
@@ -215,9 +225,9 @@
     }
 
     @media(max-width: 480px) {
-      margin-top: 2px;
-      font-size: 9px;
-      line-height: 11px;
+      margin-top: 0.0625vw;
+      font-size: 2.81vw;
+      line-height: 3.43vw;
     }
   }
 
@@ -431,43 +441,43 @@
     }
 
     @media(max-width: 480px) {
-      margin-top: 27px;
+      margin: 8.4vw 5.3vw 0;
       .range::-webkit-slider-runnable-track {
         background-color: #86888A;
         height: 0;
-        border-radius: 1px;
-        border: 1px solid #86888A;
+        border-radius: 0.3125vw;
+        border: 0.3125vw solid #86888A;
       }
 
       .range[disabled]::-webkit-slider-runnable-track {
         height: 0;
-        border-radius: 1px;
-        border: 1px solid #86888A;
+        border-radius: 0.3125vw;
+        border: 0.3125vw solid #86888A;
         opacity: 0.4;
       }
 
       .range::-moz-range-track {
         height: 0;
-        border-radius: 1px;
-        border: 1px solid #86888A;
+        border-radius: 0.3125vw;
+        border: 0.3125vw solid #86888A;
       }
 
       .range::-ms-track {
         color: transparent;
         background: none;
         height: 0;
-        border-radius: 1px;
-        border: 1px solid #86888A;
+        border-radius: 0.3125vw;
+        border: 0.3125vw solid #86888A;
       }
 
       .range::-ms-fill-lower {
         background-color: #86888A;
-        border-radius: 1px;
+        border-radius: 0.3125vw;
       }
 
       .range::-ms-fill-upper {
         background-color: #86888A;
-        border-radius: 1px;
+        border-radius: 0.3125vw;
       }
 
       .range::-ms-tooltip {
@@ -476,8 +486,8 @@
 
       .range::-moz-range-thumb {
         border-radius: 50%;
-        height: 18px;
-        width: 18px;
+        height: 5.625vw;
+        width: 5.625vw;
         border: none;
         background: $main-gradient;
         box-shadow: 0 10.1347px 10.1347px rgba(0, 0, 0, 0.25);
@@ -496,9 +506,9 @@
         border-radius: 100%;
         background: $main-gradient;
         box-shadow: 0 10.1347px 10.1347px rgba(0, 0, 0, 0.25);
-        height: 18px;
-        width: 18px;
-        margin-top: -9px;
+        height: 5.625vw;
+        width: 5.625vw;
+        margin-top: - 2.825vw;
         cursor: pointer;
         transition: .2s ease-in;
 
@@ -509,7 +519,7 @@
 
       .range[disabled]::-webkit-slider-thumb {
         background-color: transparent;
-        border: 1px solid #d7dbdd;
+        border: 0.3125vw solid #d7dbdd;
       }
 
       .range:active::-webkit-slider-thumb {
@@ -520,8 +530,8 @@
         border-radius: 100%;
         background-color: $main-gradient;
         box-shadow: 0 10.1347px 10.1347px rgba(0, 0, 0, 0.25);
-        height: 18px;
-        width: 18px;
+        height: 0.3125vw;
+        width: 0.3125vw;
         border: none;
       }
 

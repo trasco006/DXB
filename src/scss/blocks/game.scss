@@ -141,11 +141,11 @@
 
     @media (max-width: 480px) {
       &__decor {
-        max-width: 190px;
+        max-width: 59.37vw;
 
         &::before, &::after {
-          width: 37px;
-          height: 43px;
+          width: 11.57vw;
+          height: 13.43vw;
         }
 
         &::before {
@@ -154,13 +154,13 @@
         }
       }
       &__icon {
-        width: 33px;
-        height: 33px;
+        width: 10.31vw;
+        height: 10.31vw;
       }
       &__btn {
         order: 2;
-        margin: 28px 0 19px;
-        font-size: 10px;
+        margin: 8.75vw 0 5.93vw;
+        font-size: 3.125vw;
         line-height: 119.9%;
         text-align: center;
       }

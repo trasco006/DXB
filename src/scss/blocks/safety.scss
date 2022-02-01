@@ -57,26 +57,26 @@
     }
   }
   @media (max-width: 580px) {
-    margin-top: 36px;
+    margin-top: 11.25vw;
     .subtitle {
       display: block;
     }
     &__wrapper {
-      margin-top: 47px;
-      padding: 39px 39px 57px;
+      margin-top: 14.68vw;
+      padding: 12.18vw 12.18vw 17.81vw;
       background: #FFFFFF;
       box-shadow: 0 0 30px 6px rgba(0, 0, 0, 0.04);
       border-radius: 12px;
       flex-direction: column;
     }
     &__img {
-      width: 201px;
-      height: 107px;
+      width: 62.81vw;
+      height: 33.43vw;
       margin-right: 0;
     }
     &__text {
-      font-size: 13px;
-      line-height: 16px;
+      font-size: 4vw;
+      line-height: 5vw;
       text-align: center;
       color: #86888A;
     }
