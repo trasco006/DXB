@@ -5,6 +5,7 @@
   margin-top: 151px;
   margin-bottom: 130px;
   align-items: flex-start;
+
   &__item {
     max-width: 315px;
     display: flex;
@@ -38,17 +39,17 @@
     }
   }
   @media (max-width: 480px) {
-    margin-top: 19px;
-    margin-bottom: 47px;
+    margin-top: 5.93vw;
+    margin-bottom: 14.68vw;
     &__item {
-      max-width: 110px;
+      max-width: 34.34vw;
     }
     svg {
-      width: 18px;
-      height: 22px;
+      width: 5.62vw;
+      height: 6.87vw;
     }
     &__desc {
-      font-size: 9.98099px;
+      font-size: 3.125vw;
       line-height: 119.9%;
     }
   }
