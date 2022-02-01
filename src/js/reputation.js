@@ -29,7 +29,7 @@ const reputation = () => {
     const cards = module.querySelectorAll(`.${cardClass}`)
 
     const commentHandleClick = function () {
-      if (window.outerWidth < 741) {
+      if (window.outerWidth < 841) {
         const commentId = this.dataset.comment
         let selectedPopup = 0;
         commentPopups.forEach(item => {

@@ -299,6 +299,11 @@
   }
 
   @media (max-width: 740px) {
+
+    & &__cards-column {
+      margin-top: 0;
+    }
+
     &__cta {
       width: 13.7vw;
       height: 12.5vw;

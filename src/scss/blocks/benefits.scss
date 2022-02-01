@@ -112,16 +112,18 @@
   }
 
   @media (max-width: 480px) {
-    margin-top: 43px;
+    margin-top: 13.45vw;
     overflow: hidden;
+
+
     &__container {
-      margin: 14px auto 24px;
+      margin: 4.37vw auto 7.5vw;
       cursor: pointer;
       width: 100%;
-      max-width: 270px;
-      height: 40px;
+      max-width: 84.38vw;
+      height: 13.43vw;
       background: rgba(228, 220, 252, 0.48);
-      border-radius: 28px;
+      border-radius: 8.75vw;
       position: relative;
 
       &::before {
@@ -166,8 +168,8 @@
       background: none;
       color: #18232F;
       z-index: 20;
-      font-size: 12px;
-      line-height: 15px;
+      font-size: 3.75vw;
+      line-height: 4.68vw;
 
       &:hover {
         opacity: .9;
@@ -200,13 +202,13 @@
       width: 100%;
 
       &:last-of-type {
-        padding-left: 44px;
+        padding-left: 13.75vw;
       }
     }
     &__item {
-      padding-bottom: 20px;
-      font-size: 13px;
-      line-height: 16px;
+      padding-bottom: 6.25vw;
+      font-size: 4vw;
+      line-height: 5vw;
     }
   }
 }
