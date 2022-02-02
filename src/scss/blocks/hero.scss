@@ -39,7 +39,7 @@
   }
 
   &__title {
-    font-weight: 800;
+    font-weight: bold;
     font-size: 75px;
     text-align: center;
     margin: 0 auto;
@@ -64,7 +64,7 @@
 
   &__desc {
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: bold;
     font-size: 40px;
     margin: 0 auto;
 
@@ -89,7 +89,7 @@
   &__version {
     text-transform: uppercase;
     padding: 2px 8px;
-    font-weight: 800;
+    font-weight: bold;
     font-size: 40px;
     text-align: center;
     color: #FFF;
