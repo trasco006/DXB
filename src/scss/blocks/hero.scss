@@ -23,7 +23,7 @@
   @media (max-width: 480px) {
     flex-direction: column-reverse;
     margin: 4vw 0 12.5vw;
-    padding: 0;
+    padding: 0 4.37vw;
   }
 
 
@@ -34,7 +34,8 @@
     flex-direction: column;
 
     @media (max-width: 480px) {
-      margin-top: 5.62vw
+      //margin-top: 5.62vw
+      margin-top: 0
     }
   }
 
@@ -143,7 +144,10 @@
     }
 
     @media (max-width: 480px) {
-      font-size: 4.37vw
+      margin: 0 auto;
+      line-height: 120%;
+      font-size: 4.37vw;
+      max-width: 80vw;
     }
   }
 

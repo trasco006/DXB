@@ -24,5 +24,64 @@
   &__window {
     z-index: 502;
     margin: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+
+  p {
+    margin-bottom: 1rem
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem
+  }
+
+  .contract-popup__body {
+    box-sizing: border-box;
+    background: #fff;
+    width: 90vw;
+    z-index: 999;
+    border-radius: 10px;
+    position: relative;
+    padding: 30px 0 15px;
+
+    & > div {
+      padding: 30px 20px;
+      width: 100%;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    b {
+      font-weight: bold;
+    }
+  }
+
+  button {
+    outline: none;
+    border: none;
+    background: none;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    position: absolute;
+    right: 12px;
+    top: 0;
+    text-decoration: none;
+    text-align: center;
+    opacity: .65;
+    padding: 0 0 18px 10px;
+    color: #333;
+    font-style: normal;
+    font-size: 28px;
+    font-family: Arial, Baskerville, monospace;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .8;
+    }
   }
 }
