@@ -43,6 +43,10 @@
     margin-bottom: 14.68vw;
     &__item {
       max-width: 34.34vw;
+
+      &:first-of-type {
+        max-width: 32vw;
+      }
     }
     svg {
       width: 5.62vw;
