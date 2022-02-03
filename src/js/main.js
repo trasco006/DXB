@@ -16,8 +16,15 @@ const burgerMenuFunction = () => {
     }
   })
 
-  
+  const handleCloseBurger = (evt) => {
+    if (navMenu.classList.contains('nav-menu_active')
+      && !evt.target.closest('.nav-menu')
+      && !evt.target.closest('.header')
+    ) {
+      handleBurgerToggle()
+    }
+  }
+  document.addEventListener('click', handleCloseBurger, true)
   burgerBtn.addEventListener('click', handleBurgerToggle);
-};
-
+}
 burgerMenuFunction();
