@@ -13,6 +13,9 @@ const errorHandler = (message, form) => {
 }
 
 const registrationService = (data, form) => {
+  const submitBtn = form.querySelector('.registration__submit')
+  submitBtn.disabled = true;
+
   return fetch('https://igame.by/api/users/quick', {
     method: 'POST',
     body: data,
@@ -32,6 +35,9 @@ const registrationService = (data, form) => {
     .catch(err => {
       errorHandler("Что-то пошло не так", form);
     })
+    .finally(() => {
+      submitBtn.disabled = false;
+    })
 }
 
 const registrationModulesList = document.querySelectorAll('.registration')
@@ -39,6 +45,7 @@ const registrationModulesList = document.querySelectorAll('.registration')
 const registration = () => {
   registrationModulesList.forEach(module => {
     const form = module.querySelector('.registration__form');
+
 
     const handleSubmit = (event) => {
       event.preventDefault();

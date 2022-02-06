@@ -29,6 +29,7 @@
   }
 
   &__window_up {
+    max-width: 800px;
     z-index: 502;
     margin: auto;
     box-sizing: border-box;
@@ -86,7 +87,7 @@
       color: #333;
       font-style: normal;
       font-size: 28px;
-      font-family: Arial, Baskerville, monospace;
+      font-family: 'Montserrat Alternates', 'Arial', sans-serif;
       cursor: pointer;
 
       &:hover {
