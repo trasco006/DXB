@@ -12,6 +12,10 @@
     background: #000000;
     display: flex;
     align-items: center;
+    picture{
+      width: fit-content;
+      min-width: fit-content;
+    }
   }
 
   &__img {
