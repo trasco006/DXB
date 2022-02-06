@@ -15,14 +15,13 @@
     top: 0;
     align-items: flex-start;
   }
-}
-
-.nav-menu_active {
-  left: 0;
-  opacity: 1;
-  border-radius: 0;
-  overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  .nav-menu_active {
+    left: 0;
+    opacity: 1;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
 }
 
 .nav-menu__item {
