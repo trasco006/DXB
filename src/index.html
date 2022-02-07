@@ -599,9 +599,14 @@
                 <img loading="lazy" src="images/content/insta_base.jpg" alt="insta-base" class="reputation__insta-base">
               </picture>
               <div class="reputation__wrapper">
-                <!--TODO: add webp set-->
-                <img loading="lazy" src="images/content/inst-comment-l.jpg" alt="insta feedback"
-                     class="reputation__comment"/>
+                <picture>
+                  <source srcset="images/content/inst-comment-l-1.webp" type="image/webp">
+                  <img loading="lazy" src="images/content/inst-comment-l.jpg" alt="insta feedback">
+                </picture>
+                <picture>
+                  <source srcset="images/content/inst-comment-l-2.webp" type="image/webp">
+                  <img loading="lazy" src="images/content/inst-comment-2.jpg" alt="insta feedback">
+                </picture>
               </div>
             </li>
 
@@ -609,8 +614,28 @@
               <picture>
                 <source media="(max-width:840px)" srcset="images/content/dnative-580w.webp" type="image/webp">
                 <source media="(max-width:840px)" srcset="images/content/dnative-580w.jpg">
-                <!--                TODO: add webp-->
-                <img loading="lazy" src="images/content/dnative-comment-l.jpg" alt="insta-base">
+                <source srcset="images/content/dnative-comment-l-1.webp" type="image/webp">
+                <img loading="lazy" src="images/content/dnative-comment-l-1.jpg" alt="dnative-comment">
+              </picture>
+              <picture class="hide">
+                <source srcset="images/content/dnative-comment-l-2.webp" type="image/webp">
+                <img loading="lazy" src="images/content/dnative-comment-l-2.jpg" alt="dnative-comment">
+              </picture>
+              <picture class="hide">
+                <source srcset="images/content/dnative-comment-l-3.webp" type="image/webp">
+                <img loading="lazy" src="images/content/dnative-comment-l-3.jpg" alt="dnative-comment">
+              </picture>
+              <picture class="hide">
+                <source srcset="images/content/dnative-comment-l-4.webp" type="image/webp">
+                <img loading="lazy" src="images/content/dnative-comment-l-4.jpg" alt="dnative-comment">
+              </picture>
+              <picture class="hide">
+                <source srcset="images/content/dnative-comment-l-5.webp" type="image/webp">
+                <img loading="lazy" src="images/content/dnative-comment-l-5.jpg" alt="dnative-comment">
+              </picture>
+              <picture class="hide">
+                <source srcset="images/content/dnative-comment-l-6.webp" type="image/webp">
+                <img loading="lazy" src="images/content/dnative-comment-l-6.jpg" alt="dnative-comment">
               </picture>
             </li>
 
@@ -618,8 +643,12 @@
               <picture>
                 <source media="(max-width:840px)" srcset="images/content/startpack-580w.webp" type="image/webp">
                 <source media="(max-width:840px)" srcset="images/content/startpack-580w.jpg">
-                <!--                TODO: add webp-->
-                <img loading="lazy" src="images/content/startpack-comment-l.jpg" alt="insta-base">
+                <source srcset="images/content/startpack-comment-l-1.webp" type="image/webp">
+                <img loading="lazy" src="images/content/startpack-comment-l-1.jpg" alt="starpack comment">
+              </picture>
+              <picture class="hide">
+                <source srcset="images/content/startpack-comment-l-2.webp" type="image/webp">
+                <img loading="lazy" src="images/content/startpack-comment-l-2.jpg" alt="starpack comment">
               </picture>
             </li>
 
@@ -783,16 +812,42 @@
   <section class="comment-popup popup" data-comment="2">
     <div class="popup__overlay"></div>
     <div class="comment-popup__body popup__window">
-      <!--      TODO: add webp-->
-      <img loading="lazy" class="comment-image" src="images/content/dnative-comment-s.jpg"/>
+      <picture>
+        <source srcset="images/content/dnative-comment-s-1.webp" type="image/webp">
+        <img loading="lazy" src="images/content/dnative-comment-s-1.jpg" alt="dnative comment"
+             class="comment-image"/>
+      </picture>
+      <picture>
+        <source srcset="images/content/dnative-comment-s-2.webp" type="image/webp">
+        <img loading="lazy" src="images/content/dnative-comment-s-2.jpg" alt="dnative comment"
+             class="comment-image"/>
+      </picture>
+      <picture>
+        <source srcset="images/content/dnative-comment-s-3.webp" type="image/webp">
+        <img loading="lazy" src="images/content/dnative-comment-s-3.jpg" alt="dnative comment"
+             class="comment-image"/>
+      </picture>
+      <picture>
+        <source srcset="images/content/dnative-comment-s-4.webp" type="image/webp">
+        <img loading="lazy" src="images/content/dnative-comment-s-4.jpg" alt="dnative comment"
+             class="comment-image"/>
+      </picture>
     </div>
   </section>
 
   <section class="comment-popup popup" data-comment="3">
     <div class="popup__overlay"></div>
     <div class="comment-popup__body popup__window">
-      <!--      TODO: add webp-->
-      <img loading="lazy" class="comment-image" src="images/content/startpack-comment-s.jpg"/>
+      <picture>
+        <source srcset="images/content/startpack-comment-s-1.webp" type="image/webp">
+        <img loading="lazy" src="images/content/startpack-comment-s-1.jpg" alt="startpack comment"
+             class="comment-image"/>
+      </picture>
+      <picture>
+        <source srcset="images/content/startpack-comment-s-2.webp" type="image/webp">
+        <img loading="lazy" src="images/content/startpack-comment-s-2.jpg" alt="startpack comment"
+             class="comment-image"/>
+      </picture>
     </div>
   </section>
 
@@ -807,10 +862,8 @@
     </div>
   </section>
 
-
   <section class="popup" id="popup-privacy-policy">
     <div class="popup__overlay"></div>
-
     <div class="contract-popup__body popup__window_up">
       <button type="button">×</button>
       <div>

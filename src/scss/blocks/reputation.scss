@@ -123,6 +123,7 @@
       display: block;
       opacity: 1;
     }
+
   }
 
   #reputation__comment-insta {
@@ -215,6 +216,10 @@
       &_active {
         border-radius: 12px;
         opacity: 1;
+      }
+
+      .hide {
+        display: none;
       }
     }
     &__pagination-column {
