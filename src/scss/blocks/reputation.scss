@@ -1,12 +1,12 @@
 .reputation {
-  margin: 120px auto 0;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   user-select: none;
   flex-direction: column;
 
   &__description {
-    margin-bottom: 188px;
+    margin-bottom: 110px;
     font-weight: 600;
     font-size: 45.1971px;
     line-height: 55px;
@@ -21,6 +21,11 @@
     transform: translate(-50%, -100%);
   }
 
+  @media(max-width: 1600px) {
+    &__description {
+      font-size: 32px;
+    }
+  }
 
   @media(max-width: 980px) {
     &__description {
@@ -152,7 +157,6 @@
   }
 
   @media (max-width: 1440px) {
-    margin-top: 70px;
     &__description {
       margin-bottom: 60px;
     }
@@ -184,8 +188,6 @@
   }
 
   @media (max-width: 840px) {
-    margin-top: 35px;
-
     &__cta {
       width: 13.7vw;
       height: 12.5vw;
@@ -244,8 +246,6 @@
     }
   }
   @media (max-width: 480px) {
-    margin-top: 11vw;
-
     &__description {
       margin-bottom: 8.12vw;
     }

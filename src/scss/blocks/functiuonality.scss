@@ -1,12 +1,14 @@
 .functionality {
-  margin-top: 150px;
-
   .subtitle {
-    margin-bottom: 57px;
+    margin-bottom: 110px;
   }
 
+  @media (max-width: 1280px) {
+    .subtitle {
+      margin-bottom: 80px;
+    }
+  }
   @media (max-width: 760px) {
-    margin-top: 81px;
     .subtitle {
       margin-bottom: 11.5vw;
     }

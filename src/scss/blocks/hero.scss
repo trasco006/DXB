@@ -6,6 +6,9 @@
   color: #18232F;
   justify-content: space-between;
 
+  @media (max-width: 1600px) {
+    zoom: 1;
+  }
   @media (max-width: 1440px) {
     margin-top: 64px;
   }

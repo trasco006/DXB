@@ -74,6 +74,29 @@
     color: #86888A;
   }
 
+  @media (max-width: 980px) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    &__link {
+      margin-right: 64px;
+    }
+    &__container {
+      margin-top: 35px;
+    }
+    &__subtitle {
+      font-size: 18px;
+      line-height: 140%;
+    }
+    &__description {
+      font-size: 13px;
+      line-height: 16px;
+    }
+    .icon {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
   @media (max-width: 768px) {
     margin-top: 40px;
     margin-bottom: 32px;

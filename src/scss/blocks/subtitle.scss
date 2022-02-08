@@ -3,14 +3,17 @@
   padding: 0;
   font-weight: bold;
   font-size: 80px;
-  line-height: 99px;
+  line-height: 120%;
   text-transform: uppercase;
   color: #18232F;
   text-align: center;
 
+  @media (max-width: 1600px) {
+    font-size: 60px;
+  }
+
   @media (max-width: 768px) {
     font-size: 44px;
-    line-height: 54px;
   }
 
   @media (max-width: 480px) {
