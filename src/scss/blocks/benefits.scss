@@ -20,7 +20,7 @@
     line-height: 35px;
     text-align: center;
     border-radius: 66px;
-    transition: color .2s ease-in;
+    transition: color 0.2s ease-in;
     cursor: unset;
     user-select: none;
 
@@ -60,7 +60,7 @@
     padding-bottom: 50px;
     font-size: 31px;
     line-height: 38px;
-    color: #18232F;
+    color: #18232f;
     padding-left: 18px;
 
     &:last-of-type {
@@ -68,12 +68,12 @@
     }
 
     &::marker {
-      font-size: .7em;
+      font-size: 0.7em;
     }
   }
 
   @media (max-width: 1440px) {
-    zoom: .75;
+    zoom: 0.75;
   }
 
   @media (max-width: 1280px) {
@@ -89,8 +89,9 @@
 
   @media (max-width: 980px) {
     zoom: 1;
+
     &__container {
-      margin: 22px auto 40px
+      margin: 22px auto 40px;
     }
 
     &__button {
@@ -108,7 +109,7 @@
       flex-direction: column;
       margin-right: 27px;
       padding-left: 27px;
-      transition: opacity .2s ease-in;
+      transition: opacity 0.2s ease-in;
     }
 
     &__item {
@@ -118,7 +119,11 @@
       line-height: 21px;
     }
   }
-
+  @media (max-width: 760px) {
+    .subtitle {
+      margin-bottom: 11.5vw;
+    }
+  }
   @media (max-width: 480px) {
     overflow: hidden;
     &__container {
@@ -141,7 +146,7 @@
         left: 0;
         border-radius: 28px;
         z-index: 10;
-        transition: left .2s ease-in;
+        transition: left 0.2s ease-in;
       }
 
       .benefits__button:first-of-type {
@@ -150,7 +155,7 @@
 
       &_active {
         .benefits__button:first-of-type {
-          color: #18232F;
+          color: #18232f;
         }
 
         .benefits__button:last-of-type {
@@ -171,13 +176,13 @@
       height: 100%;
       margin: 0;
       background: none;
-      color: #18232F;
+      color: #18232f;
       z-index: 20;
       font-size: 3.75vw;
       line-height: 4.68vw;
 
       &:hover {
-        opacity: .9;
+        opacity: 0.9;
       }
     }
 
@@ -185,7 +190,7 @@
       width: 200%;
       position: relative;
       left: 0;
-      transition: left .2s ease-in;
+      transition: left 0.2s ease-in;
       justify-content: space-between;
 
       &_active {
