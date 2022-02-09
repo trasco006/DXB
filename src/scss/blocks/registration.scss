@@ -2,11 +2,13 @@
   max-width: 605px;
   margin: 0 auto;
   padding: 10px;
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   border-radius: 57px;
   box-shadow: 0 0 81.9963px -6.64835px rgba(161, 132, 222, 0.13);
   background: #FFFFFF;
-
+  &.section {
+    margin-bottom: 0;
+  }
   &__description {
     user-select: none;
     width: 100%;
