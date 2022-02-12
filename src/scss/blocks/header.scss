@@ -6,7 +6,12 @@
   box-sizing: border-box;
   position: relative;
   z-index: 100;
-
+  max-width: 1175px;
+  .blot{
+    position: absolute;
+    left: -40px;
+    transform: translateX(-100%);
+  }
   .btn {
     font-weight: bold;
     font-size: 16.5997px;

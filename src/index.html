@@ -11,8 +11,14 @@
 
 <body>
 <div class="main">
-
   <header class="header container">
+    <svg class="blot" width="429" height="420" viewBox="0 0 429 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path opacity="0.1" fill-rule="evenodd" clip-rule="evenodd"
+            d="M204.767 419.644C170.289 419.858 136.071 419.688 103.823 407.487C67.9353 393.909 26.9865 379.553 9.08806 345.607C-8.78788 311.704 3.9091 270.153 11.6153 232.606C18.2421 200.318 34.2764 172.21 50.5583 143.553C66.9443 114.713 83.1387 86.5579 107.428 63.971C136.333 37.0909 165.407 -2.76267 204.767 0.151156C244.797 3.11455 263.554 51.7794 294.129 77.7922C318.749 98.7385 346.288 114.244 367.52 138.619C392.534 167.334 429.815 194.53 428.986 232.606C428.155 270.803 385.681 293.17 363.479 324.259C343.633 352.05 334.258 388.648 304.991 406.237C275.599 423.902 239.056 419.431 204.767 419.644Z"
+            fill="#A082FE"/>
+    </svg>
+
+
     <button class="menu-btn" type="button" aria-label="Menu" aria-controls="navigation">
         <span class="menu-btn__block">
           <span class="menu-btn__inner"></span>
@@ -180,7 +186,7 @@
   </section>
 
   <section class="activity container section">
-    <div class="activity__container">
+    <div class="activity__container" id="activity-item-1">
       <div class="activity__item">
         <svg width="81" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -702,6 +708,12 @@
     </section>
 
     <section class="safety container section" name="safety">
+      <svg class="blot" width="217" height="175" viewBox="0 0 217 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path opacity="0.05" fill-rule="evenodd" clip-rule="evenodd"
+              d="M216.869 87.9767C219.329 115.192 186.446 130.441 164.851 147.091C147.649 160.355 129.031 169.579 107.505 172.301C82.6753 175.441 55.7779 178.569 35.8288 163.406C14.1925 146.961 5.0817 119.455 2.33511 92.3633C-0.690954 62.5143 -3.97767 25.5023 20.0357 7.62448C43.6144 -9.9297 75.701 9.83255 104.318 16.4377C123.032 20.7573 138.838 28.4793 155.06 38.7904C178.153 53.4686 214.4 60.6633 216.869 87.9767Z"
+              fill="black"/>
+      </svg>
+
       <h3 class="subtitle">БЕЗОПАСНОСТЬ</h3>
       <div class="safety__wrapper">
         <picture>
@@ -709,8 +721,9 @@
           <img loading="lazy" src="images/content/business_partner.jpg" alt="facebook-business-partner"
                class="safety__img"/>
         </picture>
-        <p class="safety__text">iGame является официальным партнёром Facebook. И любые баны за использование сервиса
-          исключены!</p>
+        <p class="safety__text">iGame является официальным партнёром Facebook. <span>И любые <strong>баны</strong> за
+          использование сервиса
+          исключены!</span></p>
       </div>
     </section>
   </div>

@@ -244,6 +244,11 @@
       left: 0;
       transition: left 0.2s ease-in;
       justify-content: space-between;
+      padding-bottom: 0;
+
+      .benefits__column {
+        padding-bottom: 0;
+      }
 
       &_active {
         left: -100%;
