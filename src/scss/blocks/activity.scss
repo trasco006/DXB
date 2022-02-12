@@ -1,12 +1,20 @@
 .activity {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
-  margin-top: 110px;
+  justify-content: space-between;
+  margin-top: 70px;
   align-items: flex-start;
 
+  &__container {
+    width: 50%;
+    max-width: 499px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__item {
-    max-width: 315px;
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,25 +24,23 @@
   &__desc {
     margin-top: 6px;
     font-weight: bold;
-    font-size: 30.1212px;
+    font-size: 18px;
     line-height: 119.9%;
     text-align: center;
     color: #18232F;
   }
-  @media (max-width: 980px) {
+
+  @media (max-width: 740px) {
     margin-top: 50px;
     &__item {
       max-width: 175px;
-    }
-    svg {
-      width: 28px;
-      height: 36px;
     }
     &__desc {
       font-size: 16.4725px;
       line-height: 119.9%;
     }
   }
+
   @media (max-width: 480px) {
     margin-top: 8.75vw;
     &__item {

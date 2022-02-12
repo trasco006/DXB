@@ -64,6 +64,10 @@
     transform: rotate(360deg);
   }
 
+  &__btn-hidden-text {
+    display: none;
+  }
+
   &__btn-decor {
     position: absolute;
     top: calc(-100% - 6px);
@@ -134,19 +138,40 @@
     flex-direction: column;
     align-items: center;
 
-    &__decor {
-      max-width: 300px;
-
-      &::before {
-        left: 0;
-        transform: scale(-1, -1) translateY(100%);
-        filter: drop-shadow(0px -8px 5px rgba(0, 0, 0, 0.4));
+    &__btn-image {
+      .bg {
+        display: none;
       }
+    }
+
+    &__video-btn {
+      display: none;
+    }
+    &__btn-decor {
+      display: none;
+    }
+    &__btn-hidden-text {
+      display: block;
+    }
+    &__title {
+      display: none;
+    }
+
+    &__right-arrow{
+      zoom: .64;
+      top: 28px;
+      right: -289px;
+    }
+    &__left-arrow{
+      zoom: .64;
+      transform: scaleY(-1);
+      left: -277px;
+      top: -62px;
     }
 
     &__btn {
       order: 2;
-      margin: 70px 0 50px;
+      margin: 76px auto;
 
       font-size: 18.1208px;
       line-height: 119.9%;

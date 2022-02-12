@@ -1,19 +1,17 @@
 .subtitle {
   margin: 0 auto;
   padding: 0;
+  font-style: normal;
   font-weight: bold;
-  font-size: 80px;
-  line-height: 120%;
+  font-size: 56px;
+  line-height: 68px;
   text-transform: uppercase;
   color: #18232F;
   text-align: center;
 
-  @media (max-width: 1600px) {
-    font-size: 60px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 44px;
+  @media (max-width: 740px) {
+    font-size: 42.2461px;
+    line-height: 51px;
   }
 
   @media (max-width: 480px) {
