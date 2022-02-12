@@ -71,6 +71,12 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+.blot {
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
 .section {
   z-index: 10;
   margin-bottom: 140px;
