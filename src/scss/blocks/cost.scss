@@ -1,6 +1,14 @@
 .cost {
   width: 100%;
   max-width: 1110px;
+  position: relative;
+
+  .blot {
+    z-index: -1;
+    position: absolute;
+    left: -60px;
+    bottom: -129px;
+  }
 
   &__description {
     font-weight: bold;
@@ -20,7 +28,9 @@
 
   @media(max-width: 480px) {
     padding: 0 7.5vw;
-
+    .blot {
+      display: none;
+    }
     &__description {
       font-size: 3.125vw;
       line-height: 4vw;
