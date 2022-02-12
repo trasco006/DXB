@@ -8,6 +8,7 @@ import './benefits.js'
 import './cards-slider.js'
 import './video.js'
 import './reputation.js'
+import './movie.js'
 
 const body = document.querySelector("body")
 

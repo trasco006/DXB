@@ -132,6 +132,11 @@
 
   @media (max-width: 480px) {
     margin-bottom: 11.87vw;
+
+    .blot {
+      display: none;
+    }
+
     &__title {
       margin-bottom: 5.32vw;
       font-size: 6vw;
