@@ -19,6 +19,12 @@
   }
 
   @media(max-width: 760px) {
+    .blot {
+      left: unset;
+      bottom: unset;
+      right: -60px;
+      top: 80px;
+    }
     padding: 0 21px;
     &__description {
       font-size: 18px;
