@@ -1,6 +1,22 @@
 .benefits {
+  max-width: max-content;
+  position: relative;
+
+  .blot {
+    position: absolute;
+    top: 28px;
+    left: -88px;
+
+    &:last-of-type {
+      left: unset;
+      top: unset;
+      right: -136px;
+      bottom: -88px;
+    }
+  }
+
   .subtitle {
-    margin-bottom: 110px;
+    margin-bottom: 56px;
   }
 
   &__container {
@@ -10,19 +26,20 @@
   }
 
   &__button {
-    width: 577px;
-    height: 95px;
+    width: 478px;
+    height: 78px;
     margin-right: 68px;
     background: $main-gradient;
     color: #fff;
     font-weight: bold;
-    font-size: 28.6779px;
-    line-height: 35px;
+    font-size: 23.5794px;
+    line-height: 29px;
     text-align: center;
     border-radius: 66px;
     transition: color 0.2s ease-in;
     cursor: unset;
     user-select: none;
+    z-index: 10;
 
     &:hover {
       opacity: 1;
@@ -34,6 +51,7 @@
 
     &:last-of-type {
       margin-right: 0;
+      background: linear-gradient(134.51deg, #FFD7FD -11.02%, #E3B6E1 47.31%, #C392C1 97.71%);
     }
   }
 
@@ -44,12 +62,17 @@
   }
 
   &__column {
-    width: 577px;
+    z-index: 9;
+    padding: 80px 8px 46px 42px;
+    margin-top: -110px;
+    background: #fff;
+    width: 478px;
     display: flex;
     flex-direction: column;
     margin-right: 68px;
-    padding-left: 42px;
-    list-style-type: unset;
+    box-shadow: 0px 0px 21.6338px 2.88451px rgba(0, 0, 0, 0.03);
+    border-radius: 0 0 55px 55px;
+    list-style-type: disc;
 
     &:last-of-type {
       margin-right: 0;
@@ -57,11 +80,11 @@
   }
 
   &__item {
-    padding-bottom: 50px;
-    font-size: 31px;
-    line-height: 38px;
+    font-weight: 400;
+    padding-bottom: 34px;
+    font-size: 20px;
+    line-height: 24px;
     color: #18232f;
-    padding-left: 18px;
 
     &:last-of-type {
       padding-bottom: 0;
@@ -73,17 +96,30 @@
   }
 
   @media (max-width: 1280px) {
-    .subtitle {
-      margin-bottom: 80px;
-    }
     &__item {
-      padding-bottom: 40px;
-      font-size: 26px;
-      line-height: 32px;
+      font-size: 18px;
+      line-height: 20px;
     }
   }
 
   @media (max-width: 980px) {
+    .blot {
+      width: 150px;
+      height: 192px;
+      top: 4px;
+      left: -4px;
+
+      &:last-of-type {
+        width: 157px;
+        height: 162px;
+        left: unset;
+        top: unset;
+        right: -30px;
+        bottom: -46px;
+      }
+    }
+
+
     &__container {
       margin: 22px auto 40px;
     }
@@ -98,28 +134,45 @@
     }
 
     &__column {
+      padding: 55px 8px 36px 27px;
+      margin-top: -70px;
       width: 310px;
       display: flex;
       flex-direction: column;
       margin-right: 27px;
-      padding-left: 27px;
       transition: opacity 0.2s ease-in;
+      border-radius: 0 0 36px 36px;
     }
 
     &__item {
       padding-left: 0;
-      padding-bottom: 29px;
+      padding-bottom: 22px;
       font-size: 16px;
       line-height: 21px;
     }
   }
+
   @media (max-width: 760px) {
+    .subtitle {
+      margin-bottom: 48px;
+    }
+  }
+
+  @media (max-width: 690px) {
+    &__item {
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    overflow: hidden;
+    .blot {
+      display: none;
+    }
     .subtitle {
       margin-bottom: 11.5vw;
     }
-  }
-  @media (max-width: 480px) {
-    overflow: hidden;
     &__container {
       margin: 4.37vw auto 7.5vw;
       cursor: pointer;
@@ -169,7 +222,6 @@
       width: 50%;
       height: 100%;
       margin: 0;
-      background: none;
       color: #18232f;
       z-index: 20;
       font-size: 3.75vw;
@@ -177,6 +229,12 @@
 
       &:hover {
         opacity: 0.9;
+      }
+
+      background: none;
+
+      &:last-of-type {
+        background: none;
       }
     }
 
@@ -204,6 +262,10 @@
 
     &__column {
       width: 100%;
+      background: unset;
+      padding-top: 0;
+      margin-top: 0;
+      box-shadow: none;
 
       &:last-of-type {
         padding-left: 13.75vw;
