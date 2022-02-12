@@ -7,6 +7,14 @@
   user-select: none;
 
   &__cta {
+    position: absolute;
+    top: -63px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+
+    .gradient-text {
+      margin-top: 14px;
+    }
     font-weight: bold;
     font-size: 18px;
     line-height: 119.9%;
@@ -18,17 +26,6 @@
   &__pagination-column {
     width: 25.31%;
     height: 100%;
-  }
-
-  &__cta {
-    position: absolute;
-    top: -63px;
-    left: 50%;
-    transform: translate(-50%, -100%);
-
-    .gradient-text {
-      margin-top: 14px;
-    }
   }
 
   &__pagination {
