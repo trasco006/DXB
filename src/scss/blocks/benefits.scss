@@ -72,10 +72,6 @@
     }
   }
 
-  @media (max-width: 1440px) {
-    zoom: 0.75;
-  }
-
   @media (max-width: 1280px) {
     .subtitle {
       margin-bottom: 80px;
@@ -88,8 +84,6 @@
   }
 
   @media (max-width: 980px) {
-    zoom: 1;
-
     &__container {
       margin: 22px auto 40px;
     }

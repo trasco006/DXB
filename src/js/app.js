@@ -1,7 +1,6 @@
 import '../scss/app.scss';
 
 import './main.js';
-import './simple-slider.js';
 import './cost.js'
 import './registration.js'
 import './popup.js'
@@ -40,7 +39,7 @@ privacyOverlay.addEventListener('click', () => {
 contractOverlay.addEventListener('click', () => {
   contractPopup.classList.remove('popup_active')
   contractPopup.querySelector('div').scrollBy(0, 0)
-  body.classList.remove('o-hidden') 
+  body.classList.remove('o-hidden')
 })
 
 const contractBtn = document.querySelector('#contract-btn')

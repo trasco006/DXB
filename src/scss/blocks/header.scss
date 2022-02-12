@@ -1,14 +1,29 @@
 .header {
   width: 100%;
-  padding-top: 58px;
+  padding-top: 64px;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   position: relative;
   z-index: 100;
 
-  @media (max-width: 1440px) {
-    padding-top: 35px;
+  .btn {
+    font-weight: bold;
+    font-size: 16.5997px;
+    line-height: 20px;
+    padding: 12px 37px;
+  }
+
+  @media (max-width: 980px) {
+    padding-top: 34px;
+  }
+
+  @media (max-width: 768px) {
+    .btn {
+      font-size: 11.2676px;
+      line-height: 14px;
+      padding: 8px 21px;
+    }
   }
 
   @media (max-width: 580px) {
@@ -16,6 +31,7 @@
     & .logo {
       margin-left: 1.56vw;
     }
+
     & .btn {
       padding: 2.5vw 6.87vw;
     }
