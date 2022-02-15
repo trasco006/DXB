@@ -15,6 +15,7 @@
     .gradient-text {
       margin-top: 14px;
     }
+
     font-weight: bold;
     font-size: 18px;
     line-height: 119.9%;
@@ -95,7 +96,7 @@
 
     &-image {
       position: relative;
-      width: 74px;
+      width: 30px;
       height: 737px;
       object-fit: cover;
       object-position: center;
@@ -104,6 +105,10 @@
       transition: width .3s ease-in, opacity .2s ease-in;
       cursor: pointer;
 
+      &_prev, &_next {
+        width: 72px;
+      }
+
       &_active {
         width: 371px;
         box-shadow: 0 0 64.734px 12.9468px rgba(0, 0, 0, 0.04);
@@ -111,6 +116,11 @@
         filter: grayscale(0%);
       }
     }
+
+    &-image_active + &-image {
+      width: 60px;
+    }
+
 
     & .slide-nav {
       display: none;

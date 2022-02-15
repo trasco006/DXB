@@ -72,8 +72,15 @@ class SlideStories {
     play && this.autoPlay()
 
     this.active = index;
-    this.items.forEach((item) => item.classList.remove('cards-slider__card-image_active'));
+    this.items.forEach((item) => {
+      item?.classList.remove('cards-slider__card-image_prev');
+      item?.classList.remove('cards-slider__card-image_next');
+      item.classList.remove('cards-slider__card-image_active')
+    });
+
     this.items[index].classList.add('cards-slider__card-image_active');
+    this.items[index - 1]?.classList.add('cards-slider__card-image_prev');
+    this.items[index + 1]?.classList.add('cards-slider__card-image_next');
     this.thumbItems.forEach((item) => item.classList.remove('active'));
     this.longThumbItems.forEach((item) => item.classList.remove('active'));
     this.thumbItems[index].classList.add('active'); //вместо этого вручную будем менять заполненеие
