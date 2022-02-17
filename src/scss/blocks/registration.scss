@@ -11,6 +11,12 @@
     margin-bottom: 200px;
   }
 
+  @media (max-width: 1640px) {
+    &.section {
+      margin-bottom: 160px;
+    }
+  }
+
   @media (max-width: 980px) {
     &.section {
       margin-bottom: 30px;

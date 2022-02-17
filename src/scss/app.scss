@@ -81,6 +81,14 @@ html {
   z-index: 10;
   margin-bottom: 140px;
 
+  @media (max-width: 1640px) {
+    margin-bottom: 112px;
+  }
+
+  @media (max-width: 1366px) {
+    margin-bottom: 90px;
+  }
+
   @media (max-width: 1280px) {
     margin-bottom: 80px;
   }

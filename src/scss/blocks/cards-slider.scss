@@ -250,6 +250,36 @@
       transform: translateX(0)
     }
   }
+
+  @media (max-width: 1640px) {
+    & &__card {
+      &-image {
+        height: 580px;
+        width: 30px;
+        border-radius: 24px;
+
+        &_prev, &_next {
+          width: 60px;
+        }
+
+        &_active {
+          width: 290px;
+        }
+      }
+
+      .slide-items__container {
+        margin-right: 26px;
+      }
+    }
+
+    &__pagination-btn {
+      height: 54px;
+      font-size: 17.2225px;
+      line-height: 119.9%;
+    }
+  }
+
+
   @media (max-width: 1440px) {
     max-width: 1284px;
     & &__card {

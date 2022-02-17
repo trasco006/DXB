@@ -95,8 +95,13 @@
     }
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1680px) {
+    &__column, &__button {
+      width: 450px;
+    }
+
     &__item {
+      padding-bottom: 28px;
       font-size: 18px;
       line-height: 20px;
     }
