@@ -3,7 +3,11 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 48px;
-    @media (max-width: 768px) {
+
+  @media(max-width: 1440px) {
+    padding: 0 8%;
+  }
+  @media (max-width: 768px) {
     padding: 0 4%;
   }
 }

@@ -182,9 +182,42 @@
     }
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1440px) {
+    .subtitle {
+      margin-bottom: 78px;
+    }
+
     &__grid {
-      zoom: .7;
+      grid-row-gap: 120px;
+    }
+
+    &__card {
+      padding: 59px 28px 21px;
+      min-height: 171px;
+
+      &-image {
+        width: 86px;
+        height: 86px;
+        top: -35px;
+      }
+
+      &-title {
+        font-size: 17px;
+        line-height: 21px;
+      }
+
+      &-text {
+        font-size: 11px;
+        line-height: 14px;
+      }
+
+      &:nth-child(9) {
+        position: relative;
+
+        .how-works__card-cta {
+          top: -104px;
+        }
+      }
     }
   }
 

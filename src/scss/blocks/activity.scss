@@ -30,6 +30,26 @@
     color: #18232F;
   }
 
+  @media (max-width: 1440px) {
+    margin-top: 49px;
+    max-width: 1000px;
+
+    svg {
+      width: 56px;
+      height: 56px;
+    }
+    &__container {
+      max-width: 350px;
+    }
+
+    &__item {
+      max-width: 140px;
+    }
+
+    &__desc {
+      font-size: 13px;
+    }
+  }
   @media (max-width: 740px) {
     margin-top: 50px;
     &__item {
