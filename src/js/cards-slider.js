@@ -258,7 +258,6 @@ const cardsSlider = () => {
   let anchor = false
   document.addEventListener('scroll', () => {
     if (!anchor && isOnVisibleSpace(module)) {
-      console.log(isOnVisibleSpace(module))
       cards[0].story.start()
       anchor = true
     }
