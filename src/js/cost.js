@@ -100,9 +100,9 @@ const costLogic = () => {
     };
 
     const changeSubscribers = function () {
-      const newValue = +this.value.replace('.', '') || 0;
+      const newValue = +this.value.replace(/[^0-9]/g, "");
       range.value = newValue || 0
-      subscribersInput.value = divideNumberByPieces(newValue);
+      subscribersInput.value = divideNumberByPieces(newValue || 0);
       sumInput.value = `${calculation(newValue, subscriberCost[selectedCurrency])} ${currencySymbol[selectedCurrency]}`;
     }
     changeCurrencyBtnStyle();
