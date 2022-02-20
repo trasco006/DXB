@@ -10,10 +10,10 @@ class SlideStories {
     this.addThumbItems()
     this.init()
     this.addNavigation();
-
-
     this.touchTimer = null;
     this.touchduration = 100;
+    this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'paused'
+    this.longThumbItems[this.active].querySelector('span').style.animationPlayState = 'paused'
   }
 
   Timer(callback, delay) {
@@ -47,6 +47,8 @@ class SlideStories {
 
   start() {
     this.activeSlide(0, true)
+    this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'running'
+    this.longThumbItems[this.active].querySelector('span').style.animationPlayState = 'running'
   }
 
   stop() {
@@ -154,119 +156,113 @@ class SlideStories {
   }
 }
 
-const
-  cardsSlider = () => {
-
-    const btnClass = 'cards-slider__pagination-btn'
-    const activeBtnClass = 'cards-slider__pagination-btn cards-slider__pagination-btn_active'
-
-    const cardClass = 'cards-slider__card'
-    const activeCardClass = 'cards-slider__card cards-slider__card_active'
-
-    const sliderModules = document.querySelectorAll('.cards-slider')
-
-    sliderModules.forEach(module => {
-      let activeSlide = 0
-
-      const paginationButtons = module.querySelectorAll(`.${btnClass}`);
-      const cards = module.querySelectorAll(`.${cardClass}`)
-
-      paginationButtons.forEach((btn, index) => {
-        const openCard = (openCardIndex) => {
-          cards[openCardIndex].story.start()
-          paginationButtons[openCardIndex].className = activeBtnClass
-          cards[openCardIndex].className = activeCardClass
-        }
-        const closeCard = (closeCardIndex) => {
-          cards[closeCardIndex].story.stop()
-          cards[closeCardIndex].className = cardClass
-          paginationButtons[closeCardIndex].className = btnClass
-        }
-        const prevCategory = () => {
-          const prevIndex = index === 0 ? paginationButtons.length - 1 : index - 1
-          closeCard(index)
-          activeSlide = prevIndex
-          openCard(prevIndex)
-        }
-        const nextCategory = () => {
-          const nextIndex = index === paginationButtons.length - 1 ? 0 : index + 1
-          closeCard(index)
-          activeSlide = nextIndex
-          openCard(nextIndex)
-        }
-        cards[index].story = new SlideStories(cards[index], prevCategory, nextCategory)
-
-        // slides in category
-        const slidesArr = cards[index].querySelectorAll('.cards-slider__card-image')
-        //
-        // let timer = 0
-        // const handleCardDown = function (target, slideIndex) {
-        //   timer = setTimeout(() => {
-        //     cards[index].story.pause()
-        //     console.log('pause')
-        //     clearTimeout(timer);
-        //     timer = null
-        //   }, 500);
-        // }
-        //
-        // const handleCardUp = function (target, slideIndex) {
-        //   if (timer) {
-        //     cards[index].story.resume()
-        //     console.log('resume')
-        //     cards[index].story.select(slideIndex)
-        //     clearTimeout(timer);
-        //   }
-        // }
-
-
-        slidesArr.forEach((slide, slideIndex) => {
-          let pause = false
-
-          const simpleClick = function () {
-            if (window.outerWidth > 720) {
-              if (this.classList.contains('cards-slider__card-image_active')) {
-                if (pause) {
-                  cards[index].story.resume()
-                  pause = false
-                  console.log('resume')
-                } else {
-                  cards[index].story.pause()
-                  pause = true
-                  console.log('pause')
-                }
-              } else {
-                console.log('select new slide');
-                cards[index].story.select(slideIndex)
-              }
-            }
-          }
-
-          slide.addEventListener('click', simpleClick)
-          // slide.addEventListener('mousedown', function ({target}) {
-          //   handleCardDown(target, slideIndex)
-          // })
-          // slide.addEventListener('mouseup', function ({target}) {
-          //   handleCardUp(target, slideIndex)
-          // })
-        })
-
-        const btnHandler = function () {
-          paginationButtons[activeSlide].className = btnClass
-          cards[activeSlide].className = cardClass
-          closeCard(activeSlide)
-
-          openCard(index)
-          this.className = activeBtnClass
-          cards[index].className = activeCardClass
-          activeSlide = index
-        }
-
-
-        btn.addEventListener('click', btnHandler)
-      })
-
-      cards[0].story.start()
-    })
+const isOnVisibleSpace = (element) => {
+  const bodyHeight = window.innerHeight;
+  const elemRect = element.getBoundingClientRect();
+  const offset = elemRect.top
+  if (offset < 0) {
+    return false
   }
+
+  if (offset > bodyHeight) {
+    return false
+  }
+
+  return true;
+}
+
+
+const cardsSlider = () => {
+
+  const btnClass = 'cards-slider__pagination-btn'
+  const activeBtnClass = 'cards-slider__pagination-btn cards-slider__pagination-btn_active'
+
+  const cardClass = 'cards-slider__card'
+  const activeCardClass = 'cards-slider__card cards-slider__card_active'
+
+  const module = document.querySelector('.cards-slider')
+
+  let activeSlide = 0
+
+  const paginationButtons = module.querySelectorAll(`.${btnClass}`);
+  const cards = module.querySelectorAll(`.${cardClass}`)
+
+  paginationButtons.forEach((btn, index) => {
+    const openCard = (openCardIndex) => {
+      cards[openCardIndex].story.start()
+      paginationButtons[openCardIndex].className = activeBtnClass
+      cards[openCardIndex].className = activeCardClass
+    }
+    const closeCard = (closeCardIndex) => {
+      cards[closeCardIndex].story.stop()
+      cards[closeCardIndex].className = cardClass
+      paginationButtons[closeCardIndex].className = btnClass
+    }
+    const prevCategory = () => {
+      const prevIndex = index === 0 ? paginationButtons.length - 1 : index - 1
+      closeCard(index)
+      activeSlide = prevIndex
+      openCard(prevIndex)
+    }
+    const nextCategory = () => {
+      const nextIndex = index === paginationButtons.length - 1 ? 0 : index + 1
+      closeCard(index)
+      activeSlide = nextIndex
+      openCard(nextIndex)
+    }
+    cards[index].story = new SlideStories(cards[index], prevCategory, nextCategory)
+
+    // slides in category
+    const slidesArr = cards[index].querySelectorAll('.cards-slider__card-image')
+
+    slidesArr.forEach((slide, slideIndex) => {
+      let pause = false
+
+      const simpleClick = function () {
+        if (window.outerWidth > 720) {
+          if (this.classList.contains('cards-slider__card-image_active')) {
+            if (pause) {
+              cards[index].story.resume()
+              pause = false
+              console.log('resume')
+            } else {
+              cards[index].story.pause()
+              pause = true
+              console.log('pause')
+            }
+          } else {
+            console.log('select new slide');
+            cards[index].story.select(slideIndex)
+          }
+        }
+      }
+
+      slide.addEventListener('click', simpleClick)
+    })
+
+    const btnHandler = function () {
+      paginationButtons[activeSlide].className = btnClass
+      cards[activeSlide].className = cardClass
+      closeCard(activeSlide)
+
+      openCard(index)
+      this.className = activeBtnClass
+      cards[index].className = activeCardClass
+      activeSlide = index
+    }
+
+
+    btn.addEventListener('click', btnHandler)
+  })
+
+  let anchor = false
+  document.addEventListener('scroll', () => {
+    if (!anchor && isOnVisibleSpace(module)) {
+      console.log(isOnVisibleSpace(module))
+      cards[0].story.start()
+      anchor = true
+    }
+  })
+}
 
 cardsSlider()
