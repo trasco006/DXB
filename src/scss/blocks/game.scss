@@ -276,14 +276,14 @@
 
     &__right-arrow {
       top: 10px;
-      right: -180px;
-      transform: scale(.5);
+      right: -164px;
+      transform: scale(.8);
     }
 
     &__left-arrow {
-      transform: scaleY(-1) scale(.5);
-      left: -185px;
-      top: -55px;
+      transform: scaleY(-1) scale(.8);
+      left: -171px;
+      top: -39px;
     }
   }
 
@@ -331,7 +331,7 @@
 
 
     &__right-arrow {
-      top: -2.5vw;
+      top: 2.5vw;
       right: -29vw;
       transform: scale(1);
       width: 10vw;
@@ -341,7 +341,7 @@
       width: 10vw;
       transform: scaleY(-1);
       left: -28.87vw;
-      top: -11.68vw;
+      top: -8.68vw;
     }
 
 
