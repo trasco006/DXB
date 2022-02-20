@@ -1,0 +1,113 @@
+.popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  display: none;
+
+  &_active {
+    display: flex;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 501;
+    background: #000000b5;
+  }
+
+  &__window {
+    z-index: 502;
+    margin: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  &__window_up {
+    max-width: 800px;
+    z-index: 502;
+    margin: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    p {
+      margin-bottom: 1rem
+    }
+
+    h5 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+
+      @media (max-width: 480px) {
+        font-size: 6.5vw;
+      }
+    }
+  }
+
+  &__window_video {
+    width: 60vw;
+    height: 50vh;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 980px) {
+      width: 90vw;
+      height: 60vw;
+    }
+  }
+
+  .contract-popup__body {
+    box-sizing: border-box;
+    background: #fff;
+    width: 95%;
+    z-index: 999;
+    border-radius: 10px;
+    position: relative;
+    padding: 0;
+
+    & > div {
+      padding: 30px 20px;
+      width: 100%;
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+
+    b {
+      font-weight: bold;
+    }
+
+    button {
+      outline: none;
+      border: none;
+      background: none;
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+      position: absolute;
+      right: 12px;
+      top: 0;
+      text-decoration: none;
+      text-align: center;
+      opacity: .65;
+      padding: 0 0 18px 10px;
+      color: #333;
+      font-style: normal;
+      font-size: 28px;
+      font-family: 'Montserrat Alternates', 'Arial', sans-serif;
+      cursor: pointer;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}

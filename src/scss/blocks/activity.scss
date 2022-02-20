@@ -1,0 +1,84 @@
+.activity {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 70px;
+  align-items: flex-start;
+
+  &__container {
+    width: 50%;
+    max-width: 499px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item {
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__desc {
+    margin-top: 6px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 119.9%;
+    text-align: center;
+    color: #18232F;
+  }
+
+  @media (max-width: 1440px) {
+    margin-top: 49px;
+    max-width: 1000px;
+
+    svg {
+      width: 56px;
+      height: 56px;
+    }
+    &__container {
+      max-width: 350px;
+    }
+
+    &__item {
+      max-width: 140px;
+    }
+
+    &__desc {
+      font-size: 13px;
+    }
+  }
+  @media (max-width: 740px) {
+    margin-top: 50px;
+    &__item {
+      max-width: 175px;
+    }
+    &__desc {
+      font-size: 16.4725px;
+      line-height: 119.9%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 8.75vw;
+    #activity-item-1 {
+      .activity__desc {
+        max-width: 32vw;
+      }
+    }
+
+    .activity__desc {
+      max-width: 50vw;
+    }
+    svg {
+      width: 12.5vw;
+      height: 12.5vw;
+    }
+    &__desc {
+      font-size: 3.125vw;
+      line-height: 119.9%;
+    }
+  }
+}

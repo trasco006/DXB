@@ -1,6 +1,19 @@
-# Include your project-specific ignores in this file
-# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
-# Useful .gitignore templates: https://github.com/github/gitignore
-node_modules
+# Mac OS X
+.DS_Store
+._.*
+._*
+
+# Ignore local editor
+.project
+.settings
+.idea
+*.swp
+tags
+nbproject/*
+
+# Windows
+Thumbs.db
+
+npm-debug.log
 dist
-.cache
+node_modules/
