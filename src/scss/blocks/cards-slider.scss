@@ -202,10 +202,13 @@
     flex: 1;
     display: block;
     height: 4px;
-    background: rgba(255, 255, 255, 0.7);
-    margin: 0 3px;
+    background: rgba(255, 255, 255, .4);
+    margin: 0;
     border-radius: 15px;
     overflow: hidden;
+    @media(max-width: 760px) {
+      margin: 0 3px;
+    }
   }
 
 
@@ -213,8 +216,8 @@
     flex: 1;
     display: block;
     height: 10px;
-    background: rgba(150, 150, 150, 0.7);
-    margin: 0 3px;
+    background: #fff;
+    margin: 0;
     border-radius: 15px;
     overflow: hidden;
     width: 100%;
@@ -227,7 +230,7 @@
   .image-thumb.active > div > span {
     display: block;
     height: inherit;
-    background: #A48BF2;
+    background: linear-gradient(136.67deg, #FFC6C6 5.29%, #F28D8D 97.79%);;
     border-radius: 39px;
     transform: translateX(-100%);
     animation: thumb 5s forwards linear;
@@ -236,7 +239,7 @@
   .slide-thumb > div.active > span {
     display: block;
     height: inherit;
-    background: #A48BF2;
+    background: linear-gradient(136.67deg, #FFC6C6 5.29%, #F28D8D 97.79%);;
     border-radius: 39px;
     transform: translateX(-100%);
     animation: thumb 5s forwards linear;
