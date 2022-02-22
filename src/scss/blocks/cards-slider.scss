@@ -60,6 +60,7 @@
     text-align: start;
     padding: 0 5px 0 13px;
     transition: color .2s ease-in, background-color .3s ease-in;
+    outline: none;
 
     &:hover {
       background-color: rgba(61, 16, 205, 0.05);
