@@ -1,0 +1,53 @@
+.language-select {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  background-color: white;
+  margin-right: 15px;
+  z-index: 1;
+
+  &__lang {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    z-index: 1;
+
+    img {
+      margin-right: 4px;
+    }
+
+    border-radius: 4px;
+    transition: background-color .2s ease;
+
+    &:hover {
+      background-color: #faebff;
+    }
+  }
+
+  &__selected-lang {
+
+  }
+
+  &__list {
+    width: 100%;
+    display: none;
+    position: absolute;
+  }
+
+  &.open {
+    .language-select__list {
+      display: block;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.menu__container {
+  display: flex;
+  align-items: center;
+  min-width: max-content;
+}
