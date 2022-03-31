@@ -9,12 +9,12 @@ class TranslateModule {
     this.textFields = this.container.querySelectorAll('[data-t-key]')
     this.popups = this.container.querySelectorAll('[data-t-popup-key]')
     this.placeholders = this.container.querySelectorAll('[data-t-placeholder-key]')
+    this.images = this.container.querySelectorAll('[data-t-img]')
+    this.sources = this.container.querySelectorAll('[data-t-source]')
 
-
-    this.locale = navigator.language.split('-')[0]
-    this.baseLocale = 'ru'
+    this.baseLocale = navigator.language.split('-')[0]
+    this.locale = this.baseLocale
     this.dictionaries = {}
-
   }
 
   init() {
@@ -27,6 +27,7 @@ class TranslateModule {
     this.translateFields()
     this.translateHolders()
     this.translatePopups()
+    this.translateImages()
   }
 
   setInitSelectedLang() {
@@ -53,8 +54,6 @@ class TranslateModule {
         this.handleTranslate()
       })
     })
-
-
   }
 
   translateFields() {
@@ -121,6 +120,28 @@ class TranslateModule {
           this.dictionaries[this.locale] = dictionary
         })
     }
+  }
+
+  translateImages() {
+    const getLocaleFolder = (str) => {
+      return str.indexOf('/content/')
+    }
+    const changeImageUrlLocal = (src) => {
+      const currentImageLocale = src.substring(getLocaleFolder(src) + 8, getLocaleFolder(src) + 8 + 4)
+      return src.replace(currentImageLocale, `/${this.locale}/`)
+    }
+    this.sources.forEach((src) => {
+      const newSrc = changeImageUrlLocal(src.srcset)
+      if (newSrc) {
+        src.srcset = newSrc
+      }
+    })
+    this.images.forEach((img) => {
+      const newSrc = changeImageUrlLocal(img.src)
+      if (newSrc) {
+        img.src = newSrc
+      }
+    })
   }
 }
 
