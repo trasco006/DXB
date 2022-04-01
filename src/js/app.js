@@ -1,5 +1,6 @@
 import '../scss/app.scss';
 
+import './t/index.js'
 import './main.js';
 import './cost.js'
 import './registration.js'

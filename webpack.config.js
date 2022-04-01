@@ -5,7 +5,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-
 const environment = require('./configuration/environment');
 
 const templateFiles = fs.readdirSync(environment.paths.source)
@@ -28,7 +27,6 @@ module.exports = {
     path: environment.paths.output,
   },
   module: {
-
     rules: [
       {
         test: /\.(webm|mp4)$/,
@@ -66,6 +64,10 @@ module.exports = {
         generator: {
           filename: 'images/design/[name].[hash:6][ext]',
         },
+      },
+      {
+        test: /\.json$/,
+        use: 'json-loader'
       },
     ],
   },
@@ -105,6 +107,14 @@ module.exports = {
         {
           from: path.resolve(environment.paths.source, 'images', 'content'),
           to: path.resolve(environment.paths.output, 'images', 'content'),
+          toType: 'dir',
+          globOptions: {
+            ignore: ['*.DS_Store', 'Thumbs.db'],
+          },
+        },
+        {
+          from: path.resolve(environment.paths.source, 'assets', 'locales'),
+          to: path.resolve(environment.paths.output, 'assets', 'locales'),
           toType: 'dir',
           globOptions: {
             ignore: ['*.DS_Store', 'Thumbs.db'],

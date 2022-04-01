@@ -23,6 +23,7 @@
 @import "blocks/reputation";
 @import "blocks/game";
 @import "blocks/activity";
+@import "blocks/language";
 
 .gradient-text {
   background: $main-gradient;
@@ -72,6 +73,7 @@ html {
 }
 
 .blot {
+  pointer-events: none;
   @media (max-width: 480px) {
     display: none;
   }

@@ -15,7 +15,7 @@
   }
 
   &__wrapper {
-    width: min-content;
+    width: max-content;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -81,6 +81,7 @@
   }
 
   &__link {
+    padding: 13px;
     margin-left: 32px;
     font-weight: bold;
   }
@@ -243,6 +244,8 @@
     }
 
     & &__link {
+      padding: 14px 27px;
+      margin: 0;
       font-size: 4.37vw;
     }
 

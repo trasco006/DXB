@@ -18,7 +18,6 @@
             fill="#A082FE"/>
     </svg>
 
-
     <button class="menu-btn" type="button" aria-label="Menu" aria-controls="navigation">
         <span class="menu-btn__block">
           <span class="menu-btn__inner"></span>
@@ -27,27 +26,45 @@
 
     <div class="header__wrapper">
       <a href="#" class="logo">
-        <img loading="lazy" src="images/content/logo.svg" alt="image-logo" class="logo">
+        <img data-t-img loading="lazy" src="images/content/ru/logo.svg" alt="image-logo" class="logo">
       </a>
 
       <nav class="nav-menu">
         <ul class="nav-menu__list">
           <li class="nav-menu__item">
-            <a href="#how-works" class="nav-menu__link">Принцип работы</a>
+            <a href="#how-works" class="nav-menu__link" data-t-key="workPrinciple">Принцип работы</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#functionality" class="nav-menu__link">Функции</a>
+            <a href="#functionality" class="nav-menu__link" data-t-key="functionality">Функции</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#reputation" class="nav-menu__link">Репутация</a>
+            <a href="#reputation" class="nav-menu__link" data-t-key="reputation">Репутация</a>
           </li>
           <li class="nav-menu__item">
-            <a href="#cost" class="nav-menu__link">Стоимость</a>
+            <a href="#cost" class="nav-menu__link" data-t-key="cost">Стоимость</a>
           </li>
+          <div class="language-select">
+        <span class="language-select__lang language-select__selected-lang">
+          <img src="https://stripe.com/img/flags/ru.png">
+          RU
+        </span>
+
+            <ul class="language-select__list" role="menu">
+              <li class="language-select__lang" data-lang-en data-lang="en">
+                <img src="https://stripe.com/img/flags/us.png">
+                EN
+              </li>
+              <li class="language-select__lang" data-lang-ru data-lang="ru">
+                <img src="https://stripe.com/img/flags/ru.png">
+                RU
+              </li>
+            </ul>
+          </div>
         </ul>
       </nav>
-
-      <a href="https://igame.by/panel" class="btn">Вход</a>
+      <div class="menu__container">
+        <a href="https://igame.by/panel" class="btn" data-t-key="signIn">Вход</a>
+      </div>
     </div>
   </header>
 
@@ -59,17 +76,21 @@
     </svg>
 
     <div class="hero__wrapper">
-      <h1 class="hero__title">КОНСТРУКТОР </h1>
-      <h2 class="hero__desc">игр для Instagram <span class="hero__version">2.0</span></h2>
-      <p class="hero__subtitle">Прокачайте активность своих подписчиков</p>
+      <h1 class="hero__title" data-t-key="constructorTitle1">КОНСТРУКТОР</h1>
+      <h2 class="hero__desc">
+        <span data-t-key="constructorTitle2">игр для Instagram</span>
+        <span class="hero__version">2.0</span>
+      </h2>
+      <p class="hero__subtitle" data-t-key="constructorTitle3">Прокачайте активность своих подписчиков</p>
       <div class="hero__container">
-        <button type="button" class="btn btn_primary hero__registration">Регистрация</button>
-        <a href="#game" class="hero__link gradient-text">Прокачать</a>
+        <button type="button" class="btn btn_primary hero__registration" data-t-key="registrationSubmit">Регистрация
+        </button>
+        <a href="#game" class="hero__link gradient-text" data-t-key="cta">Прокачать</a>
       </div>
     </div>
     <picture class="hero__image-block">
-      <source srcset="images/content/hero.webp" type="image/webp">
-      <img loading="lazy" src="images/content/hero.png" alt="hero-image" class="hero__image">
+      <source data-t-source srcset="images/content/ru/hero.webp" type="image/webp">
+      <img data-t-img loading="lazy" src="images/content/ru/hero.png" alt="hero-image" class="hero__image">
     </picture>
   </section>
 
@@ -130,7 +151,7 @@
         </linearGradient>
       </defs>
     </svg>
-    <p>Обо всём<br/>
+    <p data-t-key="aboutAll">Обо всём<br/>
       за 2 минутки :)</p>
   </div>
 
@@ -193,8 +214,8 @@
 
 
       </button>
-      <span class="game__btn-hidden-text gradient-text">Запустить<br/>игру</span>
-      <p class="game__title">Обо всём<br/>
+      <span class="game__btn-hidden-text gradient-text" data-t-key="gameStart">Запустить<br/>игру</span>
+      <p class="game__title" data-t-key="gameTitle">Обо всём<br/>
         за 2 минутки :)</p>
     </div>
 
@@ -203,13 +224,15 @@
             d="M129.128 5.0686e-07C147.958 -0.00306081 163.187 13.8618 179.762 22.8004C196.83 32.0053 214.513 39.5226 228.09 53.3705C244.338 69.9434 263.436 87.4214 265.757 110.516C268.099 133.817 253.048 155.07 240.286 174.704C227.997 193.61 213.248 211.161 193.392 221.844C173.831 232.368 151.231 232.314 129.128 234.51C104.801 236.927 76.9757 249.547 57.0438 235.39C36.7584 220.983 42.7805 188.929 32.8365 166.119C24.2595 146.445 6.14218 131.686 2.60525 110.516C-1.20406 87.7159 -2.8534 60.5161 12.2727 43.0381C27.6413 25.28 56.4673 30.9329 78.5034 22.8169C96.1733 16.309 110.298 0.00306171 129.128 5.0686e-07Z"
             fill="#F4F0FF"/>
     </svg>
-    <video loop autoplay playsinline data-wf-ignore="true" data-object-fit="cover" muted width="100%" height="100%"
-           id="video-1" src="images/content/animation1.mp4" class="game__item">
-      <source src="images/content/animation1.mp4" type='video/mp4'>
+    <video data-t-img loop autoplay playsinline data-wf-ignore="true" data-object-fit="cover" muted width="100%"
+           height="100%"
+           id="video-1" src="images/content/ru/animation1.mp4" class="game__item">
+      <source data-t-source src="images/content/ru/animation1.mp4" type='video/mp4'>
     </video>
-    <video loop autoplay playsinline muted data-wf-ignore="true" data-object-fit="cover" width="100%" height="100%"
-           id="video-2" src="images/content/animation2.mp4" class="game__item">
-      <source src="images/content/animation2.mp4" type='video/mp4'>
+    <video data-t-img loop autoplay playsinline muted data-wf-ignore="true" data-object-fit="cover" width="100%"
+           height="100%"
+           id="video-2" src="images/content/ru/animation2.mp4" class="game__item">
+      <source data-t-source src="images/content/ru/animation2.mp4" type='video/mp4'>
     </video>
   </section>
 
@@ -230,7 +253,7 @@
             </linearGradient>
           </defs>
         </svg>
-        <p class="activity__desc">Никаких
+        <p class="activity__desc" data-t-key="activitySubtitle">Никаких
           накруток</p>
       </div>
     </div>
@@ -253,8 +276,9 @@
         </svg>
 
         <p class="activity__desc">
-          Активность
-          <strong class="gradient-text">вашей</strong> аудитории
+          <span data-t-key="activityDescription1">Активность</span>
+          <strong class="gradient-text" data-t-key="activityDescription2">вашей</strong>
+          <span data-t-key="activityDescription3">аудитории</span>
         </p>
       </div>
     </div>
@@ -262,7 +286,7 @@
 
   <section class="how-works container section">
     <a name="how-works"></a>
-    <h2 class="subtitle">КАК ЭТО РАБОТАЕТ?</h2>
+    <h2 class="subtitle" data-t-key="howItsWorksTitle">КАК ЭТО РАБОТАЕТ?</h2>
     <ul class="how-works__grid">
       <li class="how-works__card">
         <svg class="how-works__decor" width="45" height="205" viewBox="0 0 45 205" fill="none"
@@ -280,12 +304,13 @@
         </svg>
 
         <picture>
-          <source srcset="images/content/how-works/grid1.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid1.png" alt="settings"
+          <source data-t-source srcset="images/content/ru/how-works/grid1.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid1.png" alt="settings"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">1. Настройки</p>
-        <p class="how-works__card-text">Блогер регистрируется в нашем сервисе и выставляет нужные настройки игры.</p>
+        <p class="how-works__card-title" data-t-key="howItsWorksCardSettingsTitle">1. Настройки</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardSettingsSubtitle">Блогер регистрируется в нашем
+          сервисе и выставляет нужные настройки игры.</p>
 
         <svg class="blot" width="246" height="243" viewBox="0 0 246 243" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -309,12 +334,13 @@
           </defs>
         </svg>
         <picture>
-          <source srcset="images/content/how-works/grid2.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid2.png" alt="preview"
+          <source data-t-source srcset="images/content/ru/how-works/grid2.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid2.png" alt="preview"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">2. Анонс игры</p>
-        <p class="how-works__card-text">Затем он сообщает, что за комментарии, упоминания и реакции в Stories можно
+        <p class="how-works__card-title" data-t-key="howItsWorksCardPreviewTitle">2. Анонс игры</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardPreviewSubtitle">Затем он сообщает, что за
+          комментарии, упоминания и реакции в Stories можно
           получать баллы.</p>
       </li>
       <li class="how-works__card">
@@ -332,12 +358,13 @@
           </defs>
         </svg>
         <picture>
-          <source srcset="images/content/how-works/grid3.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid3.png" alt="bonus"
+          <source data-t-source srcset="images/content/ru/how-works/grid3.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid3.png" alt="bonus"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">3. Поощрение</p>
-        <p class="how-works__card-text">А баллы можно обменять на курс блогера, скидку на продукт, консультацию,
+        <p class="how-works__card-title" data-t-key="howItsWorksCardBonusTitle">3. Поощрение</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardBonusSubtitle">А баллы можно обменять на курс
+          блогера, скидку на продукт, консультацию,
           чек-лист и т.д.</p>
       </li>
       <li class="how-works__card">
@@ -355,12 +382,13 @@
           </defs>
         </svg>
         <picture>
-          <source srcset="images/content/how-works/grid4.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid4.png" alt="cost"
+          <source data-t-source srcset="images/content/ru/how-works/grid4.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid4.png" alt="cost"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">4. Подсчёт</p>
-        <p class="how-works__card-text">Мы автоматически подсчитываем активность участников игры блогера и выводим всё в
+        <p class="how-works__card-title" data-t-key="howItsWorksCardCalculateTitle">4. Подсчёт</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardCalculateSubtitle">Мы автоматически подсчитываем
+          активность участников игры блогера и выводим всё в
           табличку.</p>
       </li>
       <li class="how-works__card">
@@ -378,12 +406,13 @@
           </defs>
         </svg>
         <picture>
-          <source srcset="images/content/how-works/grid5.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid5.png" alt="transparently"
+          <source data-t-source srcset="images/content/ru/how-works/grid5.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid5.png" alt="transparently"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">5. Прозрачность</p>
-        <p class="how-works__card-text">Ссылку на табличку блогер закрепляет в актуальных Stories. Свои баллы участники
+        <p class="how-works__card-title" data-t-key="howItsWorksCardHonestyTitle">5. Прозрачность</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardHonestySubtitle">Ссылку на табличку блогер
+          закрепляет в актуальных Stories. Свои баллы участники
           могут проверять 24/7.</p>
       </li>
       <li class="how-works__card">
@@ -401,12 +430,13 @@
           </defs>
         </svg>
         <picture>
-          <source srcset="images/content/how-works/grid6.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid6.png" alt="motivation"
+          <source data-t-source srcset="images/content/ru/how-works/grid6.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid6.png" alt="motivation"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">6. Мотивация</p>
-        <p class="how-works__card-text">У подписчиков появляется мотивация комментировать stories, посты и рассказывать
+        <p class="how-works__card-title" data-t-key="howItsWorksCardMotivationTitle">6. Мотивация</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardMotivationSubtitle">У подписчиков появляется
+          мотивация комментировать stories, посты и рассказывать
           другим про ваш блог.</p>
         <svg class="blot" width="321" height="263" viewBox="0 0 321 263" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -430,12 +460,13 @@
           </defs>
         </svg>
         <picture>
-          <source srcset="images/content/how-works/grid7.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid7.png" alt="demos"
+          <source data-t-source srcset="images/content/ru/how-works/grid7.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid7.png" alt="demos"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">7. Рост охватов</p>
-        <p class="how-works__card-text">Из-за всплеска активности охваты начнуть расти, а подписчики вовлекаться в
+        <p class="how-works__card-title" data-t-key="howItsWorksCardCoverageTitle">7. Рост охватов</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardCoverageSubtitle">Из-за всплеска активности охваты
+          начнуть расти, а подписчики вовлекаться в
           контент блогера.</p>
       </li>
       <li class="how-works__card">
@@ -453,14 +484,14 @@
           </defs>
         </svg>
         <picture>
-          <source srcset="images/content/how-works/grid8.webp" type="image/webp">
-          <img loading="lazy" src="images/content/how-works/grid8.png" alt="news"
+          <source data-t-source srcset="images/content/ru/how-works/grid8.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/how-works/grid8.png" alt="news"
                class="how-works__card-image">
         </picture>
-        <p class="how-works__card-title">8. Умная лента</p>
-        <p class="how-works__card-text">Умная лента Instagram начнёт выводить посты и Stories блогера первыми у его
+        <p class="how-works__card-title" data-t-key="howItsWorksCardFeedTitle">8. Умная лента</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardFeedSubtitle">Умная лента Instagram начнёт
+          выводить посты и Stories блогера первыми у его
           подписчиков.</p>
-
 
         <svg class="blot" width="283" height="278" viewBox="0 0 283 278" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -504,10 +535,11 @@
             </linearGradient>
           </defs>
         </svg>
-        <img loading="lazy" src="images/content/how-works/grid9.svg" alt="example"
+        <img data-t-img loading="lazy" src="images/content/ru/how-works/grid9.svg" alt="example"
              class="how-works__card-image how-works__video-btn">
-        <p class="how-works__card-title">9. Живой пример</p>
-        <p class="how-works__card-text">Посмотрите, как это происходит на реальном примере и разберитесь
+        <p class="how-works__card-title" data-t-key="howItsWorksCardExampleTitle">9. Живой пример</p>
+        <p class="how-works__card-text" data-t-key="howItsWorksCardExampleSubtitle">Посмотрите, как это происходит на
+          реальном примере и разберитесь
           за 2 минутки :)</p>
       </li>
     </ul>
@@ -520,7 +552,7 @@
             fill="#F4F0FF"/>
     </svg>
     <a name="functionality"></a>
-    <h2 class="subtitle">Функционал</h2>
+    <h2 class="subtitle" data-t-key="functionalityTitle">Функционал</h2>
 
     <div class="cards-slider">
       <div class="cards-slider__pagination-column">
@@ -540,21 +572,28 @@
                 </linearGradient>
               </defs>
             </svg>
-            <p class="gradient-text">Кликай</p>
+            <p class="gradient-text" data-t-key="functionalityClick">Кликай</p>
           </div>
 
           <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn cards-slider__pagination-btn_active" data-card="1">1. Stories
+            <button class="cards-slider__pagination-btn cards-slider__pagination-btn_active" data-card="1"
+                    data-t-key="functionalityPagination1">1. Stories
             </button>
           </li>
           <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn" data-card="2">2. Лента</button>
+            <button class="cards-slider__pagination-btn" data-card="2" data-t-key="functionalityPagination2">2.
+              Лента
+            </button>
           </li>
           <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn" data-card="3">3. Эфиры</button>
+            <button class="cards-slider__pagination-btn" data-card="3" data-t-key="functionalityPagination3">3.
+              Эфиры
+            </button>
           </li>
           <li class="cards-slider__pagination-item">
-            <button class="cards-slider__pagination-btn" data-card="4">4. Упоминания</button>
+            <button class="cards-slider__pagination-btn" data-card="4" data-t-key="functionalityPagination4">4.
+              Упоминания
+            </button>
           </li>
           <!--          <li class="cards-slider__pagination-item">-->
           <!--            <button class="cards-slider__pagination-btn" data-card="5">5. Бот</button>-->
@@ -567,64 +606,64 @@
             <div class="slide-items">
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/1.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/1.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/1.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/1.jpg" alt="Stories"
                        class="cards-slider__card-image cards-slider__card-image_active">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/2.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/2.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/2.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/2.jpg" alt="Stories"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/3.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/3.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/3.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/3.jpg" alt="Stories"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/4.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/4.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/4.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/4.jpg" alt="Stories"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/5.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/5.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/5.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/5.jpg" alt="Stories"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/6.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/6.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/6.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/6.jpg" alt="Stories"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/7.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/7.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/7.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/7.jpg" alt="Stories"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/stories/8.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/stories/8.jpg" alt="Stories"
+                  <source data-t-source srcset="images/content/ru/stories/8.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/stories/8.jpg" alt="Stories"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
@@ -642,64 +681,64 @@
             <div class="slide-items">
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/1.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/1.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/1.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/1.jpg" alt="Mentions"
                        class="cards-slider__card-image cards-slider__card-image_active">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/2.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/2.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/2.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/2.jpg" alt="Mentions"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/3.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/3.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/3.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/3.jpg" alt="Mentions"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/4.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/4.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/4.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/4.jpg" alt="Mentions"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/5.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/5.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/5.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/5.jpg" alt="Mentions"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/6.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/6.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/6.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/6.jpg" alt="Mentions"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/7.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/7.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/7.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/7.jpg" alt="Mentions"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/posts/8.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/posts/8.jpg" alt="Mentions"
+                  <source data-t-source srcset="images/content/ru/posts/8.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/posts/8.jpg" alt="Mentions"
                        class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
@@ -716,23 +755,25 @@
             <div class="slide-items">
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/lives/1.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/lives/1.jpg" alt="Live"
+                  <source data-t-source srcset="images/content/ru/lives/1.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/lives/1.jpg" alt="Live"
                        class="cards-slider__card-image cards-slider__card-image_active">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/lives/2.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/lives/2.jpg" alt="Live" class="cards-slider__card-image">
+                  <source data-t-source srcset="images/content/ru/lives/2.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/lives/2.jpg" alt="Live"
+                       class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/lives/3.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/lives/3.jpg" alt="Live" class="cards-slider__card-image">
+                  <source data-t-source srcset="images/content/ru/lives/3.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/lives/3.jpg" alt="Live"
+                       class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
@@ -748,30 +789,33 @@
             <div class="slide-items">
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/feed/1.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/feed/1.jpg" alt="Feed"
+                  <source data-t-source srcset="images/content/ru/feed/1.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/feed/1.jpg" alt="Feed"
                        class="cards-slider__card-image cards-slider__card-image_active">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/feed/2.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/feed/2.jpg" alt="Feed" class="cards-slider__card-image">
+                  <source data-t-source srcset="images/content/ru/feed/2.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/feed/2.jpg" alt="Feed"
+                       class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/feed/3.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/feed/3.jpg" alt="Feed" class="cards-slider__card-image">
+                  <source data-t-source srcset="images/content/ru/feed/3.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/feed/3.jpg" alt="Feed"
+                       class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
               <div class="slide-items__container">
                 <picture>
-                  <source srcset="images/content/feed/4.webp" type="image/webp">
-                  <img loading="lazy" src="images/content/feed/4.jpg" alt="Feed" class="cards-slider__card-image">
+                  <source data-t-source srcset="images/content/ru/feed/4.webp" type="image/webp">
+                  <img data-t-img loading="lazy" src="images/content/ru/feed/4.jpg" alt="Feed"
+                       class="cards-slider__card-image">
                 </picture>
                 <div class="image-thumb"></div>
               </div>
@@ -783,57 +827,6 @@
               </nav>
             </div>
           </li>
-
-          <!--          <li class="cards-slider__card slide" data-card="5">-->
-          <!--            <div class="slide-items">-->
-          <!--              <div class="slide-items__container">-->
-          <!--                <picture>-->
-          <!--                  <source srcset="images/content/test-card5.webp" type="image/webp">-->
-          <!--                  <img loading="lazy" src="images/content/test-card5.jpg" alt="Chat-bot"-->
-          <!--                       class="cards-slider__card-image cards-slider__card-image_active">-->
-          <!--                </picture>-->
-          <!--                <div class="image-thumb"></div>-->
-          <!--              </div>-->
-          <!--              <div class="slide-items__container">-->
-          <!--                <picture>-->
-          <!--                  <source srcset="images/content/test-card5.webp" type="image/webp">-->
-          <!--                  <img loading="lazy" src="images/content/test-card5.jpg" alt="Chat-bot"-->
-          <!--                       class="cards-slider__card-image">-->
-          <!--                </picture>-->
-          <!--                <div class="image-thumb"></div>-->
-          <!--              </div>-->
-          <!--              <div class="slide-items__container">-->
-          <!--                <picture>-->
-          <!--                  <source srcset="images/content/test-card5.webp" type="image/webp">-->
-          <!--                  <img loading="lazy" src="images/content/test-card5.jpg" alt="Chat-bot"-->
-          <!--                       class="cards-slider__card-image">-->
-          <!--                </picture>-->
-          <!--                <div class="image-thumb"></div>-->
-          <!--              </div>-->
-          <!--              <div class="slide-items__container">-->
-          <!--                <picture>-->
-          <!--                  <source srcset="images/content/test-card5.webp" type="image/webp">-->
-          <!--                  <img loading="lazy" src="images/content/test-card5.jpg" alt="Chat-bot"-->
-          <!--                       class="cards-slider__card-image">-->
-          <!--                </picture>-->
-          <!--                <div class="image-thumb"></div>-->
-          <!--              </div>-->
-          <!--              <div class="slide-items__container">-->
-          <!--                <picture>-->
-          <!--                  <source srcset="images/content/test-card5.webp" type="image/webp">-->
-          <!--                  <img loading="lazy" src="images/content/test-card5.jpg" alt="Chat-bot"-->
-          <!--                       class="cards-slider__card-image">-->
-          <!--                </picture>-->
-          <!--                <div class="image-thumb"></div>-->
-          <!--              </div>-->
-          <!--              <div class="slide-thumb"></div>-->
-          <!--              <nav class="slide-nav">-->
-          <!--                <button class="slide-prev">Previous</button>-->
-          <!--                <span class="slide-pause"></span>-->
-          <!--                <button class="slide-next">Next</button>-->
-          <!--              </nav>-->
-          <!--            </div>-->
-          <!--          </li>-->
         </ul>
       </div>
     </div>
@@ -851,29 +844,44 @@
             fill="#EBC0E9"/>
     </svg>
 
-    <h3 class="subtitle">ВЫГОДЫ</h3>
+    <h3 class="subtitle" data-t-key="benefitsTitle">ВЫГОДЫ</h3>
     <div class="benefits__container">
-      <button type="button" class="btn benefits__button" data-tab="1">Блогеров</button>
-      <button type="button" class="btn benefits__button" data-tab="2">Подписчиков</button>
+      <button type="button" class="btn benefits__button" data-tab="1" data-t-key="benefitsBloggerBtn">Блогеров
+      </button>
+      <button type="button" class="btn benefits__button" data-tab="2" data-t-key="benefitsSubscriberBtn">
+        Подписчиков
+      </button>
     </div>
     <div class="benefits__columns">
       <ul class="benefits__column">
-        <li class="benefits__item">Десятки вариантов новых конкурсов и активностей</li>
-        <li class="benefits__item">Посты начнут попадать в ТОП по хэштэгам и ГЕО</li>
-        <li class="benefits__item">Баллы можно использовать, как валюту аккаунта</li>
-        <li class="benefits__item">Розыгрыш баллов в Stories = Рост просмотров</li>
-        <li class="benefits__item">Повышение лояльности к блогеру/бренду</li>
-        <li class="benefits__item">Увеличение спроса на продукты/услуги</li>
-        <li class="benefits__item">Рост вовлеченности и охватов</li>
+        <li class="benefits__item" data-t-key="benefitsBloggerText1">Десятки вариантов новых конкурсов и
+          активностей
+        </li>
+        <li class="benefits__item" data-t-key="benefitsBloggerText2">Посты начнут попадать в ТОП по хэштэгам и ГЕО
+        </li>
+        <li class="benefits__item" data-t-key="benefitsBloggerText3">Баллы можно использовать, как валюту аккаунта
+        </li>
+        <li class="benefits__item" data-t-key="benefitsBloggerText4">Розыгрыш баллов в Stories = Рост просмотров</li>
+        <li class="benefits__item" data-t-key="benefitsBloggerText5">Повышение лояльности к блогеру/бренду</li>
+        <li class="benefits__item" data-t-key="benefitsBloggerText6">Увеличение спроса на продукты/услуги</li>
+        <li class="benefits__item" data-t-key="benefitsBloggerText7">Рост вовлеченности и охватов</li>
       </ul>
       <ul class="benefits__column">
-        <li class="benefits__item">За активность в постах, эфирах, Stories можно получать призы</li>
-        <li class="benefits__item">Побеждают не случайные люди, а самые усердные</li>
-        <li class="benefits__item">Бесплатные действия теперь награждаются</li>
-        <li class="benefits__item">Баллы не сгорают, а накапливаются</li>
-        <li class="benefits__item">Проверить счёт можно за 1 клик по ссылке из закрепелённых Stories</li>
-        <li class="benefits__item">Прозрачность подсчётов и максимальное доверие аудитории</li>
-        <li class="benefits__item">Вступить в игру можно в любой момент</li>
+        <li class="benefits__item" data-t-key="benefitsSubscriberText1">За активность в постах, эфирах, Stories можно
+          получать призы
+        </li>
+        <li class="benefits__item" data-t-key="benefitsSubscriberText2">Побеждают не случайные люди, а самые
+          усердные
+        </li>
+        <li class="benefits__item" data-t-key="benefitsSubscriberText3">Бесплатные действия теперь награждаются</li>
+        <li class="benefits__item" data-t-key="benefitsSubscriberText4">Баллы не сгорают, а накапливаются</li>
+        <li class="benefits__item" data-t-key="benefitsSubscriberText5">Проверить счёт можно за 1 клик по ссылке из
+          закрепелённых Stories
+        </li>
+        <li class="benefits__item" data-t-key="benefitsSubscriberText6">Прозрачность подсчётов и максимальное доверие
+          аудитории
+        </li>
+        <li class="benefits__item" data-t-key="benefitsSubscriberText7">Вступить в игру можно в любой момент</li>
       </ul>
     </div>
   </section>
@@ -887,9 +895,11 @@
       </svg>
 
       <a name="reputation"></a>
-      <h2 class="subtitle">Репутация</h2>
-      <h3 class="reputation__description">iGame - сервис от создателей <span
-        class="gradient-text-second">SUB.BY</span>
+      <h2 class="subtitle" data-t-key="reputation">Репутация</h2>
+      <h3 class="reputation__description">
+        <span data-t-key="reputationTitle1">iGame - сервис от создателей</span>
+        <span
+          class="gradient-text-second" data-t-key="reputationTitle2">SUB.BY</span>
       </h3>
       <div class="reputation__slider">
         <div class="reputation__pagination-column">
@@ -910,20 +920,27 @@
                   </linearGradient>
                 </defs>
               </svg>
-              <p>Кликай</p>
+              <p data-t-key="reputationClick">Кликай</p>
             </div>
             <li class="reputation__pagination-item">
-              <button class="reputation__pagination-btn reputation__pagination-btn_active" data-card="1">1. Instagram
+              <button class="reputation__pagination-btn reputation__pagination-btn_active" data-card="1"
+                      data-t-key="reputationPagination1">1. Instagram
               </button>
             </li>
             <li class="reputation__pagination-item">
-              <button class="reputation__pagination-btn" data-card="2">2. Dnative.ru</button>
+              <button class="reputation__pagination-btn" data-card="2" data-t-key="reputationPagination2">2.
+                Dnative.ru
+              </button>
             </li>
             <li class="reputation__pagination-item">
-              <button class="reputation__pagination-btn" data-card="3">3. Starpack.ru</button>
+              <button class="reputation__pagination-btn" data-card="3" data-t-key="reputationPagination3">3.
+                Starpack.ru
+              </button>
             </li>
             <li class="reputation__pagination-item">
-              <button class="reputation__pagination-btn" data-card="4">4. Yandex.ru</button>
+              <button class="reputation__pagination-btn" data-card="4" data-t-key="reputationPagination4">4.
+                Yandex.ru
+              </button>
             </li>
           </ul>
         </div>
@@ -933,65 +950,70 @@
 
             <li class="reputation__card reputation__card_active" data-comment="1">
               <picture>
-                <source media="(max-width:740px)" srcset="images/content/inst-580w.webp" type="image/webp">
-                <source media="(max-width:740px)" srcset="images/content/inst-580w.jpg">
-                <source srcset="images/content/insta-pc-1.webp" type="image/webp">
-                <img loading="eager" src="images/content/insta-pc-1.jpg" alt="dnative-comment">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/inst-580w.webp"
+                        type="image/webp">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/inst-580w.jpg">
+                <source data-t-source srcset="images/content/ru/insta-pc-1.webp" type="image/webp">
+                <img data-t-img loading="eager" src="images/content/ru/insta-pc-1.jpg" alt="dnative-comment">
               </picture>
               <picture class="hide">
-                <source srcset="images/content/insta-pc-2.webp" type="image/webp">
-                <img loading="lazy" src="images/content/insta-pc-2.jpg" alt="dnative-comment">
+                <source data-t-source srcset="images/content/ru/insta-pc-2.webp" type="image/webp">
+                <img data-t-img loading="lazy" src="images/content/ru/insta-pc-2.jpg" alt="dnative-comment">
               </picture>
             </li>
 
             <li class="reputation__card" data-comment="2">
               <picture>
-                <source media="(max-width:740px)" srcset="images/content/dnative-580w.webp" type="image/webp">
-                <source media="(max-width:740px)" srcset="images/content/dnative-580w.jpg">
-                <source srcset="images/content/dnative-comment-l-1.webp" type="image/webp">
-                <img loading="eager" src="images/content/dnative-comment-l-1.jpg" alt="dnative-comment">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/dnative-580w.webp"
+                        type="image/webp">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/dnative-580w.jpg">
+                <source data-t-source srcset="images/content/ru/dnative-comment-l-1.webp" type="image/webp">
+                <img data-t-img loading="eager" src="images/content/ru/dnative-comment-l-1.jpg" alt="dnative-comment">
               </picture>
               <picture class="hide">
-                <source srcset="images/content/dnative-comment-l-2.webp" type="image/webp">
-                <img loading="lazy" src="images/content/dnative-comment-l-2.jpg" alt="dnative-comment">
+                <source data-t-source srcset="images/content/ru/dnative-comment-l-2.webp" type="image/webp">
+                <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-l-2.jpg" alt="dnative-comment">
               </picture>
               <picture class="hide">
-                <source srcset="images/content/dnative-comment-l-3.webp" type="image/webp">
-                <img loading="lazy" src="images/content/dnative-comment-l-3.jpg" alt="dnative-comment">
+                <source data-t-source srcset="images/content/ru/dnative-comment-l-3.webp" type="image/webp">
+                <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-l-3.jpg" alt="dnative-comment">
               </picture>
               <picture class="hide">
-                <source srcset="images/content/dnative-comment-l-4.webp" type="image/webp">
-                <img loading="lazy" src="images/content/dnative-comment-l-4.jpg" alt="dnative-comment">
+                <source data-t-source srcset="images/content/ru/dnative-comment-l-4.webp" type="image/webp">
+                <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-l-4.jpg" alt="dnative-comment">
               </picture>
               <picture class="hide">
-                <source srcset="images/content/dnative-comment-l-5.webp" type="image/webp">
-                <img loading="lazy" src="images/content/dnative-comment-l-5.jpg" alt="dnative-comment">
+                <source data-t-source srcset="images/content/ru/dnative-comment-l-5.webp" type="image/webp">
+                <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-l-5.jpg" alt="dnative-comment">
               </picture>
               <picture class="hide">
-                <source srcset="images/content/dnative-comment-l-6.webp" type="image/webp">
-                <img loading="lazy" src="images/content/dnative-comment-l-6.jpg" alt="dnative-comment">
+                <source data-t-source srcset="images/content/ru/dnative-comment-l-6.webp" type="image/webp">
+                <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-l-6.jpg" alt="dnative-comment">
               </picture>
             </li>
 
             <li class="reputation__card" data-comment="3">
               <picture>
-                <source media="(max-width:740px)" srcset="images/content/startpack-580w.webp" type="image/webp">
-                <source media="(max-width:740px)" srcset="images/content/startpack-580w.jpg">
-                <source srcset="images/content/startpack-comment-l-1.webp" type="image/webp">
-                <img loading="eager" src="images/content/startpack-comment-l-1.jpg" alt="starpack comment">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/startpack-580w.webp"
+                        type="image/webp">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/startpack-580w.jpg">
+                <source data-t-source srcset="images/content/ru/startpack-comment-l-1.webp" type="image/webp">
+                <img data-t-img loading="eager" src="images/content/ru/startpack-comment-l-1.jpg"
+                     alt="starpack comment">
               </picture>
               <picture class="hide">
-                <source srcset="images/content/startpack-comment-l-2.webp" type="image/webp">
-                <img loading="lazy" src="images/content/startpack-comment-l-2.jpg" alt="starpack comment">
+                <source data-t-source srcset="images/content/ru/startpack-comment-l-2.webp" type="image/webp">
+                <img data-t-img loading="lazy" src="images/content/ru/startpack-comment-l-2.jpg" alt="starpack comment">
               </picture>
             </li>
 
             <li class="reputation__card" data-comment="4">
               <picture>
-                <source media="(max-width:740px)" srcset="images/content/yandex-580w.webp" type="image/webp">
-                <source media="(max-width:740px)" srcset="images/content/yandex-580w.jpg">
-                <source srcset="images/content/yandex-comment-l.webp" type="image/webp">
-                <img loading="eager" src="images/content/yandex-comment-l.jpg" alt="insta-base">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/yandex-580w.webp"
+                        type="image/webp">
+                <source data-t-source media="(max-width:740px)" srcset="images/content/ru/yandex-580w.jpg">
+                <source data-t-source srcset="images/content/ru/yandex-comment-l.webp" type="image/webp">
+                <img data-t-img loading="eager" src="images/content/ru/yandex-comment-l.jpg" alt="insta-base">
               </picture>
             </li>
 
@@ -1007,16 +1029,18 @@
               fill="black"/>
       </svg>
 
-      <h3 class="subtitle">БЕЗОПАСНОСТЬ</h3>
+      <h3 class="subtitle" data-t-key="safetyTitle">БЕЗОПАСНОСТЬ</h3>
       <div class="safety__wrapper">
         <picture>
-          <source srcset="images/content/business_partner.webp" type="image/webp">
-          <img loading="lazy" src="images/content/business_partner.jpg" alt="facebook-business-partner"
+          <source data-t-source srcset="images/content/ru/business_partner.webp" type="image/webp">
+          <img data-t-img loading="lazy" src="images/content/ru/business_partner.jpg" alt="facebook-business-partner"
                class="safety__img"/>
         </picture>
-        <p class="safety__text">iGame является официальным партнёром Facebook. <span>И любые <strong>баны</strong> за
+        <p class="safety__text" data-t-key="safetySubtitle1">iGame является официальным партнёром Facebook. <span
+          data-t-key="safetySubtitle2">И любые <strong data-t-key="safetySubtitle3">баны</strong> <span
+          data-t-key="safetySubtitle4">за
           использование сервиса
-          исключены!</span></p>
+          исключены!</span></span></p>
       </div>
     </section>
   </div>
@@ -1028,29 +1052,31 @@
     </svg>
 
     <a name="cost"></a>
-    <h3 class="subtitle">СТОИМОСТЬ</h3>
-    <p class="cost__description reputation__description">Зависит от кол-ва подписчиков вашего блога</p>
+    <h3 class="subtitle" data-t-key="costTitle">СТОИМОСТЬ</h3>
+    <p class="cost__description reputation__description" data-t-key="costSubtitle">Зависит от кол-ва подписчиков вашего
+      блога</p>
     <div class="cost__card">
       <div class="cost__currency">
-        <button class="cost__currency-value" id="byn">BYN</button>
-        <button class="cost__currency-value" id="dollar">$</button>
-        <button class="cost__currency-value" id="rub">RUB</button>
+        <button class="cost__currency-value" id="byn" data-t-key="costCurrencyByn">BYN</button>
+        <button class="cost__currency-value" id="dollar" data-t-key="costCurrencyDollar">$</button>
+        <button class="cost__currency-value" id="rub" data-t-key="costCurrencyRubel">RUB</button>
       </div>
       <div class="cost__counters">
         <div class="cost__counter">
           <div class="input__wrapper">
-            <label for="cost__subscribers" class="cost__label">
+            <label for="cost__subscribers" class="cost__label" data-t-key="costLabel">
               Введите значение:
             </label>
             <input type="text" id="cost__subscribers" maxlength="9" class="cost__counter-input cost__subscribers">
           </div>
-          <label for="cost__subscribers" class="cost__counter-label">ВАШИ ПОДПИСЧИКИ</label>
+          <label for="cost__subscribers" class="cost__counter-label" data-t-key="costSubscribers">ВАШИ
+            ПОДПИСЧИКИ</label>
         </div>
         <div class="cost__counter">
           <div class="input__wrapper">
             <input type="text" id="cost__sum" disabled class="cost__counter-input cost__sum">
           </div>
-          <label for="cost__sum" class="cost__counter-label">ЦЕНА В МЕСЯЦ</label>
+          <label for="cost__sum" class="cost__counter-label" data-t-key="costPerMonth">ЦЕНА В МЕСЯЦ</label>
         </div>
       </div>
       <div class="cost__range">
@@ -1061,23 +1087,26 @@
 
   <section class="registration section" name="registration">
     <p class="registration__description">
-      <span class="gradient-text">1 шаг до новых охватов</span>
+      <span class="gradient-text" data-t-key="registrationTitle">1 шаг до новых охватов</span>
     </p>
     <form action="" class="registration__form">
-      <span class="registration__error">email уже используется</span>
+      <span class="registration__error" data-t-key="registrationEmailError">email уже используется</span>
       <div class="registration__textfield">
-        <input type="text" id="name-1" name="name" placeholder="Ваше имя" maxLength="255" class="registration__input"
+        <input type="text" id="name-1" name="name" data-t-placeholder-key="registrationNameHolder"
+               placeholder="Ваше имя" maxLength="255" class="registration__input"
                title="Your name" required>
       </div>
       <div class="registration__textfield">
-        <input type="email" id="email-1" name="email" placeholder="E-mail" maxLength="255" class="registration__input"
+        <input type="email" id="email-1" name="email" data-t-placeholder-key="registrationEmailHolder"
+               placeholder="E-mail" maxLength="255" class="registration__input"
                title="Email address" required>
       </div>
       <div class="registration__textfield">
-        <input type="text" maxLength="31" id="instagram-1" placeholder="Instagram" name="instagram-account"
+        <input type="text" maxLength="31" id="instagram-1" data-t-placeholder-key="registrationLoginHolder"
+               placeholder="Instagram" name="instagram-account"
                class="registration__input" title="Instagram login" required>
       </div>
-      <button type="submit" class="registration__submit">
+      <button type="submit" class="registration__submit" data-t-key="registrationSubmit">
         Регистрация
       </button>
     </form>
@@ -1090,7 +1119,7 @@
             fill="#F3EFFE"/>
     </svg>
 
-    <h4 class="about__title gradient-text">ОСТАЛИСЬ ВОПРОСЫ?</h4>
+    <h4 class="about__title gradient-text" data-t-key="aboutTitle">ОСТАЛИСЬ ВОПРОСЫ?</h4>
     <ul class="about__links">
       <li class="about__link">
         <a href="#" class="instagram-icon icon"></a>
@@ -1101,13 +1130,13 @@
     </ul>
     <div class="about__container">
       <div class="about__wrapper">
-        <p class="about__subtitle" id="privacy-btn">Политика конфиденциальности</p>
-        <p class="about__subtitle" id="contract-btn">Договор публичной оферты</p>
+        <p class="about__subtitle" id="privacy-btn" data-t-key="policyTitle">Политика конфиденциальности</p>
+        <p class="about__subtitle" id="contract-btn" data-t-key="contractTitle">Договор публичной оферты</p>
       </div>
       <div class="about__wrapper">
-        <p class="about__description">Республика Беларусь, г. Минск, ул. Одоевского 37-59<br/>
+        <p class="about__description" data-t-key="aboutDescription1">Республика Беларусь, г. Минск, ул. Одоевского 37-59<br/>
           ИП Савенок Светлана Михайловна, 220092</p>
-        <p class="about__description">Свидетельство о государственной регистрации<br/>
+        <p class="about__description" data-t-key="aboutDescription2">Свидетельство о государственной регистрации<br/>
           № 193428654 от 05.06.2020.
           Cайт работает 24/7</p>
       </div>
@@ -1118,24 +1147,27 @@
     <div class="popup__overlay"></div>
     <div class="registration popup__window">
       <p class="registration__description">
-        <span class="gradient-text">1 шаг до новых охватов</span>
+        <span class="gradient-text" data-t-key="registrationTitle">1 шаг до новых охватов</span>
       </p>
       <form action="" class="registration__form">
-        <span class="registration__error">email уже используется</span>
+        <span class="registration__error" data-t-key="registrationEmailError">email уже используется</span>
         <div class="registration__textfield">
-          <input type="text" id="name-2" name="name" min="2" placeholder="Ваше имя" class="registration__input"
+          <input type="text" id="name-2" name="name" min="2" data-t-placeholder-key="registrationNameHolder"
+                 placeholder="Ваше имя" class="registration__input"
                  title="Your name" required>
         </div>
         <div class="registration__textfield">
-          <input type="email" id="email-2" name="email" placeholder="E-mail" class="registration__input"
+          <input type="email" id="email-2" name="email" data-t-placeholder-key="registrationEmailHolder"
+                 placeholder="E-mail" class="registration__input"
                  title="Email address" required>
         </div>
         <div class="registration__textfield">
-          <input type="text" id="instagram-2" name="instagram-account" placeholder="Instagram"
+          <input type="text" id="instagram-2" name="instagram-account" data-t-placeholder-key="registrationLoginHolder"
+                 placeholder="Instagram"
                  class="registration__input" title="Instagram login" pattern="^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{0,29}$"
                  required>
         </div>
-        <button type="submit" class="registration__submit">
+        <button type="submit" class="registration__submit" data-t-key="registrationSubmit">
           Регистрация
 
         </button>
@@ -1147,8 +1179,8 @@
     <div class="popup__overlay"></div>
     <div class="comment-popup__body popup__window">
       <picture>
-        <source srcset="images/content/inst-comment-s.webp" type="image/webp">
-        <img loading="lazy" src="images/content/inst-comment-s.jpg" alt="Chat-bot" class="comment-image"/>
+        <source data-t-source srcset="images/content/ru/inst-comment-s.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/inst-comment-s.jpg" alt="Chat-bot" class="comment-image"/>
       </picture>
     </div>
   </div>
@@ -1157,23 +1189,23 @@
     <div class="popup__overlay"></div>
     <div class="comment-popup__body popup__window">
       <picture>
-        <source srcset="images/content/dnative-comment-s-1.webp" type="image/webp">
-        <img loading="lazy" src="images/content/dnative-comment-s-1.jpg" alt="dnative comment"
+        <source data-t-source srcset="images/content/ru/dnative-comment-s-1.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-s-1.jpg" alt="dnative comment"
              class="comment-image"/>
       </picture>
       <picture>
-        <source srcset="images/content/dnative-comment-s-2.webp" type="image/webp">
-        <img loading="lazy" src="images/content/dnative-comment-s-2.jpg" alt="dnative comment"
+        <source data-t-source srcset="images/content/ru/dnative-comment-s-2.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-s-2.jpg" alt="dnative comment"
              class="comment-image"/>
       </picture>
       <picture>
-        <source srcset="images/content/dnative-comment-s-3.webp" type="image/webp">
-        <img loading="lazy" src="images/content/dnative-comment-s-3.jpg" alt="dnative comment"
+        <source data-t-source srcset="images/content/ru/dnative-comment-s-3.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-s-3.jpg" alt="dnative comment"
              class="comment-image"/>
       </picture>
       <picture>
-        <source srcset="images/content/dnative-comment-s-4.webp" type="image/webp">
-        <img loading="lazy" src="images/content/dnative-comment-s-4.jpg" alt="dnative comment"
+        <source data-t-source srcset="images/content/ru/dnative-comment-s-4.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/dnative-comment-s-4.jpg" alt="dnative comment"
              class="comment-image"/>
       </picture>
     </div>
@@ -1183,13 +1215,13 @@
     <div class="popup__overlay"></div>
     <div class="comment-popup__body popup__window">
       <picture>
-        <source srcset="images/content/startpack-comment-s-1.webp" type="image/webp">
-        <img loading="lazy" src="images/content/startpack-comment-s-1.jpg" alt="startpack comment"
+        <source data-t-source srcset="images/content/ru/startpack-comment-s-1.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/startpack-comment-s-1.jpg" alt="startpack comment"
              class="comment-image"/>
       </picture>
       <picture>
-        <source srcset="images/content/startpack-comment-s-2.webp" type="image/webp">
-        <img loading="lazy" src="images/content/startpack-comment-s-2.jpg" alt="startpack comment"
+        <source data-t-source srcset="images/content/ru/startpack-comment-s-2.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/startpack-comment-s-2.jpg" alt="startpack comment"
              class="comment-image"/>
       </picture>
     </div>
@@ -1199,8 +1231,9 @@
     <div class="popup__overlay"></div>
     <div class="comment-popup__body popup__window">
       <picture>
-        <source srcset="images/content/yandex-comment-s.webp" type="image/webp">
-        <img loading="lazy" src="images/content/yandex-comment-s.jpg" alt="Chat-bot" class="comment-image"/>
+        <source data-t-source srcset="images/content/ru/yandex-comment-s.webp" type="image/webp">
+        <img data-t-img loading="lazy" src="images/content/ru/yandex-comment-s.jpg" alt="Chat-bot"
+             class="comment-image"/>
       </picture>
     </div>
   </div>
@@ -1209,7 +1242,7 @@
     <div class="popup__overlay"></div>
     <div class="contract-popup__body popup__window_up">
       <button type="button">×</button>
-      <div>
+      <div data-t-popup-key="privacyPopup" class="content-container">
         <h5>Политика конфиденциальности</h5>
         <p>Настоящая Политика конфиденциальности (далее – Политика) устанавливает правила использования персональной
           информации, получаемой от пользователей сайта (далее – Пользователи) администратором сайта igame.by (далее –
@@ -1363,7 +1396,7 @@
     <div class="popup__overlay"></div>
     <div class="contract-popup__body popup__window_up">
       <button type="button">×</button>
-      <div>
+      <div data-t-popup-key="contractPopup" class="content-container">
         <h5>Договор публичной оферты на оказание услуг о предоставлении права использования Сервиса igame.by</h5>
         <p>г. Минск</p>
 
