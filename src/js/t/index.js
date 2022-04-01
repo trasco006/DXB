@@ -54,6 +54,27 @@ class TranslateModule {
         this.handleTranslate()
       })
     })
+
+    document.addEventListener('click', (evt) => {
+      if (!evt.target.closest('.language-select')) {
+        this.languageSelect.classList.remove('open');
+      }
+    })
+
+    if (window.innerWidth < 580) {
+      document.querySelector('.menu__container').appendChild(this.languageSelect)
+    } else {
+      document.querySelector('.nav-menu__list').appendChild(this.languageSelect)
+    }
+
+    window.addEventListener('resize', () => {
+      const isClosest = !!this.languageSelect.closest('.menu__container')
+      if (window.innerWidth < 580) {
+        !isClosest && document.querySelector('.menu__container').appendChild(this.languageSelect)
+      } else {
+        isClosest && document.querySelector('.nav-menu__list').appendChild(this.languageSelect)
+      }
+    })
   }
 
   translateFields() {

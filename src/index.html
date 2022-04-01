@@ -43,26 +43,26 @@
           <li class="nav-menu__item">
             <a href="#cost" class="nav-menu__link" data-t-key="cost">Стоимость</a>
           </li>
-        </ul>
-      </nav>
-      <div class="menu__container">
-        <div class="language-select">
+          <div class="language-select">
         <span class="language-select__lang language-select__selected-lang">
           <img src="https://stripe.com/img/flags/ru.png">
           RU
         </span>
 
-          <ul class="language-select__list" role="menu">
-            <li class="language-select__lang" data-lang-en data-lang="en">
-              <img src="https://stripe.com/img/flags/us.png">
-              EN
-            </li>
-            <li class="language-select__lang" data-lang-ru data-lang="ru">
-              <img src="https://stripe.com/img/flags/ru.png">
-              RU
-            </li>
-          </ul>
-        </div>
+            <ul class="language-select__list" role="menu">
+              <li class="language-select__lang" data-lang-en data-lang="en">
+                <img src="https://stripe.com/img/flags/us.png">
+                EN
+              </li>
+              <li class="language-select__lang" data-lang-ru data-lang="ru">
+                <img src="https://stripe.com/img/flags/ru.png">
+                RU
+              </li>
+            </ul>
+          </div>
+        </ul>
+      </nav>
+      <div class="menu__container">
         <a href="https://igame.by/panel" class="btn" data-t-key="signIn">Вход</a>
       </div>
     </div>
@@ -224,11 +224,13 @@
             d="M129.128 5.0686e-07C147.958 -0.00306081 163.187 13.8618 179.762 22.8004C196.83 32.0053 214.513 39.5226 228.09 53.3705C244.338 69.9434 263.436 87.4214 265.757 110.516C268.099 133.817 253.048 155.07 240.286 174.704C227.997 193.61 213.248 211.161 193.392 221.844C173.831 232.368 151.231 232.314 129.128 234.51C104.801 236.927 76.9757 249.547 57.0438 235.39C36.7584 220.983 42.7805 188.929 32.8365 166.119C24.2595 146.445 6.14218 131.686 2.60525 110.516C-1.20406 87.7159 -2.8534 60.5161 12.2727 43.0381C27.6413 25.28 56.4673 30.9329 78.5034 22.8169C96.1733 16.309 110.298 0.00306171 129.128 5.0686e-07Z"
             fill="#F4F0FF"/>
     </svg>
-    <video data-t-img loop autoplay playsinline data-wf-ignore="true" data-object-fit="cover" muted width="100%" height="100%"
+    <video data-t-img loop autoplay playsinline data-wf-ignore="true" data-object-fit="cover" muted width="100%"
+           height="100%"
            id="video-1" src="images/content/ru/animation1.mp4" class="game__item">
       <source data-t-source src="images/content/ru/animation1.mp4" type='video/mp4'>
     </video>
-    <video data-t-img loop autoplay playsinline muted data-wf-ignore="true" data-object-fit="cover" width="100%" height="100%"
+    <video data-t-img loop autoplay playsinline muted data-wf-ignore="true" data-object-fit="cover" width="100%"
+           height="100%"
            id="video-2" src="images/content/ru/animation2.mp4" class="game__item">
       <source data-t-source src="images/content/ru/animation2.mp4" type='video/mp4'>
     </video>
@@ -273,8 +275,8 @@
           </defs>
         </svg>
 
-        <p class="activity__desc" data-t-key="activityDescription1">
-          Активность
+        <p class="activity__desc">
+          <span data-t-key="activityDescription1">Активность</span>
           <strong class="gradient-text" data-t-key="activityDescription2">вашей</strong>
           <span data-t-key="activityDescription3">аудитории</span>
         </p>
@@ -894,8 +896,10 @@
 
       <a name="reputation"></a>
       <h2 class="subtitle" data-t-key="reputation">Репутация</h2>
-      <h3 class="reputation__description" data-t-key="reputationTitle1">iGame - сервис от создателей <span
-        class="gradient-text-second" data-t-key="reputationTitle2">SUB.BY</span>
+      <h3 class="reputation__description">
+        <span data-t-key="reputationTitle1">iGame - сервис от создателей</span>
+        <span
+          class="gradient-text-second" data-t-key="reputationTitle2">SUB.BY</span>
       </h3>
       <div class="reputation__slider">
         <div class="reputation__pagination-column">
@@ -994,7 +998,8 @@
                         type="image/webp">
                 <source data-t-source media="(max-width:740px)" srcset="images/content/ru/startpack-580w.jpg">
                 <source data-t-source srcset="images/content/ru/startpack-comment-l-1.webp" type="image/webp">
-                <img data-t-img loading="eager" src="images/content/ru/startpack-comment-l-1.jpg" alt="starpack comment">
+                <img data-t-img loading="eager" src="images/content/ru/startpack-comment-l-1.jpg"
+                     alt="starpack comment">
               </picture>
               <picture class="hide">
                 <source data-t-source srcset="images/content/ru/startpack-comment-l-2.webp" type="image/webp">

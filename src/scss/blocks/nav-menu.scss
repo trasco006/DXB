@@ -61,6 +61,7 @@
     align-items: flex-start;
 
     &_active {
+      z-index: 5;
       left: 0;
       opacity: 1;
       border-radius: 0;

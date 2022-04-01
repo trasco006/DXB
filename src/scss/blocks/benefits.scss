@@ -6,6 +6,7 @@
     position: absolute;
     top: 28px;
     left: -88px;
+    z-index: -1;
 
     &:last-of-type {
       left: unset;

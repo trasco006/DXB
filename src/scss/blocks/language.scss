@@ -3,7 +3,6 @@
   cursor: pointer;
   user-select: none;
   background-color: white;
-  margin-right: 15px;
   z-index: 1;
 
   &__lang {
@@ -12,6 +11,7 @@
     align-items: center;
     padding: 6px;
     z-index: 1;
+    @extend .nav-menu__link;
 
     img {
       margin-right: 4px;
@@ -26,7 +26,6 @@
   }
 
   &__selected-lang {
-
   }
 
   &__list {
@@ -47,7 +46,18 @@
 }
 
 .menu__container {
+  z-index: 0;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   min-width: max-content;
+  pointer-events: all;
+
+  .language-select {
+    margin-right: 15px;
+  }
+
+  .language-select__lang {
+    margin: 0;
+  }
 }
