@@ -1,5 +1,64 @@
+class DictionaryModule {
+  dictionaries = {}
+
+  stringify(value) {
+    return JSON.stringify(value);
+  }
+
+  parse(value) {
+    return JSON.parse(value);
+  }
+
+  getDictionaryFromLS(lang) {
+    const dictionary = localStorage.getItem(`dictionary-${lang}`)
+    try {
+      return this.parse(dictionary)
+    } catch (e) {
+      return null
+    }
+  }
+
+  setDictionaryToLS(lang, data) {
+    localStorage.setItem(`dictionary-${lang}`, data)
+  }
+
+  setDictionary(lang, dictionary) {
+    this.dictionaries[lang] = dictionary
+  }
+
+  fetchDictionary(lang) {
+    fetch(`assets/locales/${lang}.json`)
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+        const stringDictionary = this.stringify(res)
+        this.setDictionaryToLS(lang, stringDictionary)
+        this.setDictionary(lang, res)
+        return null
+      })
+      .then(() => {
+        return this.dictionaries[lang]
+      })
+      .catch(e => console.log(e))
+  }
+
+  getDictionary(lang) {
+    if (this.dictionaries[lang]) {
+      return this.dictionaries[lang]
+    }
+    const dictionary = this.getDictionaryFromLS(lang)
+    if (dictionary) {
+      this.setDictionary(lang, dictionary)
+      return dictionary
+    }
+
+    return this.fetchDictionary(lang)
+  }
+}
+
 class TranslateModule {
-  constructor() {
+  constructor(dictionary) {
     this.container = document.querySelector('.main')
 
     this.languageSelect = this.container.querySelector('.language-select')
@@ -12,26 +71,38 @@ class TranslateModule {
     this.images = this.container.querySelectorAll('[data-t-img]')
     this.sources = this.container.querySelectorAll('[data-t-source]')
 
-    this.baseLocale = navigator.language.split('-')[0]
+    this.baseLocale = this.getLocale() || navigator.language.split('-')[0]
     this.locale = this.baseLocale
-    this.dictionaries = {}
+
+    this.dictionaryModule = dictionary
+  }
+
+  getLocale() {
+    return localStorage.getItem('locale')
+  }
+
+  setLocale(lang) {
+    localStorage.setItem('locale', lang)
   }
 
   init() {
+    this.setLocale(this.locale)
+    this.dictionaryModule.getDictionary(this.locale)
     this.setLanguageSelect()
     this.handleTranslate()
     this.setInitSelectedLang()
   }
 
   handleTranslate() {
-    this.translateFields()
-    this.translateHolders()
-    this.translatePopups()
+    const dictionary = this.dictionaryModule.getDictionary(this.getLocale())
+    this.translateFields(dictionary)
+    this.translateHolders(dictionary)
+    this.translatePopups(dictionary)
     this.translateImages()
   }
 
   setInitSelectedLang() {
-    const selected = this.languageSelect.querySelector(`[data-lang-${this.locale}]`)
+    const selected = this.languageSelect.querySelector(`[data-lang-${this.getLocale()}]`)
     this.handleSetSelectedLang(selected)
   }
 
@@ -50,7 +121,8 @@ class TranslateModule {
     this.languageSelectElements.forEach(item => {
       item.addEventListener('click', () => {
         this.handleSetSelectedLang(item)
-        this.locale = item.getAttribute('data-lang')
+        const locale = item.getAttribute('data-lang')
+        this.setLocale(locale)
         this.handleTranslate()
       })
     })
@@ -77,70 +149,47 @@ class TranslateModule {
     })
   }
 
-  translateFields() {
+  translateFields(dictionary) {
+    const locale = this.getLocale()
+
     const setFields = (dictionary) => {
       this.textFields.forEach(item => {
         const key = item.getAttribute('data-t-key')
-        if (dictionary[key]) {
+
+        if (dictionary?.[key]) {
           item.textContent = dictionary[key]
         }
       });
     }
-
-    if (this.dictionaries[this.locale]) {
-      setFields(this.dictionaries[this.locale])
-    } else {
-      fetch(`assets/locales/${this.locale}.json`)
-        .then(res => res.json())
-        .then(dictionary => {
-          setFields(dictionary)
-          this.dictionaries[this.locale] = dictionary
-        })
-    }
+    setFields(dictionary)
   }
 
-  translateHolders() {
+  translateHolders(dictionary) {
+    const locale = this.getLocale()
+
     const setHolders = (dictionary) => {
       this.placeholders.forEach(item => {
         const key = item.getAttribute('data-t-placeholder-key')
-        if (dictionary[key]) {
+        if (dictionary?.[key]) {
           item.placeholder = dictionary[key]
         }
       });
     }
+    setHolders(dictionary)
 
-    if (this.dictionaries[this.locale]) {
-      setHolders(this.dictionaries[this.locale])
-    } else {
-      fetch(`assets/locales/${this.locale}.json`)
-        .then(res => res.json())
-        .then(dictionary => {
-          setHolders(dictionary)
-          this.dictionaries[this.locale] = dictionary
-        })
-    }
   }
 
-  translatePopups() {
+  translatePopups(dictionary) {
+    const locale = this.getLocale()
     const setPopups = (dictionary) => {
       this.popups.forEach(item => {
         const key = item.getAttribute('data-t-popup-key')
-        if (dictionary[key]) {
+        if (dictionary?.[key]) {
           item.innerHTML = dictionary[key]
         }
       });
     }
-
-    if (this.dictionaries[this.locale]) {
-      setPopups(this.dictionaries[this.locale])
-    } else {
-      fetch(`assets/locales/${this.locale}.json`)
-        .then(res => res.json())
-        .then(dictionary => {
-          setPopups(dictionary)
-          this.dictionaries[this.locale] = dictionary
-        })
-    }
+    setPopups(dictionary)
   }
 
   translateImages() {
@@ -149,7 +198,7 @@ class TranslateModule {
     }
     const changeImageUrlLocal = (src) => {
       const currentImageLocale = src.substring(getLocaleFolder(src) + 8, getLocaleFolder(src) + 8 + 4)
-      return src.replace(currentImageLocale, `/${this.locale}/`)
+      return src.replace(currentImageLocale, `/${this.getLocale()}/`)
     }
     this.sources.forEach((src) => {
       const newSrc = changeImageUrlLocal(src.srcset)
@@ -166,7 +215,8 @@ class TranslateModule {
   }
 }
 
-const translation = new TranslateModule()
+const dictionary = new DictionaryModule()
+const translation = new TranslateModule(dictionary)
 
 document.addEventListener("DOMContentLoaded", () => {
   translation.init()

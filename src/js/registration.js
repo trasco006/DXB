@@ -1,3 +1,7 @@
+const getLocale = () => localStorage.getItem('locale')
+const getBrowserLocale = () => navigator.language.split('-')[0]
+const getCurrentLocale = () => getLocale() || getBrowserLocale()
+
 const errors = {
   102: "Name validation error",
   103: "Email validation error",
@@ -28,6 +32,7 @@ const registrationService = (data, form) => {
         errorHandler(data.message, form);
       } else {
         document.cookie = `token=[${data.token}]`
+        document.cookie = `locale=[${getCurrentLocale()}]`
         document.cookie = `account=[${JSON.stringify(data.account)}]`
         window.location.href = 'https://igame.by/panel/'
       }
