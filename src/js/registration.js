@@ -19,12 +19,15 @@ const errorHandler = (message, form) => {
 const registrationService = (data, form) => {
   const submitBtn = form.querySelector('.registration__submit')
   submitBtn.disabled = true;
-  document.cookie = `locale=[${getCurrentLocale()}]`
   return fetch('https://igame.by/api/users/quick', {
     method: 'POST',
     body: data,
     credentials: 'include',
-    redirect: 'follow'
+    redirect: 'follow',
+    headers: {
+      'Accept-Language': getCurrentLocale(),
+      'Set-Cookie': `locale=${getCurrentLocale()}`
+    }
   }).then((res) => res.text())
     .then(body => JSON.parse(body))
     .then(data => {
