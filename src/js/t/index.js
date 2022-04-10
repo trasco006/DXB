@@ -1,3 +1,5 @@
+import {Loader} from "../loader";
+
 class DictionaryModule {
   dictionaries = {}
 
@@ -26,21 +28,12 @@ class DictionaryModule {
     this.dictionaries[lang] = dictionary
   }
 
-  fetchDictionary(lang) {
-    fetch(`assets/locales/${lang}.json`)
-      .then(res => {
-        return res.json()
-      })
-      .then(res => {
-        const stringDictionary = this.stringify(res)
-        this.setDictionaryToLS(lang, stringDictionary)
-        this.setDictionary(lang, res)
-        return null
-      })
-      .then(() => {
-        return this.dictionaries[lang]
-      })
-      .catch(e => console.log(e))
+  async fetchDictionary(lang) {
+    const res = await (await fetch(`assets/locales/${lang}.json`)).json()
+    const stringDictionary = this.stringify(res)
+    this.setDictionaryToLS(lang, stringDictionary)
+    this.setDictionary(lang, res)
+    return this.dictionaries[lang]
   }
 
   getDictionary(lang) {
@@ -48,6 +41,7 @@ class DictionaryModule {
       return this.dictionaries[lang]
     }
     const dictionary = this.getDictionaryFromLS(lang)
+
     if (dictionary) {
       this.setDictionary(lang, dictionary)
       return dictionary
@@ -85,20 +79,23 @@ class TranslateModule {
     localStorage.setItem('locale', lang)
   }
 
-  init() {
+  async init() {
     this.setLocale(this.locale)
-    this.dictionaryModule.getDictionary(this.locale)
     this.setLanguageSelect()
-    this.handleTranslate()
+    await this.handleTranslate()
+    new Loader().hideLoader()
     this.setInitSelectedLang()
   }
 
-  handleTranslate() {
-    const dictionary = this.dictionaryModule.getDictionary(this.getLocale())
-    this.translateFields(dictionary)
-    this.translateHolders(dictionary)
-    this.translatePopups(dictionary)
+  async handleTranslate() {
+    const dictionary = await this.dictionaryModule.getDictionary(this.getLocale())
     this.translateImages()
+
+    return await Promise.all([
+      this.translateFields(dictionary),
+      this.translateHolders(dictionary),
+      this.translatePopups(dictionary)])
+
   }
 
   setInitSelectedLang() {
@@ -149,9 +146,7 @@ class TranslateModule {
     })
   }
 
-  translateFields(dictionary) {
-    const locale = this.getLocale()
-
+  async translateFields(dictionary) {
     const setFields = (dictionary) => {
       this.textFields.forEach(item => {
         const key = item.getAttribute('data-t-key')
@@ -161,12 +156,10 @@ class TranslateModule {
         }
       });
     }
-    setFields(dictionary)
+    return setFields(dictionary)
   }
 
-  translateHolders(dictionary) {
-    const locale = this.getLocale()
-
+  async translateHolders(dictionary) {
     const setHolders = (dictionary) => {
       this.placeholders.forEach(item => {
         const key = item.getAttribute('data-t-placeholder-key')
@@ -175,12 +168,10 @@ class TranslateModule {
         }
       });
     }
-    setHolders(dictionary)
-
+    return setHolders(dictionary)
   }
 
-  translatePopups(dictionary) {
-    const locale = this.getLocale()
+  async translatePopups(dictionary) {
     const setPopups = (dictionary) => {
       this.popups.forEach(item => {
         const key = item.getAttribute('data-t-popup-key')
@@ -189,7 +180,7 @@ class TranslateModule {
         }
       });
     }
-    setPopups(dictionary)
+    return setPopups(dictionary)
   }
 
   translateImages() {
@@ -217,7 +208,6 @@ class TranslateModule {
 
 const dictionary = new DictionaryModule()
 const translation = new TranslateModule(dictionary)
-
 document.addEventListener("DOMContentLoaded", () => {
   translation.init()
 });
