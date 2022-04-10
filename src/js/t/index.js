@@ -1,4 +1,5 @@
 import {Loader} from "../loader";
+import {CookieModule} from "../cookie";
 
 class DictionaryModule {
   dictionaries = {}
@@ -210,4 +211,11 @@ const dictionary = new DictionaryModule()
 const translation = new TranslateModule(dictionary)
 document.addEventListener("DOMContentLoaded", () => {
   translation.init()
+
+  const params = (new URL(document.location)).searchParams;
+  const ref = params.get('ref');
+
+  if (ref) {
+    CookieModule.set('referral', ref)
+  }
 });

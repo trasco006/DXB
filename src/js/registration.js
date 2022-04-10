@@ -1,3 +1,5 @@
+import {CookieModule} from "./cookie";
+
 const getLocale = () => localStorage.getItem('locale')
 const getBrowserLocale = () => navigator.language.split('-')[0]
 const getCurrentLocale = () => getLocale() || getBrowserLocale()
@@ -19,8 +21,9 @@ const errorHandler = (message, form) => {
 const registrationService = (data, form) => {
   const submitBtn = form.querySelector('.registration__submit')
   submitBtn.disabled = true;
-  const params = (new URL(document.location)).searchParams;
-  const ref = params.get('ref');
+
+  const referralCookie = CookieModule.get('referral')
+
   return fetch('https://igame.by/api/users/quick', {
     method: 'POST',
     body: data,
@@ -28,7 +31,7 @@ const registrationService = (data, form) => {
     redirect: 'follow',
     headers: {
       'Accept-Language': getCurrentLocale(),
-      'Set-Cookie': `locale=${getCurrentLocale()}, referral=${ref}`
+      'Set-Cookie': `locale=${getCurrentLocale()}, ${referralCookie ? 'referral=' + referralCookie : ''}`
     }
   }).then((res) => res.text())
     .then(body => JSON.parse(body))
@@ -36,9 +39,9 @@ const registrationService = (data, form) => {
       if (errors[data.result]) {
         errorHandler(data.message, form);
       } else {
-        document.cookie = `token=[${data.token}]`
-        document.cookie = `locale=[${getCurrentLocale()}]`
-        document.cookie = `account=[${JSON.stringify(data.account)}]`
+        CookieModule.set('token', data.token)
+        CookieModule.set('locale', getCurrentLocale())
+        CookieModule.set('account', JSON.stringify(data.account))
         window.location.href = 'https://igame.by/panel/'
       }
     })
