@@ -216,6 +216,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const ref = params.get('ref');
 
   if (ref) {
-    CookieModule.set('referral', ref)
+    CookieModule.set('referral', ref, 1852)
   }
 });
