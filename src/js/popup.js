@@ -8,13 +8,13 @@ const registrationPopup = () => {
 
   const handleOpenRegistrationPopup = () => {
     registrationPopupEl.classList.add('popup_active')
-    body.className = 'o-hidden'
+    body.classList.add('o-hidden')
   }
 
   const handleCloseRegistrationPopup = () => {
     registrationPopupEl.classList.remove('popup_active')
     registrationForm.reset();
-    body.className = ''
+    body.classList.remove('o-hidden')
   }
 
   registrationBtn.addEventListener('click', handleOpenRegistrationPopup)

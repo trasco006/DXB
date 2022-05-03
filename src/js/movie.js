@@ -12,13 +12,13 @@ const registrationPopup = (() => {
 
   const handleOpenVideoPopup = () => {
     moviePopup.classList.add('popup_active')
-    body.className = 'o-hidden'
+    body.classList.add('o-hidden')
     movieIframe.src = movieLink
   }
 
   const handleCloseVideoPopup = () => {
     moviePopup.classList.remove('popup_active')
-    body.className = ''
+    body.classList.remove('o-hidden')
     movieIframe.src = ""
   }
 
