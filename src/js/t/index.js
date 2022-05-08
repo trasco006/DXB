@@ -54,6 +54,7 @@ class DictionaryModule {
 
 class TranslateModule {
   constructor(dictionary) {
+    this.locales = ['ru', 'en']
     this.container = document.querySelector('.main')
 
     this.languageSelect = this.container.querySelector('.language-select')
@@ -67,7 +68,7 @@ class TranslateModule {
     this.sources = this.container.querySelectorAll('[data-t-source]')
 
     this.baseLocale = this.getLocale() || navigator.language.split('-')[0]
-    this.locale = this.baseLocale
+    this.locale = this.locales.indexOf(this.baseLocale) > -1 ? this.baseLocale : 'en'
 
     this.dictionaryModule = dictionary
   }
