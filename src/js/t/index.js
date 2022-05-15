@@ -1,56 +1,7 @@
 import {Loader} from "../loader";
 import {CookieModule} from "../cookie";
-
-class DictionaryModule {
-  dictionaries = {}
-
-  stringify(value) {
-    return JSON.stringify(value);
-  }
-
-  parse(value) {
-    return JSON.parse(value);
-  }
-
-  getDictionaryFromLS(lang) {
-    const dictionary = localStorage.getItem(`dictionary-${lang}`)
-    try {
-      return this.parse(dictionary)
-    } catch (e) {
-      return null
-    }
-  }
-
-  setDictionaryToLS(lang, data) {
-    localStorage.setItem(`dictionary-${lang}`, data)
-  }
-
-  setDictionary(lang, dictionary) {
-    this.dictionaries[lang] = dictionary
-  }
-
-  async fetchDictionary(lang) {
-    const res = await (await fetch(`assets/locales/${lang}.json`)).json()
-    const stringDictionary = this.stringify(res)
-    this.setDictionaryToLS(lang, stringDictionary)
-    this.setDictionary(lang, res)
-    return this.dictionaries[lang]
-  }
-
-  getDictionary(lang) {
-    if (this.dictionaries[lang]) {
-      return this.dictionaries[lang]
-    }
-    const dictionary = this.getDictionaryFromLS(lang)
-
-    if (dictionary) {
-      this.setDictionary(lang, dictionary)
-      return dictionary
-    }
-
-    return this.fetchDictionary(lang)
-  }
-}
+import DictionaryModule from "./dictionaryModule";
+import nodeUtils from "../nodeUtils";
 
 class TranslateModule {
   constructor(dictionary) {
@@ -67,10 +18,20 @@ class TranslateModule {
     this.images = this.container.querySelectorAll('[data-t-img]')
     this.sources = this.container.querySelectorAll('[data-t-source]')
 
+    this.videos = this.container.querySelectorAll('[data-t-video]')
+    this.videoSources = this.container.querySelectorAll('[data-t-video-source]')
+
+    this.btnDecorEn = this.container.querySelector('.game__btn-decor_en')
+    this.btnDecorRu = this.container.querySelector('.game__btn-decor_ru')
+    this.cardCtaBtnEn = this.container.querySelector(".how-works__card-cta_en");
+    this.cardCtaBtnRu = this.container.querySelector(".how-works__card-cta_ru");
     this.baseLocale = this.getLocale() || navigator.language.split('-')[0]
-    this.locale = this.locales.indexOf(this.baseLocale) > -1 ? this.baseLocale : 'en'
+    this.locale = this.locales.indexOf(this.baseLocale) > -1 ? this.baseLocale : 'ru'
 
     this.dictionaryModule = dictionary
+
+    this.reputationBlock = document.querySelector('.reputation')
+    this.reputationMenuItem = document.querySelector('#reputation-menu')
   }
 
   getLocale() {
@@ -89,15 +50,36 @@ class TranslateModule {
     this.setInitSelectedLang()
   }
 
+  hideWithLocale(node) {
+    if (this.getLocale() === 'en') {
+      nodeUtils.hideNode(node)
+    } else {
+      nodeUtils.showNode(node)
+    }
+  }
+
   async handleTranslate() {
     const dictionary = await this.dictionaryModule.getDictionary(this.getLocale())
     this.translateImages()
+    this.translateVideo()
+    this.hideWithLocale(this.reputationBlock)
+    this.hideWithLocale(this.reputationMenuItem)
 
+    if (this.getLocale() === 'en') {
+      this.btnDecorEn.classList.remove('hidden')
+      this.btnDecorRu.classList.add('hidden')
+      this.cardCtaBtnEn.classList.remove('hidden')
+      this.cardCtaBtnRu.classList.add('hidden')
+    } else {
+      this.btnDecorEn.classList.add('hidden')
+      this.btnDecorRu.classList.remove('hidden')
+      this.cardCtaBtnEn.classList.add('hidden')
+      this.cardCtaBtnRu.classList.remove('hidden')
+    }
     return await Promise.all([
       this.translateFields(dictionary),
       this.translateHolders(dictionary),
       this.translatePopups(dictionary)])
-
   }
 
   setInitSelectedLang() {
@@ -206,10 +188,34 @@ class TranslateModule {
       }
     })
   }
+
+  translateVideo() {
+    const getLocaleFolder = (str) => {
+      return str.indexOf('/content/')
+    }
+    const changeImageUrlLocal = (src) => {
+      const currentImageLocale = src.substring(getLocaleFolder(src) + 8, getLocaleFolder(src) + 8 + 4)
+      return src.replace(currentImageLocale, `/${this.getLocale()}/`)
+    }
+    this.videoSources.forEach((src) => {
+      const newSrc = changeImageUrlLocal(src.src)
+      if (newSrc) {
+        src.src = newSrc
+      }
+    })
+    this.videos.forEach((video) => {
+      const newSrc = changeImageUrlLocal(video.src)
+      if (newSrc) {
+        video.src = newSrc
+      }
+    })
+  }
+
 }
 
 const dictionary = new DictionaryModule()
 const translation = new TranslateModule(dictionary)
+
 document.addEventListener("DOMContentLoaded", () => {
   translation.init()
 
