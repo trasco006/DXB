@@ -40,6 +40,7 @@ class TranslateModule {
 
   setLocale(lang) {
     localStorage.setItem('locale', lang)
+    CookieModule.set('locale', lang)
   }
 
   async init() {
