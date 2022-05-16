@@ -2,6 +2,7 @@ import {Loader} from "../loader";
 import {CookieModule} from "../cookie";
 import DictionaryModule from "./dictionaryModule";
 import nodeUtils from "../nodeUtils";
+import {videoAutoplay} from "../video";
 
 class TranslateModule {
   constructor(dictionary) {
@@ -226,4 +227,5 @@ document.addEventListener("DOMContentLoaded", () => {
   if (ref) {
     CookieModule.set('referral', ref, 1852)
   }
+  setTimeout(videoAutoplay, 1000)
 });
