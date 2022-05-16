@@ -58,14 +58,12 @@ class SlideStories {
 
   pause() {
     this.timer.pause()
-    console.log('pause')
     this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'paused'
     this.longThumbItems[this.active].querySelector('span').style.animationPlayState = 'paused'
   }
 
   resume() {
     this.timer.resume()
-    console.log('resume')
     this.thumbItems[this.active].querySelector('span').style.animationPlayState = 'running'
     this.longThumbItems[this.active].querySelector('span').style.animationPlayState = 'running'
   }
@@ -224,14 +222,11 @@ const cardsSlider = () => {
             if (pause) {
               cards[index].story.resume()
               pause = false
-              console.log('resume')
             } else {
               cards[index].story.pause()
               pause = true
-              console.log('pause')
             }
           } else {
-            console.log('select new slide');
             cards[index].story.select(slideIndex)
           }
         }
