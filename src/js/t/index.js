@@ -61,6 +61,9 @@ class TranslateModule {
   }
 
   async handleTranslate() {
+    window.TalkMeSetup = {
+      language: this.getLocale()
+    };
     const dictionary = await this.dictionaryModule.getDictionary(this.getLocale())
     this.translateImages()
     this.translateVideo()
