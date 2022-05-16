@@ -27,7 +27,15 @@ export default class DictionaryModule {
   }
 
   async fetchDictionary(lang) {
-    const res = await (await fetch(`assets/locales/${lang}.json`)).json()
+
+    const myHeaders = new Headers();
+    myHeaders.append('cache-control', 'public');
+
+    const myInit = {
+      method: 'GET',
+      headers: myHeaders,
+    };
+    const res = fetch(`assets/locales/${lang}.json`, myInit).then(res => res.json())
     const stringDictionary = this.stringify(res)
     this.setDictionaryToLS(lang, stringDictionary)
     this.setDictionary(lang, res)
@@ -40,10 +48,10 @@ export default class DictionaryModule {
     }
     const dictionary = this.getDictionaryFromLS(lang)
 
-    if (dictionary) {
-      this.setDictionary(lang, dictionary)
-      return dictionary
-    }
+    // if (dictionary) {
+    //   this.setDictionary(lang, dictionary)
+    //   return dictionary
+    // }
 
     return this.fetchDictionary(lang)
   }
