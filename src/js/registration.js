@@ -40,7 +40,7 @@ const registrationService = (data, form) => {
       } else {
         localStorage.setItem('access_token', data.token);
         localStorage.setItem('account', JSON.stringify(data.account));
-        CookieModule.set('locale', getCurrentLocale())
+        CookieModule.set('locale', getCurrentLocale(), 1825)
         CookieModule.set('account', JSON.stringify(data.account))
         window.location.href = '/panel';
       }
