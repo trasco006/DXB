@@ -24,8 +24,13 @@ class TranslateModule {
 
     this.btnDecorEn = this.container.querySelector('.game__btn-decor_en')
     this.btnDecorRu = this.container.querySelector('.game__btn-decor_ru')
+
     this.cardCtaBtnEn = this.container.querySelector(".how-works__card-cta_en");
     this.cardCtaBtnRu = this.container.querySelector(".how-works__card-cta_ru");
+
+    this.gameCtaEnList = this.container.querySelectorAll(".game_main-cta-decor_en");
+    this.gameCtaRuList = this.container.querySelectorAll(".game_main-cta-decor_ru");
+
     this.baseLocale = this.getLocale() || navigator.language.split('-')[0]
     this.locale = this.locales.indexOf(this.baseLocale) > -1 ? this.baseLocale : 'ru'
 
@@ -75,11 +80,16 @@ class TranslateModule {
       this.btnDecorRu.classList.add('hidden')
       this.cardCtaBtnEn.classList.remove('hidden')
       this.cardCtaBtnRu.classList.add('hidden')
+      this.gameCtaRuList.forEach(item=>item.classList.add('hidden'))
+      this.gameCtaEnList.forEach(item=>item.classList.remove('hidden'))
+
     } else {
       this.btnDecorEn.classList.add('hidden')
       this.btnDecorRu.classList.remove('hidden')
       this.cardCtaBtnEn.classList.add('hidden')
       this.cardCtaBtnRu.classList.remove('hidden')
+      this.gameCtaRuList.forEach(item=>item.classList.remove('hidden'))
+      this.gameCtaEnList.forEach(item=>item.classList.add('hidden'))
     }
     return await Promise.all([
       this.translateFields(dictionary),
