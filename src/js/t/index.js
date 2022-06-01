@@ -80,16 +80,16 @@ class TranslateModule {
       this.btnDecorRu.classList.add('hidden')
       this.cardCtaBtnEn.classList.remove('hidden')
       this.cardCtaBtnRu.classList.add('hidden')
-      this.gameCtaRuList.forEach(item=>item.classList.add('hidden'))
-      this.gameCtaEnList.forEach(item=>item.classList.remove('hidden'))
+      this.gameCtaRuList.forEach(item => item.classList.add('hidden'))
+      this.gameCtaEnList.forEach(item => item.classList.remove('hidden'))
 
     } else {
       this.btnDecorEn.classList.add('hidden')
       this.btnDecorRu.classList.remove('hidden')
       this.cardCtaBtnEn.classList.add('hidden')
       this.cardCtaBtnRu.classList.remove('hidden')
-      this.gameCtaRuList.forEach(item=>item.classList.remove('hidden'))
-      this.gameCtaEnList.forEach(item=>item.classList.add('hidden'))
+      this.gameCtaRuList.forEach(item => item.classList.remove('hidden'))
+      this.gameCtaEnList.forEach(item => item.classList.add('hidden'))
     }
     return await Promise.all([
       this.translateFields(dictionary),
@@ -225,15 +225,17 @@ class TranslateModule {
       }
     })
   }
-
 }
 
 const dictionary = new DictionaryModule()
 const translation = new TranslateModule(dictionary)
 
+window.addEventListener('load', (event) => {
+  new Loader().hideLoader()
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   translation.init()
-
   const params = (new URL(document.location)).searchParams;
   const ref = params.get('ref');
 
