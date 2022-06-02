@@ -1,5 +1,4 @@
-import {Loader} from "../loader";
-import {CookieModule} from "../cookie";
+   import {CookieModule} from "../cookie";
 import DictionaryModule from "./dictionaryModule";
 import nodeUtils from "../nodeUtils";
 import {videoAutoplay} from "../video";
@@ -53,7 +52,6 @@ class TranslateModule {
     this.setLocale(this.locale)
     this.setLanguageSelect()
     await this.handleTranslate()
-    new Loader().hideLoader()
     this.setInitSelectedLang()
   }
 
@@ -229,10 +227,6 @@ class TranslateModule {
 
 const dictionary = new DictionaryModule()
 const translation = new TranslateModule(dictionary)
-
-window.addEventListener('load', (event) => {
-  new Loader().hideLoader()
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   translation.init()
