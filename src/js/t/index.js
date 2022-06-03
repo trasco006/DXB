@@ -1,4 +1,4 @@
-   import {CookieModule} from "../cookie";
+import {CookieModule} from "../cookie";
 import DictionaryModule from "./dictionaryModule";
 import nodeUtils from "../nodeUtils";
 import {videoAutoplay} from "../video";
@@ -227,9 +227,9 @@ class TranslateModule {
 
 const dictionary = new DictionaryModule()
 const translation = new TranslateModule(dictionary)
+translation.init()
 
 document.addEventListener("DOMContentLoaded", () => {
-  translation.init()
   const params = (new URL(document.location)).searchParams;
   const ref = params.get('ref');
 
