@@ -2,6 +2,7 @@ import {CookieModule} from "../cookie";
 import DictionaryModule from "./dictionaryModule";
 import nodeUtils from "../nodeUtils";
 import {videoAutoplay} from "../video";
+import {Loader} from "../loader";
 
 class TranslateModule {
   constructor(dictionary) {
@@ -53,6 +54,7 @@ class TranslateModule {
     this.setLanguageSelect()
     await this.handleTranslate()
     this.setInitSelectedLang()
+    new Loader().hideLoader()
   }
 
   hideWithLocale(node) {
