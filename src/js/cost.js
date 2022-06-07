@@ -1,9 +1,9 @@
 const costModules = document.querySelectorAll('.cost');
 
 const subscriberCost = {
-  dollar: 0.016,
-  byn: 0.032,
-  rub: 1,
+  dollar: 1,
+  byn: 2.6,
+  rub: 75,
 };
 
 const currencySymbol = {
@@ -21,43 +21,25 @@ const calculation = (subscribers, cost) => {
   if (subscribers == 0) {
     total = 0;
   } else if (subscribers > 0 && subscribers <= 5000) {
-    total = 630 * cost;
+    total = 10 * cost;
   } else if (subscribers > 5000 && subscribers <= 10000) {
-    total = 950 * cost;
+    total = 15 * cost;
   } else if (subscribers > 10000 && subscribers <= 20000) {
-    total = 1340 * cost;
+    total = 20 * cost;
   } else if (subscribers > 20000 && subscribers <= 30000) {
-    total = 1675 * cost;
+    total = 25 * cost;
   } else if (subscribers > 30000 && subscribers <= 40000) {
-    total = 2010 * cost;
+    total = 30 * cost;
   } else if (subscribers > 40000 && subscribers <= 50000) {
-    total = 2345 * cost;
+    total = 35 * cost;
   } else if (subscribers > 50000 && subscribers <= 65000) {
-    total = 2680 * cost;
+    total = 40 * cost;
   } else if (subscribers > 65000 && subscribers <= 80000) {
-    total = 3015 * cost;
+    total = 45 * cost;
   } else if (subscribers > 80000 && subscribers <= 100000) {
-    total = 3350 * cost;
-  } else if (subscribers > 100000 && subscribers <= 200000) {
-    total = 3685 * cost;
-  } else if (subscribers > 200000 && subscribers <= 300000) {
-    total = 4020 * cost;
-  } else if (subscribers > 300000 && subscribers <= 400000) {
-    total = 4355 * cost;
-  } else if (subscribers > 400000 && subscribers <= 500000) {
-    total = 4690 * cost;
-  } else if (subscribers > 500000 && subscribers <= 600000) {
-    total = 5025 * cost;
-  } else if (subscribers > 600000 && subscribers <= 700000) {
-    total = 5360 * cost;
-  } else if (subscribers > 700000 && subscribers <= 800000) {
-    total = 5695 * cost;
-  } else if (subscribers > 800000 && subscribers <= 900000) {
-    total = 6030 * cost;
-  } else if (subscribers > 900000 && subscribers <= 1000000) {
-    total = 6365 * cost;
+    total = 50 * cost;
   } else {
-    total = Math.round(6365 + ((subscribers - 1000000) / 100000) * 67 * 5) * cost;
+    total = Math.round(50 + Math.floor((subscribers - 1) / 100000) * 5) * cost;
   }
 
   total = Math.round(total);
