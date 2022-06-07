@@ -104,3 +104,23 @@ html {
 .hidden {
   display: none;
 }
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #FFFFFF #E7ECFE;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #B196DF;
+  border-radius: 4px;
+  border: none;
+}
