@@ -5,12 +5,12 @@ export class Loader {
   }
 
   hideLoader() {
-    this.body.className = ''
-    this.loader.className = 'preloader hide'
+    this.body.classList.remove('o-hidden')
+    this.loader.classList.add('hide')
   }
 
   showLoader() {
-    this.body.className = 'o-hidden'
-    this.loader.className = 'preloader'
+    this.body.classList.add('o-hidden')
+    this.loader.classList.remove('hide')
   }
 }

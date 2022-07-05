@@ -1,5 +1,6 @@
+const movieLink = () => localStorage.getItem('locale') === 'ru' ? 'https://www.youtube.com/embed/C6UNDBeDb74' : 'https://www.youtube.com/embed/3VJ_vVZllt8'
+
 const registrationPopup = (() => {
-  const movieLink = 'https://www.youtube.com/embed/ITBMT-sUeH0?&autoplay=1&controls=1'
   const moviePopup = document.querySelector('.video-popup')
   const movieIframe = document.querySelector('.main_movie')
 
@@ -12,13 +13,13 @@ const registrationPopup = (() => {
 
   const handleOpenVideoPopup = () => {
     moviePopup.classList.add('popup_active')
-    body.className = 'o-hidden'
-    movieIframe.src = movieLink
+    body.classList.add('o-hidden')
+    movieIframe.src = movieLink()+'?&autoplay=1&controls=1'
   }
 
   const handleCloseVideoPopup = () => {
     moviePopup.classList.remove('popup_active')
-    body.className = ''
+    body.classList.remove('o-hidden')
     movieIframe.src = ""
   }
 

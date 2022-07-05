@@ -21,7 +21,6 @@ const errorHandler = (message, form) => {
 const registrationService = (data, form) => {
   const submitBtn = form.querySelector('.registration__submit')
   submitBtn.disabled = true;
-
   const referralCookie = CookieModule.get('referral')
 
   return fetch('https://igame.by/api/users/quick', {
@@ -39,10 +38,11 @@ const registrationService = (data, form) => {
       if (errors[data.result]) {
         errorHandler(data.message, form);
       } else {
-        CookieModule.set('token', data.token)
-        CookieModule.set('locale', getCurrentLocale())
+        localStorage.setItem('access_token', data.token);
+        localStorage.setItem('account', JSON.stringify(data.account));
+        CookieModule.set('locale', getCurrentLocale(), 1825)
         CookieModule.set('account', JSON.stringify(data.account))
-        window.location.href = 'https://igame.by/panel/'
+        window.location.href = '/panel';
       }
     })
     .catch(err => {
