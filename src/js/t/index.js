@@ -1,5 +1,12 @@
+import {CookieModule} from "../cookie";
+import DictionaryModule from "./dictionaryModule";
+import nodeUtils from "../nodeUtils";
+import {videoAutoplay} from "../video";
+import {Loader} from "../loader";
+
 class TranslateModule {
-  constructor() {
+  constructor(dictionary) {
+    this.locales = ['ru', 'en']
     this.container = document.querySelector('.main')
 
     this.languageSelect = this.container.querySelector('.language-select')
@@ -12,26 +19,86 @@ class TranslateModule {
     this.images = this.container.querySelectorAll('[data-t-img]')
     this.sources = this.container.querySelectorAll('[data-t-source]')
 
-    this.baseLocale = navigator.language.split('-')[0]
-    this.locale = this.baseLocale
-    this.dictionaries = {}
+    this.videos = this.container.querySelectorAll('[data-t-video]')
+    this.videoSources = this.container.querySelectorAll('[data-t-video-source]')
+
+    this.btnDecorEn = this.container.querySelector('.game__btn-decor_en')
+    this.btnDecorRu = this.container.querySelector('.game__btn-decor_ru')
+
+    this.cardCtaBtnEn = this.container.querySelector(".how-works__card-cta_en");
+    this.cardCtaBtnRu = this.container.querySelector(".how-works__card-cta_ru");
+
+    this.gameCtaEnList = this.container.querySelectorAll(".game_main-cta-decor_en");
+    this.gameCtaRuList = this.container.querySelectorAll(".game_main-cta-decor_ru");
+
+    this.baseLocale = this.getLocale() || navigator.language.split('-')[0]
+    this.locale = this.locales.indexOf(this.baseLocale) > -1 ? this.baseLocale : 'ru'
+
+    this.dictionaryModule = dictionary
+
+    this.reputationBlock = document.querySelector('.reputation')
+    this.reputationMenuItem = document.querySelector('#reputation-menu')
   }
 
-  init() {
+  getLocale() {
+    return localStorage.getItem('locale')
+  }
+
+  setLocale(lang) {
+    localStorage.setItem('locale', lang)
+    CookieModule.set('locale', lang, 1825)
+  }
+
+  async init() {
+    this.setLocale(this.locale)
     this.setLanguageSelect()
-    this.handleTranslate()
+    await this.handleTranslate()
     this.setInitSelectedLang()
+    new Loader().hideLoader()
   }
 
-  handleTranslate() {
-    this.translateFields()
-    this.translateHolders()
-    this.translatePopups()
+  hideWithLocale(node) {
+    if (this.getLocale() === 'en') {
+      nodeUtils.hideNode(node)
+    } else {
+      nodeUtils.showNode(node)
+    }
+  }
+
+  async handleTranslate() {
+    window.TalkMeSetup = {
+      language: this.getLocale()
+    };
+    const dictionary = await this.dictionaryModule.getDictionary(this.getLocale())
     this.translateImages()
+    this.translateVideo()
+    this.hideWithLocale(this.reputationBlock)
+    this.hideWithLocale(this.reputationMenuItem)
+
+    if (this.getLocale() === 'en') {
+      this.btnDecorEn.classList.remove('hidden')
+      this.btnDecorRu.classList.add('hidden')
+      this.cardCtaBtnEn.classList.remove('hidden')
+      this.cardCtaBtnRu.classList.add('hidden')
+      this.gameCtaRuList.forEach(item => item.classList.add('hidden'))
+      this.gameCtaEnList.forEach(item => item.classList.remove('hidden'))
+
+    } else {
+      this.btnDecorEn.classList.add('hidden')
+      this.btnDecorRu.classList.remove('hidden')
+      this.cardCtaBtnEn.classList.add('hidden')
+      this.cardCtaBtnRu.classList.remove('hidden')
+      this.gameCtaRuList.forEach(item => item.classList.remove('hidden'))
+      this.gameCtaEnList.forEach(item => item.classList.add('hidden'))
+    }
+    return await Promise.all([
+      this.translateFields(dictionary),
+      this.translateHolders(dictionary),
+      this.translatePopups(dictionary)])
   }
 
   setInitSelectedLang() {
-    const selected = this.languageSelect.querySelector(`[data-lang-${this.locale}]`)
+    const selected = this.languageSelect.querySelector(`[data-lang-${this.getLocale()}]`)
     this.handleSetSelectedLang(selected)
   }
 
@@ -50,7 +117,8 @@ class TranslateModule {
     this.languageSelectElements.forEach(item => {
       item.addEventListener('click', () => {
         this.handleSetSelectedLang(item)
-        this.locale = item.getAttribute('data-lang')
+        const locale = item.getAttribute('data-lang')
+        this.setLocale(locale)
         this.handleTranslate()
       })
     })
@@ -77,70 +145,41 @@ class TranslateModule {
     })
   }
 
-  translateFields() {
+  async translateFields(dictionary) {
     const setFields = (dictionary) => {
       this.textFields.forEach(item => {
         const key = item.getAttribute('data-t-key')
-        if (dictionary[key]) {
+
+        if (dictionary?.[key]) {
           item.textContent = dictionary[key]
         }
       });
     }
-
-    if (this.dictionaries[this.locale]) {
-      setFields(this.dictionaries[this.locale])
-    } else {
-      fetch(`assets/locales/${this.locale}.json`)
-        .then(res => res.json())
-        .then(dictionary => {
-          setFields(dictionary)
-          this.dictionaries[this.locale] = dictionary
-        })
-    }
+    return setFields(dictionary)
   }
 
-  translateHolders() {
+  async translateHolders(dictionary) {
     const setHolders = (dictionary) => {
       this.placeholders.forEach(item => {
         const key = item.getAttribute('data-t-placeholder-key')
-        if (dictionary[key]) {
+        if (dictionary?.[key]) {
           item.placeholder = dictionary[key]
         }
       });
     }
-
-    if (this.dictionaries[this.locale]) {
-      setHolders(this.dictionaries[this.locale])
-    } else {
-      fetch(`assets/locales/${this.locale}.json`)
-        .then(res => res.json())
-        .then(dictionary => {
-          setHolders(dictionary)
-          this.dictionaries[this.locale] = dictionary
-        })
-    }
+    return setHolders(dictionary)
   }
 
-  translatePopups() {
+  async translatePopups(dictionary) {
     const setPopups = (dictionary) => {
       this.popups.forEach(item => {
         const key = item.getAttribute('data-t-popup-key')
-        if (dictionary[key]) {
+        if (dictionary?.[key]) {
           item.innerHTML = dictionary[key]
         }
       });
     }
-
-    if (this.dictionaries[this.locale]) {
-      setPopups(this.dictionaries[this.locale])
-    } else {
-      fetch(`assets/locales/${this.locale}.json`)
-        .then(res => res.json())
-        .then(dictionary => {
-          setPopups(dictionary)
-          this.dictionaries[this.locale] = dictionary
-        })
-    }
+    return setPopups(dictionary)
   }
 
   translateImages() {
@@ -149,7 +188,7 @@ class TranslateModule {
     }
     const changeImageUrlLocal = (src) => {
       const currentImageLocale = src.substring(getLocaleFolder(src) + 8, getLocaleFolder(src) + 8 + 4)
-      return src.replace(currentImageLocale, `/${this.locale}/`)
+      return src.replace(currentImageLocale, `/${this.getLocale()}/`)
     }
     this.sources.forEach((src) => {
       const newSrc = changeImageUrlLocal(src.srcset)
@@ -164,10 +203,40 @@ class TranslateModule {
       }
     })
   }
+
+  translateVideo() {
+    const getLocaleFolder = (str) => {
+      return str.indexOf('/content/')
+    }
+    const changeImageUrlLocal = (src) => {
+      const currentImageLocale = src.substring(getLocaleFolder(src) + 8, getLocaleFolder(src) + 8 + 4)
+      return src.replace(currentImageLocale, `/${this.getLocale()}/`)
+    }
+    this.videoSources.forEach((src) => {
+      const newSrc = changeImageUrlLocal(src.src)
+      if (newSrc) {
+        src.src = newSrc
+      }
+    })
+    this.videos.forEach((video) => {
+      const newSrc = changeImageUrlLocal(video.src)
+      if (newSrc) {
+        video.src = newSrc
+      }
+    })
+  }
 }
 
-const translation = new TranslateModule()
+const dictionary = new DictionaryModule()
+const translation = new TranslateModule(dictionary)
+translation.init()
 
 document.addEventListener("DOMContentLoaded", () => {
-  translation.init()
+  const params = (new URL(document.location)).searchParams;
+  const ref = params.get('ref');
+
+  if (ref) {
+    CookieModule.set('referral', ref, 1852)
+  }
+  setTimeout(videoAutoplay, 1000)
 });
