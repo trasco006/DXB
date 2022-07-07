@@ -1,5 +1,5 @@
 const registrationPopup = (() => {
-  const movieLink = 'https://www.youtube.com/embed/ITBMT-sUeH0?&autoplay=1&controls=1'
+  const movieLink = 'https://www.youtube.com/embed/C6UNDBeDb74?&autoplay=1&controls=1'
   const moviePopup = document.querySelector('.video-popup')
   const movieIframe = document.querySelector('.main_movie')
 
