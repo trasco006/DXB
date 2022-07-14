@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Конструктор игр для Instagram</title>
-  <meta name="keywords" content="игры и конкурсы в инстаграм, тренды инстаграм 2022, геймификация инстаграм, повысить вовлеченность и охваты, вовлечение подписчиков, повышение активности в сториз, повышение активности в сторис, как повысить активность в прямых эфирах">
-  <meta name="description" content="Новый сервис геймификации. Тренд 2022 года. Идеальный инструмент для повышения вовлеченности и охватов вашего блога.">
+  <meta name="keywords"
+        content="игры и конкурсы в инстаграм, тренды инстаграм 2022, геймификация инстаграм, повысить вовлеченность и охваты, вовлечение подписчиков, повышение активности в сториз, повышение активности в сторис, как повысить активность в прямых эфирах">
+  <meta name="description"
+        content="Новый сервис геймификации. Тренд 2022 года. Идеальный инструмент для повышения вовлеченности и охватов вашего блога.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#FFF">
 </head>
@@ -89,9 +91,10 @@
       </h2>
       <p class="hero__subtitle" data-t-key="constructorTitle3">Прокачайте активность своих подписчиков</p>
       <div class="hero__container">
-        <button type="button" class="btn btn_primary hero__registration" data-t-key="registrationSubmit">Регистрация
+        <button type="button" class="btn btn_primary hero__registration" data-t-key="freeRegistrationSubmit">
+          Бесплатная регистрация
         </button>
-        <a href="#game" class="hero__link gradient-text" data-t-key="cta">Прокачать</a>
+        <span class="hero__link gradient-text" data-t-key="freeRegistrationSubtitle">+ 3 дня в подарок :)</span>
       </div>
     </div>
     <picture class="hero__image-block">
@@ -1158,7 +1161,9 @@
       <button type="submit" class="registration__submit" data-t-key="registrationSubmit">
         Регистрация
       </button>
+
     </form>
+    <span class="registration__subtitle gradient-text" data-t-key="freeRegistrationSubtitle">+ 3 дня в подарок :)</span>
   </section>
 
   <section class="about container" name="about">
@@ -1746,35 +1751,52 @@
 
 <!-- Meta Pixel Code -->
 <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '424446389277087');
   fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=424446389277087&ev=PageView&noscript=1"
+               src="https://www.facebook.com/tr?id=424446389277087&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+<script type="text/javascript">
+  (function (m, e, t, r, i, k, a) {
+    m[i] = m[i] || function () {
+      (m[i].a = m[i].a || []).push(arguments)
+    };
+    m[i].l = 1 * new Date();
+    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+  })
   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
   ym(89522383, "init", {
-       clickmap:true,
-       trackLinks:true,
-       accurateTrackBounce:true,
-       webvisor:true
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true
   });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/89522383" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript>
+  <div><img src="https://mc.yandex.ru/watch/89522383" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
 </body>
 
