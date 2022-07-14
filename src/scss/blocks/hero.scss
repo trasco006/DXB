@@ -64,6 +64,7 @@
     width: 100%;
     margin-top: 46px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-weight: bold;
@@ -81,9 +82,10 @@
   }
 
   &__link {
-    padding: 13px;
-    margin-left: 32px;
-    font-weight: bold;
+    margin-top: 10px;
+    font-size: 19px;
+    line-height: 120%;
+    font-weight: 700;
   }
 
   &__image-block {
@@ -129,14 +131,14 @@
       font-size: 13.3px;
     }
 
+    & &__link {
+      font-size: 14px;
+    }
+
     & &__registration {
       padding: 13px 29px;
       border-radius: 55px;
       font-size: 13px;
-    }
-
-    & &__link {
-      margin-left: 22px;
     }
 
     & &__image {
@@ -165,11 +167,6 @@
     & &__image {
       max-height: 450px;
     }
-
-    & &__link {
-      margin-left: 24px;
-    }
-
     & &__registration {
       padding: 18px 24px;
       font-size: 16px;
@@ -237,6 +234,7 @@
     & &__title {
       font-size: 10vw;
     }
+
     & &__image {
       max-height: 100vw;
       object-position: center;
@@ -244,12 +242,11 @@
     }
 
     & &__link {
-      padding: 14px 27px;
-      margin: 0;
       font-size: 4.37vw;
     }
 
     & &__registration {
+      min-width: 250px;
       height: 14vw;
       font-size: 4.37vw;
     }

@@ -149,6 +149,17 @@
     }
   }
 
+  &__subtitle {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -6px;
+    transform: translateY(100%);
+    font-size: 26px;
+    line-height: 120%;
+    font-weight: 700;
+  }
+
   @media (max-width: 1440px) {
     max-width: 315px;
     margin: 0 auto 100px;
@@ -199,6 +210,11 @@
         height: 35px;
       }
     }
+
+    &__subtitle {
+      font-size: 16px;
+    }
+
   }
   @media (max-width: 768px) {
     max-width: 330px;
@@ -240,6 +256,9 @@
       height: 60px;
       font-size: 18px;
       line-height: 22px;
+    }
+    &__subtitle {
+      font-size: 14px;
     }
   }
 
@@ -297,7 +316,9 @@
         right: 5%;
       }
     }
-
+    &__subtitle {
+      font-size: 4.37vw;
+    }
   }
 }
 
