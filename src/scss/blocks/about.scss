@@ -1,12 +1,16 @@
 .about {
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   position: relative;
 
   .blot {
     top: -500px;
     right: 210px;
     position: absolute;
+  }
+  
+  &__payments{
+    margin-top: 18px;
   }
 
   &__title {
@@ -99,7 +103,7 @@
   }
 
   @media (max-width: 1440px) {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 
     &__title {
       margin-bottom: 17px;
