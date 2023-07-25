@@ -25,7 +25,9 @@
       right: -60px;
       top: 80px;
     }
+
     padding: 0 21px;
+
     &__description {
       font-size: 18px;
       line-height: 22px;
@@ -34,9 +36,11 @@
 
   @media(max-width: 480px) {
     padding: 0 7.5vw;
+
     .blot {
       display: none;
     }
+
     &__description {
       font-size: 3.125vw;
       line-height: 4vw;
@@ -51,7 +55,7 @@
     box-shadow: 0 0 66.6023px 13.3205px rgba(0, 0, 0, 0.04);
     border-radius: 50px;
     background: white;
-    padding: 43px 64px 96px;
+    padding: 43px 64px 40px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: -webkit-box;
@@ -66,18 +70,18 @@
       max-width: 870px;
       margin: 39px auto 0;
       border-radius: 35px;
-      padding: 30px 45px 67px;
+      padding: 30px 45px 33px;
     }
 
     @media(max-width: 760px) {
       margin-top: 50px;
-      padding: 17px 33px;
+      padding: 18px 33px 18px;
       border-radius: 28px;
     }
 
     @media(max-width: 480px) {
       margin-top: 8.4vw;
-      padding: 8.4vw 2.81vw;
+      padding: 8.4vw 2.81vw 4.2vw;
       border-radius: 8.75vw;
     }
   }
@@ -211,6 +215,7 @@
     @media (max-width: 1440px) {
       font-size: 12px;
     }
+
     @media (max-width: 760px) {
       font-size: 10px;
       top: -4px;
@@ -357,7 +362,8 @@
     }
 
     .range::-ms-tooltip {
-      display: none; /* display and visibility only */
+      display: none;
+      /* display and visibility only */
     }
 
     .range::-moz-range-thumb {
@@ -416,6 +422,7 @@
 
     @media(max-width: 760px) {
       margin-top: 35px;
+
       .range::-webkit-slider-runnable-track {
         background-color: #F4F0FF;
         height: 0;
@@ -455,7 +462,8 @@
       }
 
       .range::-ms-tooltip {
-        display: none; /* display and visibility only */
+        display: none;
+        /* display and visibility only */
       }
 
       .range::-moz-range-thumb {
@@ -516,6 +524,7 @@
 
     @media(max-width: 480px) {
       margin: 8.4vw 5.3vw 0;
+
       .range::-webkit-slider-runnable-track {
         background-color: #F4F0FF;
         height: 0;
@@ -555,7 +564,8 @@
       }
 
       .range::-ms-tooltip {
-        display: none; /* display and visibility only */
+        display: none;
+        /* display and visibility only */
       }
 
       .range::-moz-range-thumb {
@@ -612,6 +622,24 @@
       .range:active::-ms-thumb {
         border: none;
       }
+    }
+  }
+
+  &__info {
+    padding-top: 36px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #86888A;
+    text-align: center;
+
+    @media(max-width: 760px) {
+      font-size: 14px;
+    }
+
+    @media(max-width: 480px) {
+      padding-left: 6px;
+      padding-right: 6px;
     }
   }
 }
