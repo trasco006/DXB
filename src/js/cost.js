@@ -1,13 +1,7 @@
 const costModules = document.querySelectorAll('.cost');
 
-const subscriberCost = {
-  dollar: 1,
-  byn: 2.6,
-  rub: 75,
-};
-
 const currencySymbol = {
-  dollar: '$',
+  usd: '$',
   byn: 'BYN',
   rub: 'RUB',
 };
@@ -46,11 +40,27 @@ const calculation = (subscribers, cost) => {
   return total;
 };
 
-const costLogic = () => {
+const costLogic = async () => {
+  const subscriberCost = await fetch('https://t.sub.by/api/payment/rates', {
+    method: 'GET',
+  })
+    .then((res) => res.text())
+    .then(JSON.parse)
+    .then(({ rub, byn }) => {
+      return {
+        rub: Number(rub),
+        byn: Number(byn),
+        usd: 1
+      }
+    })
 
   costModules.forEach(module => {
-    let selectedCurrency = 'dollar';
+    let selectedCurrency = 'usd';
+    let selectedPeriod = 'year';
+
     const currencyButtons = module.querySelectorAll('.cost__currency-value');
+    const periodButtons = module.querySelectorAll('.cost__heading-btn');
+
     const range = module.querySelector('input[type="range"]');
     const subscribersInput = module.querySelector('.cost__subscribers');
     const sumInput = module.querySelector('.cost__sum');
@@ -65,7 +75,28 @@ const costLogic = () => {
       });
     };
 
-    const handleChangeCurrency = ({target}) => {
+    const changePerionBtnStyle = () => {
+      periodButtons.forEach(btn => {
+        if (btn.id === selectedPeriod) {
+          btn.className = 'cost__heading-btn cost__heading-btn_active';
+        } else {
+          btn.className = 'cost__heading-btn';
+        }
+      });
+    };
+
+
+    periodButtons.forEach(btn => {
+      const btnHandler = () => {
+        selectedPeriod = btn.id
+        rangeHandler()
+        changePerionBtnStyle();
+      }
+
+      btn.addEventListener('click', btnHandler)
+    })
+
+    const handleChangeCurrency = ({ target }) => {
       selectedCurrency = target.id;
       rangeHandler();
       changeCurrencyBtnStyle();
@@ -75,20 +106,37 @@ const costLogic = () => {
       btn.addEventListener('click', handleChangeCurrency);
     });
 
+    const getSumValue = (value) => {
+      const calculatedSum = calculation(value, subscriberCost[selectedCurrency])
+      const sum = selectedPeriod === 'month' ? Math.round(calculatedSum * 1.2) : calculatedSum;
+
+      return sum + " " + currencySymbol[selectedCurrency];
+    };
+
+    const setSumValue = (value) => sumInput.value = getSumValue(value);
+
+    const setRangeValue = (value) => range.value = value || 0;
+
+    const setSubscribersValue = (value) => subscribersInput.value = divideNumberByPieces(value);
+    
     const rangeHandler = function () {
       const newValue = range.value;
-      subscribersInput.value = divideNumberByPieces(newValue);
-      sumInput.value = `${calculation(newValue, subscriberCost[selectedCurrency])} ${currencySymbol[selectedCurrency]}`;
+
+      setSubscribersValue(newValue);
+      setSumValue(newValue);
     };
 
     const changeSubscribers = function () {
       const newValue = +this.value.replace(/[^0-9]/g, "");
-      range.value = newValue || 0
-      subscribersInput.value = divideNumberByPieces(newValue || 0);
-      sumInput.value = `${calculation(newValue, subscriberCost[selectedCurrency])} ${currencySymbol[selectedCurrency]}`;
+
+      setSubscribersValue(newValue || 0);
+      setRangeValue(newValue)
+      setSumValue(newValue);
     }
+
     changeCurrencyBtnStyle();
     rangeHandler();
+
     subscribersInput.addEventListener('input', changeSubscribers)
     range.addEventListener('input', rangeHandler);
   });
