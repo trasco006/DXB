@@ -12,8 +12,10 @@ const divideNumberByPieces = (sum, delimiter) => {
 
 const calculation = (subscribers, cost) => {
   let total = 0;
- 
-  if (subscribers >= 0 && subscribers <= 15000) {
+  
+  if (subscribers <= 5000) {
+    total = 10
+  } else if (subscribers > 5000 && subscribers <= 15000) {
     total = 10 + Math.floor((subscribers - 1) / 5000) * 5;
   } else if (subscribers > 15000 && subscribers <= 100000) {
     total = 20 + Math.floor((subscribers - 1) / 10000) * 5;
@@ -94,7 +96,7 @@ const costLogic = async () => {
     const getSumValue = (value) => {
       const calculatedSum = calculation(value, subscriberCost[selectedCurrency])
 
-      const sum = selectedPeriod === 'month' ? Math.round(calculatedSum * 1.2) : calculatedSum;
+      const sum = selectedPeriod === 'year' ? Math.round(calculatedSum * 0.8) : calculatedSum;
 
       return sum + " " + currencySymbol[selectedCurrency];
     };
