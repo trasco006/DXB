@@ -12,31 +12,16 @@ const divideNumberByPieces = (sum, delimiter) => {
 
 const calculation = (subscribers, cost) => {
   let total = 0;
-  if (subscribers == 0) {
-    total = 0;
-  } else if (subscribers > 0 && subscribers <= 5000) {
-    total = 10 * cost;
-  } else if (subscribers > 5000 && subscribers <= 10000) {
-    total = 15 * cost;
-  } else if (subscribers > 10000 && subscribers <= 20000) {
-    total = 20 * cost;
-  } else if (subscribers > 20000 && subscribers <= 30000) {
-    total = 25 * cost;
-  } else if (subscribers > 30000 && subscribers <= 40000) {
-    total = 30 * cost;
-  } else if (subscribers > 40000 && subscribers <= 50000) {
-    total = 35 * cost;
-  } else if (subscribers > 50000 && subscribers <= 65000) {
-    total = 40 * cost;
-  } else if (subscribers > 65000 && subscribers <= 80000) {
-    total = 45 * cost;
-  } else if (subscribers > 80000 && subscribers <= 100000) {
-    total = 50 * cost;
-  } else {
-    total = Math.round(50 + Math.floor((subscribers - 1) / 100000) * 5) * cost;
+ 
+  if (subscribers >= 0 && subscribers <= 15000) {
+    total = 10 + Math.floor((subscribers - 1) / 5000) * 5;
+  } else if (subscribers > 15000 && subscribers <= 100000) {
+    total = 20 + Math.floor((subscribers - 1) / 10000) * 5;
+  } else if (subscribers > 100000) {
+    total = 65 + Math.floor((subscribers - 1) / 100000) * 5;
   }
 
-  total = Math.round(total);
+  total = Math.round(total * cost);
   return total;
 };
 
@@ -108,6 +93,7 @@ const costLogic = async () => {
 
     const getSumValue = (value) => {
       const calculatedSum = calculation(value, subscriberCost[selectedCurrency])
+
       const sum = selectedPeriod === 'month' ? Math.round(calculatedSum * 1.2) : calculatedSum;
 
       return sum + " " + currencySymbol[selectedCurrency];
@@ -118,7 +104,7 @@ const costLogic = async () => {
     const setRangeValue = (value) => range.value = value || 0;
 
     const setSubscribersValue = (value) => subscribersInput.value = divideNumberByPieces(value);
-    
+
     const rangeHandler = function () {
       const newValue = range.value;
 
