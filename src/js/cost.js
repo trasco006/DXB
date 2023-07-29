@@ -94,7 +94,7 @@ const costLogic = async () => {
     const getSumValue = (value) => {
       const calculatedSum = calculation(value, subscriberCost[selectedCurrency])
 
-      const sum = selectedPeriod === 'month' ? Math.round(calculatedSum * 1.2) : calculatedSum;
+      const sum = selectedPeriod === 'year' ? Math.round(calculatedSum * 0.8) : calculatedSum;
 
       return sum + " " + currencySymbol[selectedCurrency];
     };
