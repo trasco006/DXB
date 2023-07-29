@@ -75,6 +75,7 @@ html {
 
 .blot {
   pointer-events: none;
+
   @media (max-width: 480px) {
     display: none;
   }
@@ -123,4 +124,8 @@ html {
   background: #B196DF;
   border-radius: 4px;
   border: none;
+}
+
+.text-black {
+  color: #000 !important;
 }

@@ -1107,19 +1107,30 @@
     <h3 class="subtitle" data-t-key="costTitle">СТОИМОСТЬ</h3>
     <p class="cost__description reputation__description" data-t-key="costSubtitle">Зависит от кол-ва подписчиков вашего
       блога</p>
+
+    <div class="cost__heading">
+      <button id="month" class="cost__heading-btn">
+        <span class="cost__heading-txt_full" data-t-key="costMonthTab">Ежемесячная оплата</span>
+        <span class="cost__heading-txt_short" data-t-key="costMonthTabShort">Ежемесячно</span>
+      </button>
+      <button id="year" class="cost__heading-btn cost__heading-btn_active">
+        <span class="cost__heading-txt_full" data-t-key="costYearTab">Ежегодная оплата (-20%)</span>
+        <span class="cost__heading-txt_short" data-t-key="costYearTabShort">Ежегодно (-20%)</span>
+      </button>
+    </div>
     <div class="cost__card">
       <div class="cost__currency">
         <button class="cost__currency-value" id="byn" data-t-key="costCurrencyByn">BYN</button>
-        <button class="cost__currency-value" id="dollar" data-t-key="costCurrencyDollar">$</button>
+        <button class="cost__currency-value" id="usd" data-t-key="costCurrencyDollar">$</button>
         <button class="cost__currency-value" id="rub" data-t-key="costCurrencyRubel">RUB</button>
       </div>
       <div class="cost__counters">
         <div class="cost__counter">
           <div class="input__wrapper">
-            <label for="cost__subscribers" class="cost__label" data-t-key="costLabel">
+            <label for="cost__subscribers" class="cost__label text-black" data-t-key="costLabel">
               Введите значение:
             </label>
-            <input type="text" id="cost__subscribers" maxlength="9" class="cost__counter-input cost__subscribers">
+            <input type="text" id="cost__subscribers" maxlength="9" class="cost__counter-input cost__subscribers text-black">
           </div>
           <label for="cost__subscribers" class="cost__counter-label" data-t-key="costSubscribers">ВАШИ
             ПОДПИСЧИКИ</label>
@@ -1132,8 +1143,10 @@
         </div>
       </div>
       <div class="cost__range">
-        <input class="range" type="range" min="0" max="1000000" step="5000" value="5000">
+        <input class="range" type="range" min="0" max="10000000" step="5000" value="5000">
       </div>
+
+      <p class="cost__info" data-t-key="costInfo">Цены в RUB и BYN указаны ориентировочно. Они пересчитываются по курсу нац. банка на момент оплаты.</p>
     </div>
   </section>
 
