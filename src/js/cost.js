@@ -8,7 +8,7 @@ const getCurrencyRates = () => fetch('https://t.sub.by/api/payment/rates', { met
   }))
 
 const costModules = document.querySelectorAll('.cost');
-
+const DEFAULT_VALUE = 5_000;
 const BORDER_VALUE = 1_000_000;
 
 const businessValues = {
@@ -130,6 +130,13 @@ const costLogic = async () => {
       setRangeValue(businessValueToRangeValue(value));
     }
     const handleRangeChange = value => {
+      if (value === '0') {
+        setRangeValue(1);
+        changeSubscribers(1);
+        changeCost(1)
+        return;
+      }
+
       if (value <= BORDER_VALUE) {
         setRangeValue(value);
         changeSubscribers(value);
@@ -153,7 +160,8 @@ const costLogic = async () => {
       });
     }
 
-    const subscribersHandler = value => handleSubscribersInputChange(normalizeSubscribersValue(value))
+    const subscribersHandler = ({ target: { value } }) => handleSubscribersInputChange(normalizeSubscribersValue(value))
+
     subscribersInput.addEventListener('input', subscribersHandler)
 
     const rangeHandler = ({ target: { value } }) => handleRangeChange(value);
@@ -186,7 +194,7 @@ const costLogic = async () => {
     const init = () => {
       changeCurrencyBtnStyle(currencyButtons, selectedCurrency);
       changePerionBtnStyle(periodButtons, selectedPeriod);
-      handleRangeChange(range.value)
+      handleRangeChange(DEFAULT_VALUE)
     }
 
     init();
