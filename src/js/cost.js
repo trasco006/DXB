@@ -1,11 +1,16 @@
-const getCurrencyRates = () => fetch('https://t.sub.by/api/payment/rates', { method: 'GET' })
+const getCurrencyRates = () => fetch('https://igame.by/api/payment/rates', { method: 'GET' })
   .then((res) => res.text())
   .then(JSON.parse)
   .then(({ rub, byn }) => ({
     rub: Number(rub),
     byn: Number(byn),
     usd: 1
-  }))
+  })).catch(() => ({
+  rub: 0,
+  byn: 0,
+  usd: 1
+}))
+
 
 const costModules = document.querySelectorAll('.cost');
 const DEFAULT_VALUE = 5_000;
