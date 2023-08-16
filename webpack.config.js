@@ -15,7 +15,7 @@ const htmlPluginEntries = templateFiles.map((template) => new HTMLWebpackPlugin(
   hash: false,
   filename: template,
   template: path.resolve(environment.paths.source, template),
-  favicon: path.resolve(environment.paths.source, 'images', 'favicon.png'),
+  favicon: path.resolve(environment.paths.source, 'landing-images', 'favicon.png'),
 }));
 
 module.exports = {
@@ -50,7 +50,7 @@ module.exports = {
           },
         },
         generator: {
-          filename: 'images/design/[name].[hash:6][ext]',
+          filename: 'landing-images/design/[name].[hash:6][ext]',
         },
       },
       {
@@ -62,7 +62,7 @@ module.exports = {
           },
         },
         generator: {
-          filename: 'images/design/[name].[hash:6][ext]',
+          filename: 'landing-images/design/[name].[hash:6][ext]',
         },
       },
       {
@@ -105,8 +105,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(environment.paths.source, 'images', 'content'),
-          to: path.resolve(environment.paths.output, 'images', 'content'),
+          from: path.resolve(environment.paths.source, 'landing-images', 'content'),
+          to: path.resolve(environment.paths.output, 'landing-images', 'content'),
           toType: 'dir',
           globOptions: {
             ignore: ['*.DS_Store', 'Thumbs.db'],
