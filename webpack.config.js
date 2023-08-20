@@ -23,7 +23,7 @@ module.exports = {
     app: ['babel-polyfill', path.resolve(environment.paths.source, 'js', 'app.js')],
   },
   output: {
-    filename: 'js/[name].js',
+    filename: 'langing-js/[name].js',
     path: environment.paths.output,
   },
   module: {
@@ -73,7 +73,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: 'landing-css/[name].css',
     }),
     new ImageMinimizerPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
@@ -113,8 +113,8 @@ module.exports = {
           },
         },
         {
-          from: path.resolve(environment.paths.source, 'assets', 'locales'),
-          to: path.resolve(environment.paths.output, 'assets', 'locales'),
+          from: path.resolve(environment.paths.source, 'landing-assets', 'locales'),
+          to: path.resolve(environment.paths.output, 'landing-assets', 'locales'),
           toType: 'dir',
           globOptions: {
             ignore: ['*.DS_Store', 'Thumbs.db'],

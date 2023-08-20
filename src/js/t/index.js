@@ -228,9 +228,8 @@ class TranslateModule {
 }
 
 const dictionary = new DictionaryModule()
-new Loader().hideLoader() // should be removed after rollback translations
-// const translation = new TranslateModule(dictionary)
-// translation.init()
+const translation = new TranslateModule(dictionary)
+translation.init()
 
 document.addEventListener("DOMContentLoaded", () => {
   const params = (new URL(document.location)).searchParams;
