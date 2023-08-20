@@ -35,7 +35,7 @@ export default class DictionaryModule {
       method: 'GET',
       headers: myHeaders,
     };
-    const res = fetch(`assets/locales/${lang}.json`, myInit).then(res => res.json())
+    const res = fetch(`landing-assets/locales/${lang}.json`, myInit).then(res => res.json())
     const stringDictionary = this.stringify(res)
     this.setDictionaryToLS(lang, stringDictionary)
     this.setDictionary(lang, res)
