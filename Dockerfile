@@ -18,7 +18,7 @@ RUN adduser -D -H docker
 # Set working directory
 WORKDIR /app
 # Copy the React build from previous stage to nginx's default directory
-COPY --from=build --chown=docker:docker /app/wwwroot .
+COPY --from=build --chown=docker:docker /app/dist .
 # Set ownership for nginx files
 RUN chown -R docker:docker /app && \
 	chmod -R 765 /app && \
