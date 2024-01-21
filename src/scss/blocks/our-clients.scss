@@ -1,0 +1,154 @@
+.our-clients {
+    display: flex;
+    flex-direction: column;
+    margin: 186px auto !important;
+
+    .reputation__description {
+        @media (max-width: 480px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (max-width: 980px) {
+        margin: 120px auto !important;
+    }
+
+    @media (max-width: 768px) {
+        margin: 80px auto !important;
+    }
+
+    @media (max-width: 480px) {
+        margin: 18.75vw auto !important;
+    }
+}
+
+.our-clients__wrapper {
+    border: 1px solid transparent;
+    margin-bottom: 50px;
+
+    @media (max-width: 480px) {
+        border-radius: 3.75vw;
+        border: 1px solid #86888A;
+        box-shadow: 0px 0px 10.9px 2px rgba(0, 0, 0, 0.06);
+        padding: 2.5vw 6.25vw;
+        margin-bottom: 1.8vw;
+    }
+}
+
+.our-clients__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 26px;
+    row-gap: 24px;
+
+    @media (max-width: 980px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 480px) {
+        margin-bottom: 6.25vw;
+    }
+}
+
+.our-clients__card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.our-clients__card-avatar {
+    margin-bottom: 14px;
+    width: 100px;
+    height: 100px;
+
+    @media (max-width: 768px) {
+        width: 70px;
+        height: 70px;
+    }
+
+    @media (max-width: 480px) {
+        width: 15.62vw;
+        height: 15.62vw
+    }
+}
+
+.our-clients__card-title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 3.2vw
+    }
+}
+
+.our-clients__card-subtitle {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 3.2vw;
+    }
+}
+
+.our-clients__company-list {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.our-clients__company-item {
+    @media (max-width: 768px) {
+        height: 40px;
+    }
+
+    @media (max-width: 480px) {
+        height: 8.75vw;
+    }
+}
+
+.our-clients__description {
+    color: #86888A;
+    text-align: center;
+    font-family: "Montserrat Alternates";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 auto;
+
+    b {
+        font-weight: bold;
+        color: #000
+    }
+
+    @media (max-width: 1440px) {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    @media (max-width: 980px) {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    @media (max-width: 740px) {
+        font-size: 3.43vw;
+        line-height: 4vw;
+        max-width: 69vw;
+    }
+}

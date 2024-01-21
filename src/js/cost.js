@@ -6,15 +6,36 @@ const getCurrencyRates = () => fetch('https://igame.by/api/payment/rates', { met
     byn: Number(byn),
     usd: 1
   })).catch(() => ({
-  rub: 0,
-  byn: 0,
-  usd: 1
-}))
+    rub: 0,
+    byn: 0,
+    usd: 1
+  }))
 
 
 const costModules = document.querySelectorAll('.cost');
 const DEFAULT_VALUE = 5_000;
 const BORDER_VALUE = 1_000_000;
+
+const ADDITIONAL_POINTS = {
+  FORTUNE_WHEEL: 'FORTUNE_WHEEL',
+  SHOP: 'SHOP',
+  FULL_WORK: 'FULL_WORK',
+  FULL_SUPPORT: 'FULL_SUPPORT',
+}
+
+const ADDITIONAL_POINTS_PRICES = {
+  [ADDITIONAL_POINTS.FORTUNE_WHEEL]: 99,
+  [ADDITIONAL_POINTS.SHOP]: 15,
+  [ADDITIONAL_POINTS.FULL_WORK]: 99,
+  [ADDITIONAL_POINTS.FULL_SUPPORT]: 599,
+}
+
+const ADDITIONAL_PRICE_SELECTORS = {
+  [ADDITIONAL_POINTS.FORTUNE_WHEEL]: '.cost__additional-fortune-price',
+  [ADDITIONAL_POINTS.SHOP]: '.cost__additional-shop-price',
+  [ADDITIONAL_POINTS.FULL_WORK]: '.cost__additional-full-work-price',
+  [ADDITIONAL_POINTS.FULL_SUPPORT]: '.cost__additional-full-support-price',
+}
 
 const businessValues = {
   1: BORDER_VALUE,
@@ -80,6 +101,10 @@ const getElements = (module) => [
   module.querySelector('input[type="range"]'),
   module.querySelector('.cost__subscribers'),
   module.querySelector('.cost__sum'),
+  Object.entries(ADDITIONAL_PRICE_SELECTORS).reduce((acc, [key, value]) => {
+    acc[key] = module.querySelector(value);
+    return acc
+  }, {})
 ]
 
 const changeCurrencyBtnStyle = (btns, selectedCurrency) =>
@@ -95,27 +120,41 @@ const changePerionBtnStyle = (btn, selectedPeriod) =>
       ? 'cost__heading-btn cost__heading-btn_active'
       : 'cost__heading-btn');
 
+
+
 const normalizeSubscribersValue = value => +value.replace(/[^0-9]/g, "");
 
 const costLogic = async () => {
   const subscriberCost = await getCurrencyRates();
 
+  const changeAdditionalPrices = (additionalPrices, currency) => {
+    Object.entries(additionalPrices).forEach(([key, node]) => {
+      node.innerText = `${ADDITIONAL_POINTS_PRICES[key] * Math.floor(subscriberCost[currency])} ${currencySymbol[currency]}`
+    })
+  }
+
   costModules.forEach(module => {
-    const [currencyButtons, periodButtons, range, subscribersInput, costInput] = getElements(module);
+    const [currencyButtons, periodButtons, range, subscribersInput, costInput, additionalPrices] = getElements(module);
 
     let selectedCurrency = 'usd';
     let selectedPeriod = 'year';
 
     const setSelectedCurrency = value => selectedCurrency = value;
+
     const setSelectedPeriod = value => selectedPeriod = value;
+
     const calculateCost = (value) => {
       const calculatedCost = calculation(value, subscriberCost[selectedCurrency])
       const sum = selectedPeriod === 'year' ? Math.round(calculatedCost * 0.8) : calculatedCost;
       return sum + " " + currencySymbol[selectedCurrency];
     };
+
     const changeCost = (value) => costInput.value = calculateCost(value);
+
     const recalculate = () => changeCost(normalizeSubscribersValue(subscribersInput.value));
+
     const changeSubscribers = (value) => subscribersInput.value = divideNumberByPieces(value);
+
     const setRangeValue = value => range.value = value;
 
     const handleSubscribersInputChange = (value) => {
@@ -134,6 +173,7 @@ const costLogic = async () => {
 
       setRangeValue(businessValueToRangeValue(value));
     }
+
     const handleRangeChange = value => {
       if (value === '0') {
         setRangeValue(1);
@@ -179,6 +219,7 @@ const costLogic = async () => {
         changeCurrencyBtnStyle(currencyButtons, id);
         setSelectedCurrency(id);
         recalculate();
+        changeAdditionalPrices(additionalPrices, selectedCurrency);
       };
 
       btn.addEventListener('click', handleChangeCurrency)
@@ -200,6 +241,7 @@ const costLogic = async () => {
       changeCurrencyBtnStyle(currencyButtons, selectedCurrency);
       changePerionBtnStyle(periodButtons, selectedPeriod);
       handleRangeChange(DEFAULT_VALUE)
+      changeAdditionalPrices(additionalPrices, selectedCurrency);
     }
 
     init();

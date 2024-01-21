@@ -8,8 +8,8 @@
     right: 210px;
     position: absolute;
   }
-  
-  &__payments{
+
+  &__payments {
     margin-top: 18px;
   }
 
@@ -89,13 +89,16 @@
     &__container {
       margin: 40px auto 0;
     }
+
     &__subtitle {
       font-size: 20px
     }
+
     &__description {
       font-size: 14px;
       line-height: 16px;
     }
+
     .icon {
       width: 64px;
       height: 64px;
@@ -138,20 +141,25 @@
 
   @media (max-width: 980px) {
     margin-bottom: 40px;
+
     &__link {
       margin-right: 64px;
     }
+
     &__container {
       margin-top: 35px;
     }
+
     &__subtitle {
       font-size: 18px;
       line-height: 140%;
     }
+
     &__description {
       font-size: 13px;
       line-height: 16px;
     }
+
     .icon {
       width: 56px;
       height: 56px;
@@ -165,20 +173,25 @@
     .blot {
       transform: scale(.6) scaleX(-1);
     }
+
     &__link {
       margin-right: 64px;
     }
+
     &__container {
       margin-top: 35px;
     }
+
     &__subtitle {
       font-size: 16px;
       line-height: 140%;
     }
+
     &__description {
       font-size: 11px;
       line-height: 13px;
     }
+
     .icon {
       width: 39px;
       height: 39px;
@@ -187,7 +200,7 @@
 
   @media (max-width: 480px) {
     margin-bottom: 11.87vw;
-
+    margin-top: 24.61vw;
     .blot {
       display: none;
     }
@@ -197,6 +210,7 @@
       font-size: 6vw;
       line-height: 7.3vw;
       display: block;
+      color: #18232F;
     }
 
     &__links {
@@ -206,23 +220,28 @@
     &__link {
       margin-right: 11.87vw;
     }
+
     &__container {
       margin-top: 5.62vw
     }
+
     &__wrapper {
       flex-direction: column;
       margin-bottom: 4.67vw;
     }
+
     &__subtitle {
       width: 100%;
       font-size: 3.75vw;
       line-height: 5.32vw;
     }
+
     &__description {
       width: 100%;
       font-size: 2.31vw;
       line-height: 3.43vw;
     }
+
     .icon {
       width: 10.5vw;
       height: 10.5vw;
