@@ -80,7 +80,7 @@
     }
 
     @media(max-width: 480px) {
-      padding: 8.4vw 2.81vw 4.2vw;
+      padding: 8.4vw 2.81vw 8.4vw;
       border-radius: 3.75vw;
     }
   }
@@ -739,9 +739,11 @@
   }
 
   &__info {
+    margin-left: 10px;
+    margin-right: 10px;
     padding-top: 36px;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 19px;
     line-height: 1.18;
     color: #86888A;
     text-align: center;
@@ -751,9 +753,12 @@
     }
 
     @media(max-width: 480px) {
+      padding-top: 22px;
       font-size: 2.81vw;
       padding-left: 6px;
       padding-right: 6px;
     }
   }
 }
+
+@import "__additional";
