@@ -5,7 +5,7 @@
 
     .reputation__description {
         @media (max-width: 480px) {
-            margin-bottom: 10px;
+            margin-bottom: 4vw;
         }
     }
 
@@ -30,8 +30,8 @@
         border-radius: 3.75vw;
         border: 1px solid #86888A;
         box-shadow: 0px 0px 10.9px 2px rgba(0, 0, 0, 0.06);
-        padding: 2.5vw 6.25vw;
-        margin-bottom: 1.8vw;
+        padding: 2.5vw 2vw;
+        margin-bottom: 1vw;
     }
 }
 
@@ -106,7 +106,7 @@
 
 .our-clients__company-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     gap: 16px;
     flex-wrap: wrap;
 }
@@ -150,5 +150,6 @@
         font-size: 3.43vw;
         line-height: 4vw;
         max-width: 69vw;
+        margin-top: 4vw
     }
 }
