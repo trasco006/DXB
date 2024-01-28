@@ -24,12 +24,13 @@ const ADDITIONAL_POINTS = {
 }
 
 const ADDITIONAL_POINTS_PRICES = {
-  [ADDITIONAL_POINTS.FORTUNE_WHEEL]: 99,
-  [ADDITIONAL_POINTS.SHOP]: 15,
+  [ADDITIONAL_POINTS.FORTUNE_WHEEL]: 70,
+  [ADDITIONAL_POINTS.SHOP]: 30,
   [ADDITIONAL_POINTS.FULL_WORK]: 99,
   [ADDITIONAL_POINTS.FULL_SUPPORT]: 599,
 }
 
+const ADDITIONAL_POINTS_WITH_DISCOUNT = [ADDITIONAL_POINTS.FORTUNE_WHEEL, ADDITIONAL_POINTS.SHOP]
 const ADDITIONAL_PRICE_SELECTORS = {
   [ADDITIONAL_POINTS.FORTUNE_WHEEL]: '.cost__additional-fortune-price',
   [ADDITIONAL_POINTS.SHOP]: '.cost__additional-shop-price',
@@ -127,9 +128,12 @@ const normalizeSubscribersValue = value => +value.replace(/[^0-9]/g, "");
 const costLogic = async () => {
   const subscriberCost = await getCurrencyRates();
 
-  const changeAdditionalPrices = (additionalPrices, currency) => {
+  const changeAdditionalPrices = (additionalPrices, currency, selectedPeriod = 'year') => {
     Object.entries(additionalPrices).forEach(([key, node]) => {
-      node.innerText = `${ADDITIONAL_POINTS_PRICES[key] * Math.floor(subscriberCost[currency])} ${currencySymbol[currency]}`
+      const calculatedCost = ADDITIONAL_POINTS_PRICES[key] * Math.floor(subscriberCost[currency])
+      const sum = selectedPeriod === 'year' && ADDITIONAL_POINTS_WITH_DISCOUNT.includes(key) ? Math.round(calculatedCost * 0.8) : calculatedCost;
+
+      node.innerText = `${sum} ${currencySymbol[currency]}`
     })
   }
 
@@ -232,6 +236,7 @@ const costLogic = async () => {
         changePerionBtnStyle(periodButtons, id);
         setSelectedPeriod(id);
         recalculate();
+        changeAdditionalPrices(additionalPrices, selectedCurrency, id)
       }
 
       btn.addEventListener('click', btnHandler)

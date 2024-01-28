@@ -4,11 +4,6 @@
     @media (max-width: 980px) {
         max-width: 100%;
     }
-
-    svg {
-        width: 100%;
-        height: min-content;
-    }
 }
 
 .ready-solutions__cards-container {
@@ -188,11 +183,23 @@
     font-weight: 700;
     line-height: normal;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     font-family: 'Montserrat Alternates', 'Arial', sans-serif;
 
+    span {
+        background: $main-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
     &:hover {
-        background-color: rgba($color: #000000, $alpha: .05);
+        span {
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            color: #fff;
+        }
+
+        background: $main-gradient;
     }
 
     @media (max-width: 1110px) {
