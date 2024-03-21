@@ -37,6 +37,7 @@ const t = useTranslations(lang);
   </div>
 </div>
 <script>
+  const currentLang = document.documentElement.lang;
   const localeSelector = document.querySelector(".js-locale-select");
   const localeMenu = document.querySelector(".js-locale-menu");
 
@@ -70,21 +71,13 @@ const t = useTranslations(lang);
   const buttons = document.querySelectorAll(".lang-btn");
 
   const changeLocale = (button) => {
-    // const newLocale = button.getAttribute("data-lang");
-    const [a, path] = location.pathname.split("/");
-    let newPath = "";
+    const { origin, pathname } = location;
 
-    if (path.startsWith("en")) {
-      newPath = [location.origin, path.replace("en", "")].join("/");
+    if (currentLang === "ru") {
+      location.href = `${origin}/en${pathname}`;
     } else {
-      newPath = [location.origin, "en", path].join("/");
+      location.href = `${origin}${pathname.replace(`/${currentLang}`, "")}`;
     }
-
-    if (newPath.endsWith("/")) {
-      newPath = newPath.slice(0, -1);
-    }
-
-    location.href = newPath;
     handleClose();
   };
 

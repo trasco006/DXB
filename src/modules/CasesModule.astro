@@ -6,7 +6,7 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const langRoute = lang === 'ru' ? '' : 'en'
+const langRoute = lang === 'ru' ? '' : `/${lang}`
 
 const items = [
   {

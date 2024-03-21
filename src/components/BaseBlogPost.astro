@@ -4,7 +4,6 @@ import BaseHeader from "@/components/BaseHeader.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import "@styles/app.scss";
 
-import BlogModule from "@/modules/BlogModule.astro";
 import BaseMain from "@/components/BaseMain.astro";
 import BasePage from "@/components/BasePage.astro";
 ---
@@ -13,6 +12,6 @@ import BasePage from "@/components/BasePage.astro";
   <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   <BaseMain>
     <BaseHeader />
-    <BlogModule />
+    <slot/>
   </BaseMain>
 </BasePage>

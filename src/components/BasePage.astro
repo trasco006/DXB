@@ -1,0 +1,19 @@
+---
+import { getLangFromUrl } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<!doctype html>
+<html
+  lang={lang}
+  class="bg-bg-main-sm sm:bg-bg-main
+max-[480px]:text-[10px]
+max-[768px]:text-[13px]
+max-[980px]:text-[14px]
+max-[1280px]:text-[15px]
+text-[16px]"
+>
+  <slot />
+
+</html>
