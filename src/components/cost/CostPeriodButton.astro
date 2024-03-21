@@ -1,0 +1,21 @@
+---
+const {id} = Astro.props
+---
+
+<button type="button" id={id} class="
+    js-cost-heading-btn
+    bg-white
+    text-blue
+    font-black
+    py-5
+    rounded-t-40
+    max-w-56
+    w-full
+    shadow-s
+    hover:bg-blue-light
+    aria-checked:bg-blue
+    aria-checked:hover:bg-blue-dark
+    aria-checked:text-white
+">
+  <slot />
+</button>

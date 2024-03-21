@@ -1,0 +1,19 @@
+---
+const { title, subtitle, classes, titleModifier, id } = Astro.props;
+---
+
+<section
+  class:list={[
+    "py-12 flex flex-col items-center justify-center box-border max-w-screen-xl w-full mx-auto px-[16px]",
+    classes,
+  ]}
+  id={id}
+>
+  <div class="text-center pb-8">
+    <h2 class:list={["text-xxxl text-main-black font-bold", titleModifier]}>
+      {title}
+    </h2>
+    {subtitle && <p class="text-grey text-lg">{subtitle}</p>}
+  </div>
+  <slot />
+</section>

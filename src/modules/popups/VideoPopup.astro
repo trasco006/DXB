@@ -1,0 +1,50 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+---
+
+<section class="video-popup popup" data-lang={lang}>
+  <div class="popup__overlay"></div>
+  <div class="popup__window_up popup__window_video">
+    <iframe
+      class="main_movie"
+      src=""
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<script>
+  const movieLink = (lang) =>
+    lang === "ru"
+      ? "https://www.youtube.com/embed/C6UNDBeDb74"
+      : "https://www.youtube.com/embed/3VJ_vVZllt8";
+
+  const registrationPopup = (() => {
+    const moviePopup = document.querySelector(".video-popup");
+    const movieIframe = document.querySelector(".main_movie");
+
+    const body = document.querySelector("body");
+    const overlay = moviePopup.querySelector(".popup__overlay");
+
+    const videoBtn = document.querySelector(".js-video-btn");
+
+    const handleOpenVideoPopup = () => {
+      moviePopup.classList.add("popup_active");
+      body.classList.add("o-hidden");
+      movieIframe.src =
+        movieLink(moviePopup.dataset.lang) + "?&autoplay=1&controls=1";
+    };
+
+    const handleCloseVideoPopup = () => {
+      moviePopup.classList.remove("popup_active");
+      body.classList.remove("o-hidden");
+      movieIframe.src = "";
+    };
+
+    overlay.addEventListener("click", handleCloseVideoPopup);
+    videoBtn.addEventListener("click", handleOpenVideoPopup);
+  })();
+</script>

@@ -1,0 +1,55 @@
+.btn {
+  font-family: "SF UI Display", 'Arial', sans-serif;
+  padding: 17px 47px;
+  background: #1c2226;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 32px;
+  box-sizing: border-box;
+  border-radius: 164px;
+  border: none;
+  cursor: pointer;
+  transition: opacity .1s ease-in;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &:active {
+    transition: opacity 0s;
+    opacity: .8;
+  }
+
+  &_primary {
+    background:  linear-gradient(144.37deg, #B196DF 9.05%, #7B59DD 98.1%);
+  }
+
+  @media (max-width: 1740px) {
+    padding: 12px 38px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 1440px) {
+    padding: 10px 30px;
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 20px;
+    font-size: 11px;
+    line-height: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 3.44vw;
+    line-height: 4.37vw;
+  }
+}
+

@@ -1,0 +1,43 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import ModuleContainer from "@/components/ModuleContainer.astro";
+import HeroPoints from "@/components/hero/HeroPoints.astro";
+import HeroButtons from "@/components/hero/HeroButtons.astro";
+import HeroImage from "@/components/hero/HeroImage.astro";
+import HeroTitle from "@/components/hero/HeroTitle.astro";
+import HeroDescription from "@/components/hero/HeroDescription.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<ModuleContainer classes="overflow-hidden relative">
+  <div
+    class="px-0
+      justify-center
+      md:px-20
+      lg:px-20
+      xl:px-40
+      w-full
+      flex
+      items-end
+      gap-6
+      md:justify-between"
+  >
+    <div class="flex flex-col gap-6 md:gap-12 w-full lg:w-1/2">
+      <div class="flex flex-col gap-4 z-10 md:w-[70%]: lg:w-full">
+        <HeroTitle />
+        <HeroDescription />
+      </div>
+      <div class="flex flex-col items-center">
+        <div
+          class="z-0 self-center w-[74.44vw] sm:w-[60vw] lg:w-full lg:self-start flex justify-center md:absolute md:left-[20%] md:top-0 md:blur lg:blur-none"
+        >
+          <HeroImage />
+        </div>
+        <HeroButtons />
+      </div>
+      <HeroPoints />
+    </div>
+  </div>
+</ModuleContainer>

@@ -1,0 +1,29 @@
+---
+import ModuleContainer from "../components/ModuleContainer.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+import {Image} from 'astro:assets'
+const image = lang === 'ru'? import("@/images/content/ru/safety.svg") :import("@/images/content/en/safety.svg")
+---
+
+<ModuleContainer title={t("safetyTitle")}>
+  <div
+    class="p-10 bg-white rounded-4xl flex gap-8 items-center max-w-910
+    max-[480px]:flex-col"
+  >
+    <Image
+      loading="lazy"
+      src={image}
+      alt="safety-image"
+      class="w-36 max-[480px]:w-44"
+    />
+
+    <p class="text-grey-light text-xl
+      max-[480px]:text-center">
+      {t("safetySubtitle1")}
+    </p>
+  </div>
+</ModuleContainer>

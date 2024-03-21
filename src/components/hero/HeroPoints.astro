@@ -1,0 +1,35 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const points = [
+  {
+    title: t("hero.points.1.title"),
+    subtitle: t("hero.points.1.subtitle"),
+  },
+  {
+    title: t("hero.points.2.title"),
+    subtitle: t("hero.points.2.subtitle"),
+  },
+  {
+    title: t("hero.points.3.title"),
+    subtitle: t("hero.points.3.subtitle"),
+  },
+  {
+    title: t("hero.points.4.title"),
+    subtitle: t("hero.points.4.subtitle"),
+  },
+];
+---
+
+<div class="flex flex-wrap justify-around w-full z-10">
+  {
+    points.map((item) => (
+      <div class="flex flex-col text-center w-[36.66vw] sm:w-127 text-grey-tiny gap-1">
+        <p class="text-[7.77vw] sm:text-1xl font-bold text-nowrap">{item.title}</p>
+        <p class="text-[3.33vw] sm:text-sm ">{item.subtitle}</p>
+      </div>
+    ))
+  }
+</div>

@@ -1,0 +1,15 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+import FortunePopupRU from "@/modules/popups/FortunePopup/FortunePopupRU.astro";
+import FortunePopupEN from "@/modules/popups/FortunePopup/FortunePopupEN.astro";
+import BasePopup from "../BasePopup.astro";
+---
+
+<BasePopup id="fortune-popup" bodyClass="popup__window_up popup__body">
+  <div class="content-container">
+    {lang === "ru" ? <FortunePopupRU /> : <FortunePopupEN />}
+  </div>
+</BasePopup>

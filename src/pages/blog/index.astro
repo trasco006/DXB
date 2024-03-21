@@ -1,0 +1,31 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import BaseHeader from "@/components/BaseHeader.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import "@styles/app.scss";
+
+import BlogModule from "@/modules/BlogModule.astro";
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="bg-bg-main-sm sm:bg-bg-main
+max-[480px]:text-[10px]
+max-[768px]:text-[13px]
+max-[980px]:text-[14px]
+max-[1280px]:text-[15px]
+text-[16px]"
+>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="font-sans">
+    <main
+      class="width-all bg-bg-main-sm sm:bg-bg-main flex flex-col height-all p-0"
+    >
+      <BaseHeader />
+      <BlogModule />
+    </main>
+  </body>
+</html>

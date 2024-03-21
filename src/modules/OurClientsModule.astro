@@ -1,0 +1,87 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+import ModuleContainer from "@/components/ModuleContainer.astro";
+import MdContainer from "@/components/MdContainer.astro";
+import OurClientsClientCard from "@/components/ourClients/OurClientsClientCard.astro";
+import OurClientsPartnerCard from "@/components/ourClients/OurClientsPartnerCard.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const clientsList = [
+  {
+    image: import("@/images/content/ru/our-clients/1.png"),
+    title: "olgaberek",
+    subtitle: `1,4 ${t("ourClientsMil")}`,
+  },
+  {
+    image: import("@/images/content/ru/our-clients/2.png"),
+    title: "igorzuevich",
+    subtitle: `529 ${t("ourClientsK")}`,
+  },
+  {
+    image: import("@/images/content/ru/our-clients/3.png"),
+    title: "alex_brain",
+    subtitle: `2,2 ${t("ourClientsMil")}`,
+  },
+  {
+    image: import("@/images/content/ru/our-clients/4.png"),
+    title: "blackstarburger",
+    subtitle: `526 ${t("ourClientsK")}`,
+  },
+  {
+    image: import("@/images/content/ru/our-clients/5.png"),
+    title: "nastyasozonik",
+    subtitle: `5,5 ${t("ourClientsMil")}`,
+  },
+  {
+    image: import("@/images/content/ru/our-clients/6.png"),
+    title: "iva_nova777",
+    subtitle: `409 ${t("ourClientsK")}`,
+  },
+];
+
+const partnersList = [
+  {
+    title: "bnb",
+    image: import("@/images/content/ru/our-clients/7.png"),
+  },
+  {
+    title: "super-lama",
+    image: import("@/images/content/ru/our-clients/8.png"),
+  },
+  {
+    title: "dodo-pizza",
+    image: import("@/images/content/ru/our-clients/9.png"),
+  },
+  {
+    title: "zoo-bazar",
+    image: import("@/images/content/ru/our-clients/10.png"),
+  },
+];
+---
+
+<ModuleContainer
+  title={t("ourClientsTitle")}
+  subtitle={t("ourClientsSubtitle")}
+>
+  <MdContainer>
+    <div class="p-10 bg-white rounded-2xl sm:rounded-32">
+      <ul
+        class="w-full grid grid-cols-3 md:grid-cols-6 gap-y-4 gap-x-2 pb-[6.66vw] sm:pb-8"
+      >
+        {clientsList.map((client) => <OurClientsClientCard {...client} />)}
+      </ul>
+      <ul class="pb-8 flex gap-4 flex-wrap justify-around md:justify-between">
+        {partnersList.map((client) => <OurClientsPartnerCard {...client} />)}
+      </ul>
+      <p
+        class="text-center font-bold sm:font-normal text-grey-light text-[3.05vw] sm:text-base md:text-lg"
+      >
+        {t("ourClientsDescription1")}
+        <span class="text-pre-black">{t("ourClientsDescription2")}</span>
+        {t("ourClientsDescription3")}
+      </p>
+    </div>
+  </MdContainer>
+</ModuleContainer>

@@ -1,0 +1,15 @@
+---
+import ModuleContainer from "../components/ModuleContainer.astro";
+import RegistrationForm from "../components/registration/RegistrationForm.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<ModuleContainer
+  title={t("registration.title")}
+  subtitle={t("registration.subtitle")}
+>
+    <RegistrationForm />
+</ModuleContainer>

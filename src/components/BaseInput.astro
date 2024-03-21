@@ -1,0 +1,25 @@
+---
+const {
+  name,
+  placeholder,
+  id,
+  type = "text",
+  required,
+  max,
+  min,
+  classes = "",
+} = Astro.props;
+---
+
+<div class={`p-4 border-0 border-b  border-solid border-grey ${classes}`}>
+  <input
+    id={id}
+    type={type}
+    name={name}
+    max={max}
+    min={min}
+    required={required}
+    class="text-grey text-xl placeholder:text-grey placeholder:text-xl bg-transparent"
+    placeholder={placeholder}
+  />
+</div>

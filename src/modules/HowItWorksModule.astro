@@ -1,0 +1,47 @@
+---
+import ModuleContainer from "@/components/ModuleContainer.astro";
+import HowItWorksCard from "@/components/how-it-works/HowItWorksCard.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = [
+  {
+    subtitle: t("howItWorks.items.1.subtitle"),
+    image: import("@/images/content/ru/how-it-works/1.png"),
+  },
+  {
+    subtitle: t("howItWorks.items.2.subtitle"),
+    image: import("@/images/content/ru/how-it-works/2.png"),
+  },
+  {
+    subtitle: t("howItWorks.items.3.subtitle"),
+    image: import("@/images/content/ru/how-it-works/3.png"),
+  },
+  {
+    subtitle: t("howItWorks.items.4.subtitle"),
+    image: import("@/images/content/ru/how-it-works/4.png"),
+  },
+];
+---
+
+<ModuleContainer title={t("howItWorks.title")}>
+  <div
+    class="grid
+      grid-cols-1
+      px-0
+      gap-6
+      sm:gap-4
+      sm:grid-cols-2
+      md:grid-cols-3
+      md:px-20
+      md:gap-4
+      lg:px-32
+      lg:grid-cols-4
+      xl:px-40
+      xl:gap-6"
+  >
+    {items.map((item) => <HowItWorksCard {...item} />)}
+  </div>
+</ModuleContainer>

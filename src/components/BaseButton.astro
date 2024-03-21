@@ -1,0 +1,36 @@
+---
+export const BUTTON_VARIANTS = {
+  PRIMARY: "primary",
+  SECONDARY: "secondary",
+  WHITE: "white",
+  DARK: "dark",
+};
+
+export const BUTTON_SIZES = {
+  M: "m",
+  XL: "xl",
+};
+
+const {
+  size = BUTTON_SIZES.M,
+  variant = BUTTON_VARIANTS.PRIMARY,
+  classes = "",
+  square = false,
+} = Astro.props;
+
+const sizeConfig = {
+  [BUTTON_SIZES.M]: `${square ? "p-3" : "py-3 px-6"} text-sm font-semibold`,
+  [BUTTON_SIZES.XL]: `${square ? "p-8" : "py-8 px-10"} font-black`,
+};
+const variantConfig = {
+  [BUTTON_VARIANTS.PRIMARY]: "bg-blue text-white text-xl hover:bg-blue-dark",
+  [BUTTON_VARIANTS.SECONDARY]:
+    "bg-blue-light text-blue text-xl hover:bg-[#CBE5FF]",
+  [BUTTON_VARIANTS.WHITE]: "",
+  [BUTTON_VARIANTS.DARK]: "bg-black hover:bg-tiny-black",
+};
+
+const baseClasses = `${sizeConfig[size]} ${variantConfig[variant]} rounded-full active:opacity-90`;
+---
+
+<button class:list={[baseClasses, classes]}><slot /></button>

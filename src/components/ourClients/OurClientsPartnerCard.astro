@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+const { title, image } = Astro.props;
+---
+
+<Image
+  loading="lazy"
+  src={image}
+  class="max-h-[7.77vw] w-auto sm:max-h-10"
+  alt={`${title} avatar`}
+/>

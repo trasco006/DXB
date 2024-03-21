@@ -1,0 +1,72 @@
+---
+import ModuleContainer from "@/components/ModuleContainer.astro";
+import CasesCaseCard from "@/components/cases/CasesCaseCard.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const langRoute = lang === 'ru' ? '' : 'en'
+
+const items = [
+  {
+    title: t("cases.cases.bank.title"),
+    subtitle: t("cases.cases.bank.subtitle"),
+    infoLink: `${langRoute}/blog/bank`,
+    image: import ("@/images/content/ru/cases/1.jpg"),
+  },
+  {
+    title: t("cases.cases.designer.title"),
+    subtitle: t("cases.cases.designer.subtitle"),
+    infoLink:  `${langRoute}/blog/designer`,
+    image: import ("@/images/content/ru/cases/2.jpg"),
+  },
+  {
+    title: t("cases.cases.animeShop.title"),
+    subtitle: t("cases.cases.animeShop.subtitle"),
+    infoLink:  `${langRoute}/blog/anime-store`,
+    image: import ("@/images/content/ru/cases/3.jpg"),
+  },
+  {
+    title: t("cases.cases.blogger.title"),
+    subtitle: t("cases.cases.blogger.subtitle"),
+    infoLink:  `${langRoute}/blog/blogger`,
+    image: import ("@/images/content/ru/cases/4.jpg"),
+  },
+];
+---
+
+<ModuleContainer title={t("cases.title")} classes="!px-0">
+  <div
+    class="px-0
+    md:px-0
+    lg:px-32
+    xl:px-40
+    w-full
+    overflow-hidden
+    mySwiper"
+  >
+    <div class="swiper-wrapper flex lg:hidden w-min-content px-[16px]">
+      {items.map((item) => <CasesCaseCard {...item} swiped classes="swiper-slide" />)}
+    </div>
+    <div class="hidden lg:!grid
+    grid-cols-1
+    gap-4
+    sm:grid-cols-2
+    md:grid-cols-3
+    md:gap-4
+    lg:grid-cols-4
+    ">
+      {items.map((item) => <CasesCaseCard {...item}  />)}
+    </div>
+  </div>
+
+  <script type="module">
+    import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+    });
+  </script>
+</ModuleContainer>

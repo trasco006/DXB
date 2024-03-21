@@ -1,0 +1,10 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+import BasePopup from "../BasePopup.astro";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BasePopup id="popup-privacy-policy" bodyClass="contract-popup__body popup__window_up">
+  <div class="content-container" set:html={t("privacyPopup")} />
+</BasePopup>

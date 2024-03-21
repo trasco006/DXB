@@ -1,0 +1,61 @@
+---
+import ModuleContainer from "@/components/ModuleContainer.astro";
+import FooterSocialLink from "@/components/footer/FooterSocialLink.astro";
+import "./footer.scss";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+---
+
+<ModuleContainer
+  title={t("aboutTitle")}
+  titleModifier="block sm:hidden"
+  classes="md:pb-[120px]"
+>
+  <ul class="about__links px-8 sm:p-0">
+    <div class="about__container">
+      <div
+        class="about__wrapper !flex-row !justify-center !gap-10 sm:!justify-between sm:!gap-0"
+      >
+        <FooterSocialLink
+          classes="about__subtitle flex justify-center !w-max sm:!w-45%"
+          href="https://www.instagram.com/igame2by/"
+          image={import("@/images/icons/insta.svg")}
+        />
+        <FooterSocialLink
+          classes="about__subtitle flex justify-center !w-max sm:!w-45%"
+          href="https://t.me/igame2by_bot"
+          image={import("@/images/icons/telegram.svg")}
+        />
+      </div>
+      <div class="about__wrapper leading-snug">
+        <button
+          class="about__subtitle text-[3.33vw] sm:text-base md:text-lg text-pre-black"
+          id="privacy-btn"
+        >
+          {t("policyTitle")}
+        </button>
+        <button
+          class="about__subtitle text-[3.33vw] sm:text-base md:text-lg text-pre-black"
+          id="contract-btn"
+        >
+          {t("contractTitle")}
+        </button>
+      </div>
+      <div class="about__wrapper">
+        <p
+          class="about__description text-[2.5vw] sm:text-sm m:text-m text-grey-light"
+        >
+          {t("footer.description.1")}
+        </p>
+        <p
+          class="about__description text-[2.5vw] sm:text-sm m:text-m text-grey-light"
+        >
+          {t("footer.description.2")}
+        </p>
+      </div>
+    </div>
+  </ul>
+</ModuleContainer>

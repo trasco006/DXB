@@ -1,0 +1,126 @@
+---
+import ModuleContainer from "@/components/ModuleContainer.astro";
+import FunctionalityItem from "@/components/functionality/FunctionalityItem.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = [
+  {
+    title: t("functionality.cards.reposts.title"),
+    subtitle: t("functionality.cards.reposts.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/1.png"),
+    imageS: import("@/images/content/ru/functionality/s/1.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.answers.title"),
+    subtitle: t("functionality.cards.answers.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/2.png"),
+    imageS: import("@/images/content/ru/functionality/s/2.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.furtuneWheel.title"),
+    subtitle: t("functionality.cards.furtuneWheel.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/3.png"),
+    imageS: import("@/images/content/ru/functionality/s/3.png"),
+    isHot: true,
+  },
+  {
+    title: t("functionality.cards.reactions.title"),
+    subtitle: t("functionality.cards.reactions.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/4.png"),
+    imageS: import("@/images/content/ru/functionality/s/4.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.marks.title"),
+    subtitle: t("functionality.cards.marks.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/5.png"),
+    imageS: import("@/images/content/ru/functionality/s/5.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.smartMarksManagement.title"),
+    subtitle: t("functionality.cards.smartMarksManagement.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/6.png"),
+    imageS: import("@/images/content/ru/functionality/s/6.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.speed.title"),
+    subtitle: t("functionality.cards.speed.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/7.png"),
+    imageS: import("@/images/content/ru/functionality/s/7.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.creativity.title"),
+    subtitle: t("functionality.cards.creativity.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/8.png"),
+    imageS: import("@/images/content/ru/functionality/s/8.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.support.title"),
+    subtitle: t("functionality.cards.support.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/9.png"),
+    imageS: import("@/images/content/ru/functionality/s/9.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.buys.title"),
+    subtitle: t("functionality.cards.buys.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/10.png"),
+    imageS: import("@/images/content/ru/functionality/s/10.png"),
+    isHot: true,
+  },
+  {
+    title: t("functionality.cards.manualControl.title"),
+    subtitle: t("functionality.cards.manualControl.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/11.png"),
+    imageS: import("@/images/content/ru/functionality/s/11.png"),
+    isHot: false,
+  },
+  {
+    title: t("functionality.cards.giftShop.title"),
+    subtitle: t("functionality.cards.giftShop.subtitle"),
+    infoLink: "",
+    imageM: import("@/images/content/ru/functionality/m/12.png"),
+    imageS: import("@/images/content/ru/functionality/s/12.png"),
+    isHot: true,
+  },
+];
+---
+
+<ModuleContainer title={t("functionality.title")} id="functionality">
+  <div
+    class="grid
+    grid-cols-1
+    gap-4
+    px-0
+    sm:grid-cols-2
+    md:grid-cols-3
+    md:px-20
+    md:gap-4
+    lg:px-32
+    lg:grid-cols-4
+    xl:px-40
+    xl:gap-6"
+  >
+    {items.map((item) => <FunctionalityItem {...item} />)}
+  </div>
+</ModuleContainer>

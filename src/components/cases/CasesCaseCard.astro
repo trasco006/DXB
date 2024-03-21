@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { title, subtitle, infoLink, image, classes, swiped } = Astro.props;
+
+const swipedClasses = `
+    box-border
+    bg-white 
+    rounded-3xl 
+    flex 
+    min-w-[252px]
+    p-[4.44vw] 
+    sm:p-6
+    flex-col 
+    gap-4
+`;
+
+const normalClasses = `
+    sm:max-w-[262px]
+    bg-white
+    rounded-20
+    w-full
+    gap-4
+    md:gap-3
+    p-6
+    flex
+    flex-col
+    "
+`;
+const baseClasses = swiped ? swipedClasses : normalClasses;
+---
+
+<div class:list={[baseClasses, classes]}>
+  <Image src={image} alt={`${title} case image`} class="rounded-xl" />
+  <div class="gap-4 flex flex-col h-full">
+    <span
+      class="!text-[14px] self-start text-main-black font-black text-m xl:text-lg"
+      >{title}</span
+    >
+    <span
+      class="!text-[12px] text-grey text-sm leading-sm xl:!text-m xl:leading-m"
+    >
+      {subtitle}</span
+    >
+  </div>
+  <a
+    class="!text-[14px] sm:text-normal text-blue cursor-pointer w-max inline"
+    href={infoLink}
+  >
+    <span class="underline">{t("cases.link")}</span>
+    →
+  </a>
+</div>

@@ -1,0 +1,37 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import { Image } from "astro:assets";
+
+const { title, subtitle, infoLink, image, classes, swiped } = Astro.props;
+
+const normalClasses = `c
+    shadow-s
+    bg-white
+    box-border
+    rounded-20
+    flex
+    flex-col
+    justi
+    gap-4
+    w-[72.7vw]
+    max-w-[90vw]
+    py-[6.6vw]
+    px-[4.44vw]
+    sm:w-full
+    sm:max-w-[262px]
+    sm:py-6
+    sm:px-4
+    md:gap-3
+    "
+`;
+---
+
+<div class:list={[normalClasses, classes]}>
+  <Image src={image} alt="image" class="w-full rounded-xl" />
+  <span
+    class="text-[14px] text-pre-black text-center sm:text-base px-2"
+    set:html={subtitle}
+  />
+</div>

@@ -1,0 +1,11 @@
+---
+const { mainClass, bodyClass, ...attrs } = Astro.props;
+---
+
+<div class:list={[mainClass, "popup"]} {...attrs}>
+  <div class="popup__overlay"></div>
+  <button type="button">×</button>
+  <div class:list={[bodyClass]}>
+    <slot />
+  </div>
+</div>

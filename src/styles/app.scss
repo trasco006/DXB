@@ -1,0 +1,121 @@
+@import 'base/vars';
+@import 'base/reset';
+@import 'base/fonts';
+@import "blocks/preloader";
+@import "blocks/btn";
+@import "blocks/container";
+@import "blocks/logo";
+@import "blocks/menu-btn";
+@import "blocks/nav-menu";
+@import "blocks/clue";
+@import "blocks/subtitle";
+@import "blocks/cost/cost";
+@import "blocks/registration";
+@import "blocks/popup";
+@import "blocks/safety";
+@import "blocks/cards-slider";
+@import "blocks/language";
+
+.gradient-text {
+  background:  linear-gradient(144.37deg, #B196DF 9.05%, #7B59DD 98.1%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-second {
+  background: linear-gradient(144.37deg, #A2EF3F 9.05%, #8CD430 53.11%, #75B721 98.1%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.o-hidden {
+  overflow: hidden;
+}
+
+.icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.support-icon {
+  background-image: url("../landing-images/icons/support.svg");
+}
+
+.instagram-icon {
+  background-image: url("../landing-images/icons/insta.svg");
+}
+
+.telegram-icon {
+  background-image: url("../landing-images/icons/telegram.svg");
+}
+
+.reverted-block {
+  @media (max-width: 480px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.blot {
+  pointer-events: none;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.section {
+  z-index: 10;
+  margin-bottom: 140px;
+
+  @media (max-width: 1640px) {
+    margin-bottom: 112px;
+  }
+
+  @media (max-width: 1366px) {
+    margin-bottom: 90px;
+  }
+
+  @media (max-width: 1280px) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 46px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #FFFFFF #E7ECFE;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #B196DF;
+  border-radius: 4px;
+  border: none;
+}
+
+.text-black {
+  color: #000 !important;
+}

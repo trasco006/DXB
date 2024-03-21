@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import image1 from "@/images/content/ru/hero/hero-1.png";
+import image2 from "@/images/content/ru/hero/hero-2.png";
+---
+
+<div class="hero-main-image-wrapper relative max-w-[480px] w-full md:w-max-content">
+  <Image src={image2} class="block md:hidden w-full" alt="hero-image" />
+  <Image src={image1} class="!hidden md:!block w-full" alt="hero-image" />
+</div>
+<!-- <style>
+  .hero-main-image-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(5.4px);
+    mask: linear-gradient(188deg ,transparent 30%,white 59%)
+  }
+</style> -->

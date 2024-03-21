@@ -1,0 +1,18 @@
+---
+const { id } = Astro.props;
+---
+
+<button
+  type="button"
+  id={id}
+  class="
+  js-currency-button min-w-20 text-3xl text-grey-light bg-alabaster font-bold py-3 px-4 rounded-2xl
+
+  hover:bg-blue-light
+  aria-checked:bg-blue
+  aria-checked:hover:bg-blue-dark
+  aria-checked:text-white
+  "
+>
+  <slot />
+</button>

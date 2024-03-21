@@ -1,0 +1,154 @@
+---
+import BaseButton from "../BaseButton.astro";
+import BaseInput from "../BaseInput.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div
+  class="w-96 md:w-[352px] pt-8 px-6 pb-10 bg-white rounded-32 flex flex-col"
+>
+  <form action="" class="registration-form flex flex-col">
+    <div class="flex flex-col gap-6">
+      <span
+        class="text-red-400 text-center js-registration-submit-error hidden aria-checked:block"
+      ></span>
+      <BaseInput
+        id="name-1"
+        placeholder={t("registration.form.namePlaceholder")}
+        type="text"
+        name="name"
+        max="255"
+        required
+      />
+      <BaseInput
+        id="email-1"
+        name="email"
+        placeholder="E-mail"
+        type="email"
+        max="255"
+        required
+      />
+      <BaseInput
+        type="text"
+        max="31"
+        id="instagram-1"
+        placeholder="Instagram"
+        name="instagram-account"
+        required
+      />
+    </div>
+   
+    <BaseButton type="submit" size="xl" classes="js-registration-submit-btn  mt-10 py-[14px] font-normal text-base ">
+      {t("registration.form.button")}</BaseButton
+    >
+  </form>
+
+  <span class="pt-3 text-center text-blue text-lg font-black">
+    {t("registration.form.subtitle")}
+  </span>
+</div>
+
+<script>
+  class Cookie {
+    set(key, value, days) {
+      let expires = "";
+
+      if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        expires = `; expires= + ${date.toUTCString()}`;
+      }
+
+      document.cookie = `${key}=${value}${expires};path=/`;
+    }
+
+    get(key) {
+      if (!document.cookie) {
+        return null;
+      }
+      return document.cookie
+        ?.split("; ")
+        ?.find((row) => row.startsWith(`${key}=`))
+        ?.split("=")[1];
+    }
+  }
+
+  const CookieModule = new Cookie();
+
+  const getLocale = () => localStorage.getItem("locale");
+  const getBrowserLocale = () => navigator.language.split("-")[0];
+  const getCurrentLocale = () => getLocale() || getBrowserLocale();
+
+  const errors = {
+    102: "Name validation error",
+    103: "Email validation error",
+    104: "Instagram validation error",
+    105: "Email already used",
+    106: "Instagram validation error",
+  };
+
+  const errorHandler = (message, form) => {
+    const errorMessage = form.querySelector(".js-registration-submit-error");
+    errorMessage.innerHTML = message;
+    errorMessage.setAttribute("aria-checked", true);
+  };
+
+  const registrationService = (data, form) => {
+    const submitBtn = form.querySelector(".js-registration-submit-btn");
+    submitBtn.disabled = true;
+    const referralCookie = CookieModule.get("referral");
+
+    return fetch("https://igame.by/api/users/quick", {
+      method: "POST",
+      body: data,
+      credentials: "include",
+      redirect: "follow",
+      headers: {
+        "Accept-Language": getCurrentLocale(),
+        "Set-Cookie": `locale=${getCurrentLocale()}, ${referralCookie ? "referral=" + referralCookie : ""}`,
+      },
+    })
+      .then((res) => res.text())
+      .then((body) => JSON.parse(body))
+      .then((data) => {
+        if (errors[data.result]) {
+          errorHandler(data.message, form);
+        } else {
+          localStorage.setItem("access_token", data.token);
+          localStorage.setItem("account", JSON.stringify(data.account));
+          CookieModule.set("locale", getCurrentLocale(), 1825);
+          CookieModule.set("account", JSON.stringify(data.account));
+          window.location.href = "/panel";
+        }
+      })
+      .catch((err) => {
+        errorHandler("Что-то пошло не так", form);
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+      });
+  };
+
+  const registrationFormList = document.querySelectorAll(".registration-form");
+
+  const registration = () => {
+    registrationFormList.forEach((form) => {
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+
+        try {
+          registrationService(data, form);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      form.addEventListener("submit", handleSubmit);
+    });
+  };
+  registration();
+</script>

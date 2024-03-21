@@ -1,0 +1,99 @@
+---
+import {Image} from "astro:assets"
+---
+
+<article>
+     <h5><b>Gift store</b></h5>
+     <p>Make the issuance of gifts for points fully automatic.</p> 
+     <Image loading="lazy" width="347px " height="auto" src={import("@/images/content/ru/shop-popup/1.jpg")} alt="shop image 1" />
+     <section>
+        <p>
+            <strong> How it happens:</strong>
+        </p>
+        <br />
+        <ol>
+            <li>On the page for checking your points, you will have a new “Store” tab with a carousel of gifts.</li>
+            <li>When a certain number of points is collected, a person will receive messages from the bot in direct message with a button to enter your store</li>
+            <li>He will be able to make purchases for points without your participation. Points will be debited automatically.</li>
+            <li>Information about receiving prizes or links to them will be sent to the participant directly to direct.</li>
+            <li>If they buy a gift that requires your participation (for example, a personal consultation or a material prize), we will send a message about the winnings to your Telegram.</li>
+        </ol>
+    </section>
+    <section>
+        <p>
+            <strong>Functional:</strong>
+        </p> 
+        <br />
+        <ol class="list-bold"> 
+            <li>
+                <b>Cost:</b> 
+                <ol type=" a"> 
+                    <li>Uploading a photo of the gift</li>
+                    <li>Name of the gift</li>
+                    <li>Gift price in points</li>
+                    <li>Number of gifts</li>
+                    <li>Description of gifts</li >
+                </ol>
+                <Image loading="lazy" height="auto" src={import("@/images/content/ru/shop-popup/2.png")} alt="shop image 2">
+            </li>
+            <li>
+                <b>Welcome message</b>
+                <ol type="a">
+                    <li>To purchase and authorize in the store, a participant in the game must collect the number of points that your cheapest gift costs. Then he will receive a message from the bot via Direct: </li>
+                </ol>
+                <Image loading="lazy" height="auto" src={import("@/images/content/ru/shop-popup/3.png")} alt= "shop image 3" />
+            </li>
+            <li>
+                <p><b>Message about winnings</b></p>
+                <ol type="a">
+                    <li> For each gift you can create a unique message about winning. </li>
+                    <li>And immediately enter a link to the gift there (if a checklist or other information product is being played out)</li>
+                    <li>Or you can receive instructions on how to receive a gift.</li>
+                    <Image loading="lazy " height="auto" src={import("@/images/content/ru/shop-popup/4.png")} alt="shop image 4" />
+                </ol>
+            </li>
+            <li>
+                <p><b >Notification of winnings</b></p>
+                <ol type="a">
+                    <li> If a gift is redeemed that requires your participation (for example, a personal consultation or a material prize), then we will send a notification of winnings to your Telegram. </li>
+                    <Image loading="lazy" height="auto" src={import("@/images/content/ru/shop-popup/5.png")} alt="shop image 5" />
+                </ol>
+                </ li>
+                <li>
+                    <p><b>History of victories</b></p>
+                    <ol type="a">
+                        <li> Game participants will be able to see (if you so decide) who, when and what bought in the store for points. And then there will be no doubt at all about the fairness of the competition :) </li>
+                        <Image loading="lazy" height="auto" src={import("@/images/content/ru/shop-popup/6.png")} alt=" shop image 6" />
+                    </ol>
+                </li>
+            <li>
+                <p><b>Code word</b></p> <ol type="a">
+                    <li>So as not to search for the button every time A person can receive a message with a code once a day using the code word that you set</li>
+                    <Image loading="lazy" height="auto" src={import("@/images/content/ru/shop-popup/7.png")} alt="shop image 7" />
+                </ol>
+            </li>
+            <li>
+                <p><b>Editing during the game</b></p>
+                <ol type="a">
+                    <li >You can add and remove gifts, as well as edit their quantity and value in points right during the game.</li>
+                </ol>
+            </li>
+        </ol>
+    </section>
+    <section>
+        <p><strong >Real example:</strong></p>
+        <p>
+            The work of the store using a real example can be seen here:
+            <a target="_blank" href="https://igame.by/page/al2ex_">https://igame.by/page/al2ex_</a>
+        </p>
+    </section> 
+    <section>
+        <p><strong>Cost:</strong></p>
+        <ul>
+            <li>$30/month (if paid monthly)</li>
+            <li>$24/month (if paid annually)</li>
+            <li >The service is paid separately</li>
+            <li>Payment in equivalent in Belarusian or Russian rubles at the national bank rate at the time of payment</li>
+        </ul>
+    </section>
+</article>

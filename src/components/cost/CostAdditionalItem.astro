@@ -1,0 +1,20 @@
+---
+const { id, type, ending } = Astro.props;
+---
+
+<li class="flex w-full items-center">
+  <button
+    data-cost-additional-type={type}
+    type="button"
+    class="js-cost-additional-button w-9 h-9 bg-blue block text-center text-white text-l shrink-0 rounded-full mr-4 border-2 border-grey-soft hover:bg-blue-dark"
+  >
+    ?
+  </button>
+  <span class="flex justify-between w-full items-center text-pre-black font-semibold">
+    <slot />
+    <span class="text-grey-light" >
+      <span id={id}></span>
+      <span>{ending}</span>
+    </span>
+  </span>
+</li>

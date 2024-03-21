@@ -1,0 +1,53 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import BaseHeader from "@/components/BaseHeader.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import "@styles/app.scss";
+
+import CostModule from "@/modules/CostModule.astro";
+import SafetyModule from "@/modules/SafetyModule.astro";
+import ReputationModule from "@/modules/ReputationModule.astro";
+import OurClientsModule from "@/modules/OurClientsModule.astro";
+import RegistrationModule from "@/modules/RegistrationModule.astro";
+import FunctionalityModule from "@/modules/FunctionalityModule.astro";
+import CasesModule from "@/modules/CasesModule.astro";
+import HowItWorksModule from "@/modules/HowItWorksModule.astro";
+import HeroModule from "@/modules/HeroModule.astro";
+import FooterModule from "@/modules/FooterModule.astro";
+import PopupModule from "@/modules/PopupModule.astro";
+import ScriptsModule from "@/modules/ScriptsModule.astro";
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="bg-bg-main-sm sm:bg-bg-main
+max-[480px]:text-[10px]
+max-[768px]:text-[13px]
+max-[980px]:text-[14px]
+max-[1280px]:text-[15px]
+text-[16px]"
+>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="font-sans">
+    <main
+      class="width-all bg-bg-main-sm sm:bg-bg-main flex flex-col height-all p-0"
+    >
+      <BaseHeader />
+      <HeroModule />
+      <HowItWorksModule />
+      <FunctionalityModule />
+      <CasesModule />
+      <OurClientsModule />
+      <ReputationModule />
+      <SafetyModule />
+      <CostModule />
+      <RegistrationModule />
+      <FooterModule />
+      <PopupModule />
+      <ScriptsModule />
+    </main>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+---
+import RegistrationForm from "@/components/registration/RegistrationForm.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+import BasePopup from "../BasePopup.astro";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BasePopup mainClass="registration-popup " bodyClass="popup__window">
+  <RegistrationForm />
+</BasePopup>
+
+<script>
+  const registrationBtnList = document.querySelectorAll(".js-registration-btn");
+  const registrationPopupEl = document.querySelector(".registration-popup");
+  const body = document.querySelector("body");
+
+  const registrationPopup = () => {
+    const overlay = registrationPopupEl.querySelector(".popup__overlay");
+    const registrationForm =
+      registrationPopupEl.querySelector(".registration-form");
+
+    const handleOpenRegistrationPopup = () => {
+      registrationPopupEl.classList.add("popup_active");
+      body.classList.add("o-hidden");
+    };
+
+    const handleCloseRegistrationPopup = () => {
+      registrationPopupEl.classList.remove("popup_active");
+      registrationForm.reset();
+      body.classList.remove("o-hidden");
+    };
+
+    registrationBtnList.forEach((item) =>
+      item.addEventListener("click", handleOpenRegistrationPopup)
+    );
+    overlay.addEventListener("click", handleCloseRegistrationPopup);
+  };
+
+  registrationPopup();
+</script>

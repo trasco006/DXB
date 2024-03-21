@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+const { title, subtitle, image } = Astro.props;
+---
+
+<li class="flex flex-col items-center gap-[16px] sm:gap-2m">
+  <Image
+    loading="lazy"
+    src={image}
+    alt={`${title} avatar`}
+    class="size-[15.55vw] sm:size-20 rounded-full"
+  />
+  <div class="text-center">
+    <p class="text-[2.77vw] sm:text-m font-bold text-black sm:text-grey-light">
+      {title}
+    </p>
+    <p class="text-[2.77vw] sm:text-m text-black sm:text-grey-light">
+      {subtitle}
+    </p>
+  </div>
+</li>

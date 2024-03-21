@@ -1,0 +1,259 @@
+---
+import MdContainer from "@/components/MdContainer.astro";
+import "./reputation.scss";
+import ModuleContainer from "@/components/ModuleContainer.astro";
+import ReputationClickButton from "@/components/reputation/ReputationClickButton.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import { Image } from "astro:assets";
+
+const images = [
+  import("@/images/content/ru/comments/insta-pc-1.jpg"),
+  import("@/images/content/ru/comments/insta-pc-2.jpg"),
+  import("@/images/content/ru/comments/dnative-comment-l-1.jpg"),
+  import("@/images/content/ru/comments/dnative-comment-l-2.jpg"),
+  import("@/images/content/ru/comments/dnative-comment-l-3.jpg"),
+  import("@/images/content/ru/comments/dnative-comment-l-4.jpg"),
+  import("@/images/content/ru/comments/dnative-comment-l-5.jpg"),
+  import("@/images/content/ru/comments/dnative-comment-l-6.jpg"),
+  import("@/images/content/ru/comments/startpack-comment-l-1.jpg"),
+  import("@/images/content/ru/comments/startpack-comment-l-2.jpg"),
+  import("@/images/content/ru/comments/yandex-comment-l.jpg"),
+];
+---
+
+<ModuleContainer
+  classes="reputation px-[3%] sm:px-[8%] lg:px-[0]"
+  title={t("reputation")}
+  subtitle={`${t("reputationTitle1")} ${t("reputationTitle2")}`}
+>
+  <MdContainer>
+    <div class="reputation__slider">
+      <div class="reputation__pagination-column">
+        <ul class="reputation__pagination">
+          <!-- <ReputationClickButton /> -->
+          <li class="reputation__pagination-item">
+            <button
+              class="reputation__pagination-btn reputation__pagination-btn_active"
+              data-card="1"
+            >
+              {t("reputationPagination1")}
+            </button>
+          </li>
+          <li class="reputation__pagination-item">
+            <button class="reputation__pagination-btn" data-card="2"
+              >{t("reputationPagination2")}
+            </button>
+          </li>
+          <li class="reputation__pagination-item">
+            <button class="reputation__pagination-btn" data-card="3"
+              >{t("reputationPagination3")}
+            </button>
+          </li>
+          <li class="reputation__pagination-item">
+            <button class="reputation__pagination-btn" data-card="4"
+              >{t("reputationPagination4")}
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="reputation__cards-column">
+        <ul class="reputation__cards-list">
+          <li class="reputation__card reputation__card_active" data-comment="1">
+            <Image
+              class="md:hidden"
+              loading="lazy"
+              src={import("@/images/content/ru/comments/inst-580w.webp")}
+              alt="dnative-comment"
+            />
+            <Image
+              class="hidden md:!block"
+              loading="lazy"
+              src={images[0]}
+              alt="dnative-comment"
+            />
+            <Image
+              loading="lazy"
+              class="hide"
+              src={images[1]}
+              alt="dnative-comment"
+            />
+          </li>
+
+          <li class="reputation__card" data-comment="2">
+            <Image
+              class="md:hidden"
+              loading="lazy"
+              src={import("@/images/content/ru/comments/dnative-580w.jpg")}
+              alt="dnative-comment"
+            />
+            <Image
+              class="hidden md:!block"
+              loading="lazy"
+              src={images[2]}
+              alt="dnative-comment"
+            />
+            <Image
+              loading="lazy"
+              class="hide"
+              src={images[3]}
+              alt="dnative-comment"
+            />
+            <Image
+              loading="lazy"
+              class="hide"
+              src={images[4]}
+              alt="dnative-comment"
+            />
+            <Image
+              loading="lazy"
+              class="hide"
+              src={images[5]}
+              alt="dnative-comment"
+            />
+            <Image
+              loading="lazy"
+              class="hide"
+              src={images[6]}
+              alt="dnative-comment"
+            />
+            <Image
+              loading="lazy"
+              class="hide"
+              src={images[7]}
+              alt="dnative-comment"
+            />
+          </li>
+
+          <li class="reputation__card" data-comment="3">
+            <Image
+              class="md:hidden"
+              loading="lazy"
+              src={import("@/images/content/ru/comments/startpack-580w.jpg")}
+              alt="dnative-comment"
+            />
+            <Image
+              class="hidden md:!block"
+              loading="lazy"
+              src={images[8]}
+              alt="dnative-comment"
+            />
+            <Image
+              loading="lazy"
+              class="hide"
+              src={images[9]}
+              alt="dnative-comment"
+            />
+          </li>
+
+          <li class="reputation__card" data-comment="4">
+            <Image
+              class="md:hidden"
+              loading="lazy"
+              src={import("@/images/content/ru/comments/yandex-580w.jpg")}
+              alt="dnative-comment"
+            />
+            <Image
+              class="hidden md:!block"
+              loading="lazy"
+              src={images[10]}
+              alt="dnative-comment"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </MdContainer>
+</ModuleContainer>
+
+<script>
+  const reputation = () => {
+    const btnClass = "reputation__pagination-btn";
+    const activeBtnClass =
+      "reputation__pagination-btn reputation__pagination-btn_active";
+    const body = document.querySelector("body");
+    const cardClass = "reputation__card";
+    const activeCardClass = "reputation__card reputation__card_active";
+
+    const reputationModules = document.querySelectorAll(".reputation");
+    const commentPopups = document.querySelectorAll(".comment-popup");
+
+    commentPopups.forEach((popup) => {
+      const overlay = popup.querySelector(".popup__overlay");
+      const registrationForm = popup.querySelector(".registration__form");
+
+      const handleClosePopup = () => {
+        body.classList.remove("o-hidden");
+        popup.classList.remove("popup_active");
+      };
+
+      overlay.addEventListener("click", handleClosePopup);
+    });
+
+    reputationModules.forEach((module) => {
+      let activeSlide = 0;
+
+      const paginationButtons = module.querySelectorAll(`.${btnClass}`);
+      const cards = module.querySelectorAll(`.${cardClass}`);
+
+      const commentHandleClick = function () {
+        if (window.innerWidth < 841) {
+          const commentId = this.dataset.comment;
+
+          let selectedPopup = 0;
+          commentPopups.forEach((item) => {
+            if (item.dataset.comment === commentId) {
+              selectedPopup = item;
+            }
+          });
+          selectedPopup.classList.add("popup_active");
+          body.classList.add("o-hidden");
+        }
+      };
+      cards.forEach((item) => {
+        item.addEventListener("click", commentHandleClick);
+      });
+
+      paginationButtons.forEach((btn, index) => {
+        const openCard = (openCardIndex) => {
+          paginationButtons[openCardIndex].className = activeBtnClass;
+          cards[openCardIndex].className = activeCardClass;
+        };
+        const closeCard = (closeCardIndex) => {
+          cards[closeCardIndex].className = cardClass;
+          paginationButtons[closeCardIndex].className = btnClass;
+        };
+        const prevCategory = () => {
+          const prevIndex =
+            index === 0 ? paginationButtons.length - 1 : index - 1;
+          closeCard(index);
+          activeSlide = prevIndex;
+          openCard(prevIndex);
+        };
+        const nextCategory = () => {
+          const nextIndex =
+            index === paginationButtons.length - 1 ? 0 : index + 1;
+          closeCard(index);
+          activeSlide = nextIndex;
+          openCard(nextIndex);
+        };
+
+        const btnHandler = function () {
+          paginationButtons[activeSlide].className = btnClass;
+          cards[activeSlide].className = cardClass;
+          closeCard(activeSlide);
+
+          openCard(index);
+          this.className = activeBtnClass;
+          cards[index].className = activeCardClass;
+          activeSlide = index;
+        };
+        btn.addEventListener("click", btnHandler);
+      });
+    });
+  };
+
+  reputation();
+</script>

@@ -1,0 +1,12 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils.ts";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+import BasePopup from "@/modules/BasePopup.astro";
+---
+
+<BasePopup id="popup-contract" bodyClass="contract-popup__body popup__window_up">
+  <div class="content-container" set:html={t("contractPopup")} />
+</BasePopup>
+
